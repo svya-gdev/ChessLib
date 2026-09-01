@@ -33,7 +33,7 @@ public sealed class OccupationMap
 	    occupation.Add(newCoordinates);
 	}
     
-    public bool IsOccupied(HomeCoordinates coordinates)
+    public bool IsCoordinatesOccupied(HomeCoordinates coordinates)
     {
         return occupation.Contains(coordinates);
     }
