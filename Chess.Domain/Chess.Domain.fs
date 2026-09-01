@@ -140,11 +140,3 @@ type Team =
         match (this, other) with
         | (a, b) when a = b -> false
         | _ -> true
-
-[<Struct>]
-type Pawn = {
-    Team         : Team
-    Guid         : System.Guid
-    Location     : PawnLocation
-    Dislocations : PawnDislocation[]
-}
