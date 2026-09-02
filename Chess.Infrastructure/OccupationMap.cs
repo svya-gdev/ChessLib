@@ -12,7 +12,7 @@ public sealed class OccupationAbsenceException(HomeCoordinates coordinates)
 
 
 
-public sealed class OccupationMap
+internal sealed class OccupationMap
 {
     private readonly HashSet<HomeCoordinates> occupation = [];
     

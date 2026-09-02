@@ -9,7 +9,7 @@ public sealed class PawnAbsenceException() : Exception();
 
 
 
-public sealed class PawnMap
+internal sealed class PawnMap
 {
     private readonly Dictionary<HomeCoordinates, Pawn> pawns = [];
     private readonly HashSet<Guid> guids = [];
