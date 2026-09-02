@@ -26,7 +26,7 @@ internal sealed class OccupationMap
         if (!occupation.Remove(coordinates)) throw new OccupationAbsenceException(coordinates);
     }
     
-    public bool ReadOccupation(HomeCoordinates coordinates)
+    public bool IsOccupied(HomeCoordinates coordinates)
     {
         return occupation.Contains(coordinates);
     }

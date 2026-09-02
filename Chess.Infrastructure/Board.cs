@@ -21,28 +21,28 @@ public sealed class Board
     public void WallAddToCoordinates(WallCoordinates wallCoordinates)
     {
         var homeCoordinates = wallCoordinates.ToHomeCoordinates();
-        if (occupationMap.ReadOccupation(homeCoordinates)) throw new CoordinatesAlreadyOccupiedException();
+        if (occupationMap.IsOccupied(homeCoordinates)) throw new CoordinatesAlreadyOccupiedException();
         occupationMap.AddOccupation(homeCoordinates);
     }
 
     public void WallRemoveFromCoordinates(WallCoordinates wallCoordinates)
     {
         var homeCoordinates = wallCoordinates.ToHomeCoordinates();
-        if (!occupationMap.ReadOccupation(homeCoordinates)) throw new CoordinatesAlreadyUnoccupiedException();
+        if (!occupationMap.IsOccupied(homeCoordinates)) throw new CoordinatesAlreadyUnoccupiedException();
         occupationMap.RemoveOccupation(homeCoordinates);
     }
 
     public void BlockAddToCoordinates(TileCoordinates tileCoordinates)
     {
         var homeCoordinates = tileCoordinates.ToHomeCoordinates();
-        if (occupationMap.ReadOccupation(homeCoordinates)) throw new CoordinatesAlreadyOccupiedException();
+        if (occupationMap.IsOccupied(homeCoordinates)) throw new CoordinatesAlreadyOccupiedException();
         occupationMap.AddOccupation(homeCoordinates);
     }
 
     public void BlockRemoveFromCoordinates(TileCoordinates tileCoordinates)
     {
         var homeCoordinates = tileCoordinates.ToHomeCoordinates();
-        if (!occupationMap.ReadOccupation(homeCoordinates)) throw new CoordinatesAlreadyUnoccupiedException();
+        if (!occupationMap.IsOccupied(homeCoordinates)) throw new CoordinatesAlreadyUnoccupiedException();
         occupationMap.RemoveOccupation(homeCoordinates);
     }
 
@@ -53,7 +53,7 @@ public sealed class Board
         var homeCoordinates = location.HomeCoordinates;
 
         if (populationMap.IsPawnAdded(pawn)) throw new PawnAlreadyAddedException();
-        if (occupationMap.ReadOccupation(homeCoordinates)) throw new CoordinatesAlreadyOccupiedException();
+        if (occupationMap.IsOccupied(homeCoordinates)) throw new CoordinatesAlreadyOccupiedException();
 
         occupationMap.AddOccupation(homeCoordinates);
         populationMap.AddPawn(pawn, homeCoordinates);
@@ -113,7 +113,7 @@ public sealed class Board
         var newCoordinates = dislocation.ApplyTo(location).HomeCoordinates;
 
         if (!populationMap.IsPawnAdded(oldCoordinates)) throw new PawnAlreadyRemovedException();
-        if (occupationMap.ReadOccupation(newCoordinates)) throw new CoordinatesAlreadyOccupiedException();
+        if (occupationMap.IsOccupied(newCoordinates)) throw new CoordinatesAlreadyOccupiedException();
 
         var pawn = populationMap.ReadPawn(oldCoordinates);
 
