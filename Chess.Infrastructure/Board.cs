@@ -74,7 +74,7 @@ public sealed class Board
         var homeCoordinates = location.HomeCoordinates;
 
         if (populationMap.IsPawnAdded(pawn)) throw new PawnAlreadyAddedException();
-        if (populationMap.IsPawnAdded(location.HomeCoordinates)) throw new PawnAlreadyRemovedException();
+        if (!populationMap.IsPawnAdded(location.HomeCoordinates)) throw new PawnAlreadyRemovedException();
 
         occupationMap.RemoveOccupation(homeCoordinates);
         populationMap.RemovePawn(homeCoordinates);
