@@ -140,3 +140,12 @@ type Team =
         match (this, other) with
         | (a, b) when a = b -> false
         | _ -> true
+
+// It's not dynamic enough if I want to level them up.
+type Pawn = {
+    Guid     : System.Guid
+    Team     : Team
+    Enemies  : Team[]
+    Advances : PawnDislocation[]
+    Captures : PawnDislocation[]
+}
