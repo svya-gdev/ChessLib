@@ -40,6 +40,11 @@ internal sealed class PawnMap
         return pawns.ContainsKey(coordinates);
     }
 
+    public bool IsPawnAdded(Pawn pawn)
+    {
+        return guids.Contains(pawn.Guid);
+    }
+
     public Pawn ReadPawnFromCoordinates(HomeCoordinates coordinates)
     {
         if (!pawns.TryGetValue(coordinates, out var pawn)) throw new PawnAbsenceException();

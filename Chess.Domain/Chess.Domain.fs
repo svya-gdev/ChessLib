@@ -56,8 +56,8 @@ type PawnLocation = {
 
 [<Struct>]
 type PawnDislocation = {
-    Horizontal : uint32
-    Vertical   : uint32
+    Horizontal       : uint32
+    Vertical         : uint32
 } with
     member this.ApplyTo(location) = {
         TileCoordinates = {
