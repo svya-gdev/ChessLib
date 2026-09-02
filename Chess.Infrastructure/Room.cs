@@ -20,6 +20,8 @@ public sealed class Room
         occupation ^= 1UL << (y * 8 + x);
     }
     
+/*
+
     public void PlaceOn(OccupationMap map, RoomCoordinates coordinates) // Нарушает атомарность
     {
         var origin = coordinates.ToHomeCoordinates();
@@ -36,4 +38,7 @@ public sealed class Room
             }
         }
     }
+
+*/
+
 }

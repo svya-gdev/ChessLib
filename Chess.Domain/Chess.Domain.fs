@@ -89,7 +89,7 @@ type Direction =
         | UpLeft    -> (0u - 1u, 1u     )
 
 [<Struct>]
-type PawnLeap = {
+type StraightPath = {
     Direction : Direction
     Length : uint32
 } with
@@ -101,7 +101,7 @@ type PawnLeap = {
         }
 
 [<Struct>]
-type DashAfterLeap  =
+type Dash  =
     | DashUp
     | DashRight
     | DashDown
@@ -115,10 +115,10 @@ type DashAfterLeap  =
         | DashLeft      -> (0u - 1u, 0u     )
 
 [<Struct>]
-type PawnLeapAndDash = {
+type HorseLikePath = {
     Direction : Direction
     Length : uint32
-    Dash : DashAfterLeap
+    Dash : Dash
 } with
     member this.ToPawnDislocation() =
         let (lh, lv) = this.Direction.ToOffset()

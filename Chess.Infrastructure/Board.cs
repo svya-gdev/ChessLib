@@ -40,7 +40,6 @@ public sealed class Board
 
 
 
-
     public void PawnAddToLocation(Pawn pawn, PawnLocation location)
     {
         if (pawnMap.IsPawnAdded(pawn)) throw new PawnAlreadyAddedException();
@@ -58,13 +57,64 @@ public sealed class Board
         occupationMap.RemoveOccupationFromCoordinates(location.HomeCoordinates);
     }
 
-    public void PawnAdvanceFromLocationWithDislocation(PawnLocation location, PawnDislocation dislocation)
+
+
+    public void PawnAdvanceFromLocationWithStraightPath(PawnLocation location, StraightPath path)
     {
-        
+        var oldCoordinates = location.HomeCoordinates;
+        var newCoordinates = path.ToPawnDislocation().ApplyTo(location).HomeCoordinates;
+
+        if (!occupationMap.IsCoordinatesOccupied(oldCoordinates)) throw new PawnAlreadyRemovedException();
+        if (occupationMap.IsCoordinatesOccupied(newCoordinates)) throw new PawnAlreadyAddedException();
+
+        // if is path occupied
+
+        occupationMap.MoveOccupationFromCoordinatesToCoordinates(oldCoordinates, newCoordinates);
+        pawnMap.MovePawnFromCoordinatesToCoordinates(oldCoordinates, newCoordinates);
     }
 
-    public void PawnCaptureFromLocationWithDislocation(PawnLocation location, PawnDislocation dislocation)
+    public void PawnAdvanceFromLocationWithHorseLikePath(PawnLocation location, HorseLikePath path)
     {
-        
+        var oldCoordinates = location.HomeCoordinates;
+        var newCoordinates = path.ToPawnDislocation().ApplyTo(location).HomeCoordinates;
+
+        if (!occupationMap.IsCoordinatesOccupied(oldCoordinates)) throw new PawnAlreadyRemovedException();
+        if (occupationMap.IsCoordinatesOccupied(newCoordinates)) throw new PawnAlreadyAddedException();
+
+        occupationMap.MoveOccupationFromCoordinatesToCoordinates(oldCoordinates, newCoordinates);
+        pawnMap.MovePawnFromCoordinatesToCoordinates(oldCoordinates, newCoordinates);
+    }
+
+    public void PawnCaptureFromLocationWithStraightPath(PawnLocation location, StraightPath path)
+    {
+        var oldCoordinates = location.HomeCoordinates;
+        var newCoordinates = path.ToPawnDislocation().ApplyTo(location).HomeCoordinates;
+
+        if (!occupationMap.IsCoordinatesOccupied(oldCoordinates)) throw new PawnAlreadyRemovedException();
+        if (!occupationMap.IsCoordinatesOccupied(newCoordinates)) throw new PawnAlreadyRemovedException();
+
+        // if is path occupied
+        // if is pawn from the same team
+
+        occupationMap.RemoveOccupationFromCoordinates(newCoordinates);
+        pawnMap.RemovePawnFromCoordinates(newCoordinates);
+        occupationMap.MoveOccupationFromCoordinatesToCoordinates(oldCoordinates, newCoordinates);
+        pawnMap.MovePawnFromCoordinatesToCoordinates(oldCoordinates, newCoordinates);
+    }
+
+    public void PawnCaptureFromLocationWithHorseLikePath(PawnLocation location, HorseLikePath path)
+    {
+        var oldCoordinates = location.HomeCoordinates;
+        var newCoordinates = path.ToPawnDislocation().ApplyTo(location).HomeCoordinates;
+
+        if (!occupationMap.IsCoordinatesOccupied(oldCoordinates)) throw new PawnAlreadyRemovedException();
+        if (!occupationMap.IsCoordinatesOccupied(newCoordinates)) throw new PawnAlreadyRemovedException();
+
+        // if is pawn from the same team
+
+        occupationMap.RemoveOccupationFromCoordinates(newCoordinates);
+        pawnMap.RemovePawnFromCoordinates(newCoordinates);
+        occupationMap.MoveOccupationFromCoordinatesToCoordinates(oldCoordinates, newCoordinates);
+        pawnMap.MovePawnFromCoordinatesToCoordinates(oldCoordinates, newCoordinates);
     }
 }
