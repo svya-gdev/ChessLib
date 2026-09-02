@@ -30,9 +30,9 @@ internal sealed class PawnMap
     public void MovePawnFromCoordinatesToCoordinates(HomeCoordinates oldCoordinates, HomeCoordinates newCoordinates)
     {
         if (pawns.ContainsKey(newCoordinates)) throw new PawnCollisionException();
-        if (!pawns.Remove(oldCoordinates, out var guid)) throw new PawnAbsenceException();
+        if (!pawns.Remove(oldCoordinates, out var pawn)) throw new PawnAbsenceException();
 
-        pawns.Add(newCoordinates, guid);
+        pawns.Add(newCoordinates, pawn);
     }
 
     public bool IsPawnAddedToCoordinates(HomeCoordinates coordinates)
