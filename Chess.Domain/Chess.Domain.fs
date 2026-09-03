@@ -147,20 +147,38 @@ type HorseLikePath = {
 
 [<Struct>]
 type Team =
-    | White
-    | Grey
-    | Black
+    | White  // Opposite is Black  // Neutral is Grey  // The same is White  //
+    | Grey   // Opposite is Grey   // Neutral is Grey  // The same is Grey   //
+    | Black  // Opposite is White  // Neutral is Grey  // The same is Black  //
     with
-    member this.IsAbleToCapture(other) =
-        match (this, other) with
-        | (a, b) when a = b -> false
-        | _ -> true
+    member this.Opposite : Team =
+        match this with
+        | White -> Black
+        | Grey  -> Grey
+        | Black -> White
 
-// It's not dynamic enough if I want to level them up.
-type Pawn = {
-    Guid     : System.Guid
-    Team     : Team
-    Enemies  : Team[]
-    Advances : PawnDislocation[]
-    Captures : PawnDislocation[]
+[<Struct>]
+type Feud =
+    | WithOppositeTeam
+    | WithNeutralTeam
+    | WithTheSameTeam
+    | WithOppositeAndNeutralTeams
+    | WithNeutralAndTheSameTeams
+    | WithTheSameAndOppositeTeams
+    | WithEveryTeam
+    with
+    member this.IsTowards(subject : Team, object : Team) : bool =
+        match this with
+        | WithOppositeTeam            -> subject.Opposite = object
+        | WithNeutralTeam             -> Grey             = object
+        | WithTheSameTeam             -> subject          = object
+        | WithOppositeAndNeutralTeams -> subject.Opposite = object || Grey             = object
+        | WithNeutralAndTheSameTeams  -> Grey             = object || subject          = object
+        | WithTheSameAndOppositeTeams -> subject          = object || subject.Opposite = object
+        | WithEveryTeam               -> true
+
+[<Struct>]
+type Attack = {
+    PawnDislocation : PawnDislocation
+    Feud : Feud
 }
