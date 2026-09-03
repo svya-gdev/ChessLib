@@ -7,6 +7,8 @@ namespace Chess.Infrastructure;
 public sealed class CoordinatesAlreadyOccupiedException() : Exception();
 public sealed class CoordinatesAlreadyUnoccupiedException() : Exception();
 
+
+
 public sealed class RuleBrokenException() : Exception(); // WIP
 
 
@@ -64,7 +66,7 @@ public sealed class Board
 
 
     public bool IsAbleToAddPawnToLocation(Pawn pawn, PawnLocation location)
-        => !populationMap.IsPawnAdded(pawn) || !occupationMap.IsOccupied(location.HomeCoordinates);
+        => !populationMap.IsPawnAdded(pawn) && !occupationMap.IsOccupied(location.HomeCoordinates);
     // Yes, if pawn is not added and location is not occupied
 
     public bool IsLocationOccupiedByPawn(PawnLocation location)
@@ -176,12 +178,14 @@ public sealed class Board
 
     public void PawnCaptureFromLocation(PawnLocation location, PawnDislocation dislocation)
     {
+        var targetLocation = dislocation.ApplyTo(location);
+
         if (!IsLocationOccupiedByPawn(location)) throw new RuleBrokenException();
-        if (!IsLocationCapturable(dislocation.ApplyTo(location))) throw new RuleBrokenException();
+        if (!IsLocationCapturable(targetLocation)) throw new RuleBrokenException();
         if (!IsPathWalkable(location, dislocation)) throw new RuleBrokenException();
 
         var oldCoordinates = location.HomeCoordinates;
-        var newCoordinates = dislocation.ApplyTo(location).HomeCoordinates;
+        var newCoordinates = targetLocation.HomeCoordinates;
         var pawn = populationMap.ReadPawn(oldCoordinates);
 
         occupationMap.RemoveOccupation(oldCoordinates);
@@ -194,12 +198,14 @@ public sealed class Board
 
     public void PawnAdvanceFromLocation(PawnLocation location, PawnDislocation dislocation)
     {
+        var targetLocation = dislocation.ApplyTo(location);
+
         if (!IsLocationOccupiedByPawn(location)) throw new RuleBrokenException();
-        if (!IsLocationAdvancable(dislocation.ApplyTo(location))) throw new RuleBrokenException();
+        if (!IsLocationAdvancable(targetLocation)) throw new RuleBrokenException();
         if (!IsPathWalkable(location, dislocation)) throw new RuleBrokenException();
 
         var oldCoordinates = location.HomeCoordinates;
-        var newCoordinates = dislocation.ApplyTo(location).HomeCoordinates;
+        var newCoordinates = targetLocation.HomeCoordinates;
         var pawn = populationMap.ReadPawn(oldCoordinates);
 
         occupationMap.RemoveOccupation(oldCoordinates);
