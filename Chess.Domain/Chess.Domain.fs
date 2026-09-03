@@ -1,16 +1,30 @@
 ﻿namespace Chess.Domain
 
 [<Struct>]
+type RoomCoordinates = {
+    X : uint8
+    Y : uint8
+}
+
+[<Struct>]
 type HomeCoordinates = {
     X : uint64
     Y : uint64
-}
+} with
+    member this.ToRoomCoordinates() : RoomCoordinates = {
+        X = uint8 (this.X / 8UL)
+        Y = uint8 (this.Y / 8UL)
+    }
 
 [<Struct>]
 type TileCoordinates = {
     X : uint32
     Y : uint32
 } with
+    member this.ToRoomCoordinates() : RoomCoordinates = {
+        X = uint8 (this.X / 4u)
+        Y = uint8 (this.Y / 4u)
+    }
     member this.ToHomeCoordinates() : HomeCoordinates = {
         X = uint64 this.X * 2UL
         Y = uint64 this.Y * 2UL
@@ -27,19 +41,13 @@ type WallCoordinates = {
     C : TileCoordinates
     S : CoordinateShift
 } with
+    member this.ToRoomCoordinates() : RoomCoordinates = {
+        X = uint8 (this.C.X / 4u)
+        Y = uint8 (this.C.Y / 4u)
+    }
     member this.ToHomeCoordinates() : HomeCoordinates = {
         X = uint64 this.C.X * 2UL + (match this.S with Vertical   -> 0UL | _ -> 1UL)
         Y = uint64 this.C.Y * 2UL + (match this.S with Horizontal -> 0UL | _ -> 1UL)
-    }
-
-[<Struct>]
-type RoomCoordinates = {
-    X : uint8
-    Y : uint8
-} with
-    member this.ToHomeCoordinates() : HomeCoordinates = {
-        X = uint64 this.X * 8UL
-        Y = uint64 this.Y * 8UL
     }
 
 // // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
@@ -48,23 +56,30 @@ type RoomCoordinates = {
 type PawnLocation = {
     TileCoordinates : TileCoordinates
 } with
-    member this.HomeCoordinates = this.TileCoordinates.ToHomeCoordinates()
-    member this.RoomCoordinates = {
+    member this.RoomCoordinates : RoomCoordinates = {
         X = uint8 (this.TileCoordinates.X / 4u)
         Y = uint8 (this.TileCoordinates.Y / 4u)
+    }
+    member this.HomeCoordinates : HomeCoordinates = {
+        X = uint64 this.TileCoordinates.X * 2UL
+        Y = uint64 this.TileCoordinates.Y * 2UL
     }
 
 [<Struct>]
 type PawnDislocation = {
-    Horizontal       : uint32
-    Vertical         : uint32
+    Horizontal : uint32
+    Vertical   : uint32
 } with
-    member this.ApplyTo(location) = {
+    member this.ApplyTo(location : PawnLocation) : PawnLocation = {
         TileCoordinates = {
             X = location.TileCoordinates.X + this.Horizontal
             Y = location.TileCoordinates.Y + this.Vertical
         }
     }
+    member this.IsHorseLike : bool =
+        this.Horizontal <> this.Vertical &&
+        this.Horizontal <> 0u            &&
+                     0u <> this.Vertical
 
 [<Struct>]
 type Direction =
