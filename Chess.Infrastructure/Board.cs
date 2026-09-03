@@ -64,7 +64,7 @@ public sealed class Board
 
 
     public bool IsAbleToAddPawnToLocation(Pawn pawn, PawnLocation location)
-        => !populationMap.IsPawnAdded(pawn) || occupationMap.IsOccupied(location.HomeCoordinates);
+        => !populationMap.IsPawnAdded(pawn) || !occupationMap.IsOccupied(location.HomeCoordinates);
     // Yes, if pawn is not added and location is not occupied
 
     public bool IsLocationOccupiedByPawn(PawnLocation location)
@@ -177,7 +177,7 @@ public sealed class Board
     public void PawnCaptureFromLocation(PawnLocation location, PawnDislocation dislocation)
     {
         if (!IsLocationOccupiedByPawn(location)) throw new RuleBrokenException();
-        if (!IsLocationCapturable(location)) throw new RuleBrokenException();
+        if (!IsLocationCapturable(dislocation.ApplyTo(location))) throw new RuleBrokenException();
         if (!IsPathWalkable(location, dislocation)) throw new RuleBrokenException();
 
         var oldCoordinates = location.HomeCoordinates;
@@ -195,7 +195,7 @@ public sealed class Board
     public void PawnAdvanceFromLocation(PawnLocation location, PawnDislocation dislocation)
     {
         if (!IsLocationOccupiedByPawn(location)) throw new RuleBrokenException();
-        if (!IsLocationAdvancable(location)) throw new RuleBrokenException();
+        if (!IsLocationAdvancable(dislocation.ApplyTo(location))) throw new RuleBrokenException();
         if (!IsPathWalkable(location, dislocation)) throw new RuleBrokenException();
 
         var oldCoordinates = location.HomeCoordinates;
