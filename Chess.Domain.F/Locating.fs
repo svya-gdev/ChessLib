@@ -38,8 +38,8 @@ type public PieceDislocation = {
         this.Horizontal =  0u            ||
                      0u =  this.Vertical
     member public this.IsNonMoving : bool =
-        this.Horizontal <> 0u &&
-        this.Vertical   <> 0u
+        this.Horizontal =  0u &&
+        this.Vertical   =  0u
 
 [<Struct>]
 type public PieceDislodgement = {

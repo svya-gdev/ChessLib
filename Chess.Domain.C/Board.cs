@@ -71,7 +71,7 @@ public sealed class Board
 
 
 
-    public void PawnAddToLocation(Piece piece, PieceLocation location)
+    public void PieceAddToLocation(Piece piece, PieceLocation location)
     {
         if (!IsAbleToAddPieceToLocation(piece, location)) throw new RuleBrokenException();
 
