@@ -2,46 +2,46 @@ namespace Chess.Domain;
 
 
 
-internal sealed class PawnRepetitionException() : Exception();
-internal sealed class PawnCollisionException() : Exception();
-internal sealed class PawnAbsenceException() : Exception();
+internal sealed class PieceRepetitionException() : Exception();
+internal sealed class PieceCollisionException() : Exception();
+internal sealed class PieceAbsenceException() : Exception();
 
 
 
 internal sealed class PopulationMap
 {
-    private readonly Dictionary<HomeCoordinates, Pawn> pawns = [];
+    private readonly Dictionary<HomeCoordinates, Piece> pieces = [];
     private readonly HashSet<Guid> guids = [];
 
-    internal void AddPawn(Pawn pawn, HomeCoordinates coordinates)
+    internal void AddPiece(Piece piece, HomeCoordinates coordinates)
     {
-        if (guids.Contains(pawn.Guid)) throw new PawnRepetitionException();
-        if (!pawns.TryAdd(coordinates, pawn)) throw new PawnCollisionException();
+        if (guids.Contains(piece.Guid)) throw new PieceRepetitionException();
+        if (!pieces.TryAdd(coordinates, piece)) throw new PieceCollisionException();
 
-        guids.Add(pawn.Guid);
+        guids.Add(piece.Guid);
     }
 
-    internal void RemovePawn(HomeCoordinates coordinates)
+    internal void RemovePiece(HomeCoordinates coordinates)
     {
-        if (!pawns.Remove(coordinates, out var pawn)) throw new PawnAbsenceException();
+        if (!pieces.Remove(coordinates, out var piece)) throw new PieceAbsenceException();
 
-        guids.Remove(pawn.Guid);
+        guids.Remove(piece.Guid);
     }
 
-    internal Pawn ReadPawn(HomeCoordinates coordinates)
+    internal Piece ReadPiece(HomeCoordinates coordinates)
     {
-        if (!pawns.TryGetValue(coordinates, out var pawn)) throw new PawnAbsenceException();
+        if (!pieces.TryGetValue(coordinates, out var piece)) throw new PieceAbsenceException();
 
-        return pawn;
+        return piece;
     }
 
-    internal bool IsPawnAdded(HomeCoordinates coordinates)
+    internal bool IsPieceAdded(HomeCoordinates coordinates)
     {
-        return pawns.ContainsKey(coordinates);
+        return pieces.ContainsKey(coordinates);
     }
 
-    internal bool IsPawnAdded(Pawn pawn)
+    internal bool IsPieceAdded(Piece piece)
     {
-        return guids.Contains(pawn.Guid);
+        return guids.Contains(piece.Guid);
     }
 }

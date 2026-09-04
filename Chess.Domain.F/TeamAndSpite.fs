@@ -22,7 +22,7 @@ type public Spite =
     //| WithOppositeAndNeutralTeams
     //| WithNeutralAndTheSameTeams
     //| WithTheSameAndOppositeTeams
-    //| WithEveryTeam
+    | WithEveryTeam
     with
     member public this.IsTeamHoldingSpiteAgainstTeam(subject : Team, object : Team) : bool =
         match this with
@@ -32,4 +32,4 @@ type public Spite =
         //| WithOppositeAndNeutralTeams -> subject.Opposite = object || Grey             = object
         //| WithNeutralAndTheSameTeams  -> Grey             = object || subject          = object
         //| WithTheSameAndOppositeTeams -> subject          = object || subject.Opposite = object
-        //| WithEveryTeam               -> true
+        | WithEveryTeam               -> true

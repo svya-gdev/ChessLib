@@ -49,95 +49,95 @@ public sealed class Board
 
 
     
-    // // // // // // // // // // PAWN PLACEMENT RULES // // // // // // // // // //
+    // // // // // // // // // // PIECE PLACEMENT RULES // // // // // // // // // //
 
 
 
-    public bool IsAbleToAddPawnToLocation(Pawn pawn, PawnLocation location)
-        => !populationMap.IsPawnAdded(pawn) && !occupationMap.IsOccupied(location.HomeCoordinates);
-    // Yes, if pawn is not added and location is not occupied
+    public bool IsAbleToAddPieceToLocation(Piece piece, PieceLocation location)
+        => !populationMap.IsPieceAdded(piece) && !occupationMap.IsOccupied(location.HomeCoordinates);
+    // Yes, if piece is not added and location is not occupied
 
-    public bool IsLocationOccupiedByPawn(PawnLocation location)
-        => populationMap.IsPawnAdded(location.HomeCoordinates);
-    // Yes, if pawn is added
+    public bool IsLocationOccupiedByPiece(PieceLocation location)
+        => populationMap.IsPieceAdded(location.HomeCoordinates);
+    // Yes, if piece is added
 
-    public bool IsAbleToRemovePawnFromLocation(PawnLocation location)
-        => IsLocationOccupiedByPawn(location);
-    // Yes, if location is occupied by a pawn
-
-
-
-    // // // // // // // // // // PAWN PLACEMENT COMMANDS // // // // // // // // // //
+    public bool IsAbleToRemovePieceFromLocation(PieceLocation location)
+        => IsLocationOccupiedByPiece(location);
+    // Yes, if location is occupied by a piece
 
 
 
-    public void PawnAddToLocation(Pawn pawn, PawnLocation location)
+    // // // // // // // // // // PIECE PLACEMENT COMMANDS // // // // // // // // // //
+
+
+
+    public void PawnAddToLocation(Piece piece, PieceLocation location)
     {
-        if (!IsAbleToAddPawnToLocation(pawn, location)) throw new RuleBrokenException();
+        if (!IsAbleToAddPieceToLocation(piece, location)) throw new RuleBrokenException();
 
         var homeCoordinates = location.HomeCoordinates;
 
         occupationMap.AddOccupation(homeCoordinates);
-        populationMap.AddPawn(pawn, homeCoordinates);
+        populationMap.AddPiece(piece, homeCoordinates);
     }
 
-    public void PawnRemoveFromLocation(PawnLocation location)
+    public void PieceRemoveFromLocation(PieceLocation location)
     {
-        if (!IsAbleToRemovePawnFromLocation(location)) throw new RuleBrokenException();
+        if (!IsAbleToRemovePieceFromLocation(location)) throw new RuleBrokenException();
 
         var homeCoordinates = location.HomeCoordinates;
 
         occupationMap.RemoveOccupation(homeCoordinates);
-        populationMap.RemovePawn(homeCoordinates);
+        populationMap.RemovePiece(homeCoordinates);
     }
 
 
 
-    // // // // // // // // // // PAWN READ RULE // // // // // // // // // //
+    // // // // // // // // // // PIECE READ RULE // // // // // // // // // //
 
 
 
-    public bool IsAbleToReadPawnFromLocation(PawnLocation location)
-        => IsLocationOccupiedByPawn(location);
+    public bool IsAbleToReadPieceFromLocation(PieceLocation location)
+        => IsLocationOccupiedByPiece(location);
     // Yes, if location is occupied by a pawn
 
 
 
-    // // // // // // // // // // PAWN READ COMMAND // // // // // // // // // //
+    // // // // // // // // // // PIECE READ COMMAND // // // // // // // // // //
 
 
 
-    public Pawn PawnReadFromLocation(PawnLocation location)
+    public Piece PieceReadFromLocation(PieceLocation location)
     {
-        if (!IsAbleToReadPawnFromLocation(location)) throw new RuleBrokenException();
+        if (!IsAbleToReadPieceFromLocation(location)) throw new RuleBrokenException();
 
-        return populationMap.ReadPawn(location.HomeCoordinates);
+        return populationMap.ReadPiece(location.HomeCoordinates);
     }
 
 
 
-    // // // // // // // // // // PAWN MOVEMENT RULES // // // // // // // // // //
+    // // // // // // // // // // PIECE MOVEMENT RULES // // // // // // // // // //
 
 
 
-    public bool IsDislodgementPossible(PawnLocation attackerLocation, PawnDislodgement dislodgement)
-    // Yes, if both locations occupied by pawns and feud towards attacked pawn's team
+    public bool IsDislodgementPossible(PieceLocation attackerLocation, PieceDislodgement dislodgement)
+    // Yes, if both locations occupied by pieces and spite against attacked piece's team
     {
-        if (!IsLocationOccupiedByPawn(attackerLocation)) return false;
+        if (!IsLocationOccupiedByPiece(attackerLocation)) return false;
 
         var attackedLocation = dislodgement.Dislocation.ApplyTo(attackerLocation);
-        if (!IsLocationOccupiedByPawn(attackedLocation)) return false;
+        if (!IsLocationOccupiedByPiece(attackedLocation)) return false;
 
-        var attackerTeam = populationMap.ReadPawn(attackerLocation.HomeCoordinates).Team;
-        var attackedTeam = populationMap.ReadPawn(attackedLocation.HomeCoordinates).Team;
+        var attackerTeam = populationMap.ReadPiece(attackerLocation.HomeCoordinates).Team;
+        var attackedTeam = populationMap.ReadPiece(attackedLocation.HomeCoordinates).Team;
         return dislodgement.Spite.IsTeamHoldingSpiteAgainstTeam(attackerTeam, attackedTeam);
     }
 
-    public bool IsLocationAdvancable(PawnLocation location)
+    public bool IsLocationAdvancable(PieceLocation location)
         => !occupationMap.IsOccupied(location.HomeCoordinates);
     // Yes, if not occupied
 
-    public bool IsPathWalkable(PawnLocation location, PawnDislocation dislocation)
+    public bool IsPathWalkable(PieceLocation location, PieceDislocation dislocation)
     // Yes, if path is horse-like or no occupation in the way
     {
         if (dislocation.IsHorseLike) return true;
@@ -169,11 +169,11 @@ public sealed class Board
 
 
 
-    // // // // // // // // // // PAWN MOVEMENT COMMANDS // // // // // // // // // //
+    // // // // // // // // // // PIECE MOVEMENT COMMANDS // // // // // // // // // //
 
 
 
-    public void PawnCaptureFromLocation(PawnLocation location, PawnDislodgement dislodgement)
+    public void PieceCaptureFromLocation(PieceLocation location, PieceDislodgement dislodgement)
     {
         var targetLocation = dislodgement.Dislocation.ApplyTo(location);
 
@@ -182,31 +182,31 @@ public sealed class Board
 
         var oldCoordinates = location.HomeCoordinates;
         var newCoordinates = targetLocation.HomeCoordinates;
-        var pawn = populationMap.ReadPawn(oldCoordinates);
+        var piece = populationMap.ReadPiece(oldCoordinates);
 
         occupationMap.RemoveOccupation(oldCoordinates);
-        populationMap.RemovePawn(oldCoordinates);
+        populationMap.RemovePiece(oldCoordinates);
         occupationMap.RemoveOccupation(newCoordinates);
-        populationMap.RemovePawn(newCoordinates);
+        populationMap.RemovePiece(newCoordinates);
         occupationMap.AddOccupation(newCoordinates);
-        populationMap.AddPawn(pawn, newCoordinates);
+        populationMap.AddPiece(piece, newCoordinates);
     }
 
-    public void PawnAdvanceFromLocation(PawnLocation location, PawnDislocation dislocation)
+    public void PieceAdvanceFromLocation(PieceLocation location, PieceDislocation dislocation)
     {
         var targetLocation = dislocation.ApplyTo(location);
 
-        if (!IsLocationOccupiedByPawn(location)) throw new RuleBrokenException();
+        if (!IsLocationOccupiedByPiece(location)) throw new RuleBrokenException();
         if (!IsLocationAdvancable(targetLocation)) throw new RuleBrokenException();
         if (!IsPathWalkable(location, dislocation)) throw new RuleBrokenException();
 
         var oldCoordinates = location.HomeCoordinates;
         var newCoordinates = targetLocation.HomeCoordinates;
-        var pawn = populationMap.ReadPawn(oldCoordinates);
+        var piece = populationMap.ReadPiece(oldCoordinates);
 
         occupationMap.RemoveOccupation(oldCoordinates);
-        populationMap.RemovePawn(oldCoordinates);
+        populationMap.RemovePiece(oldCoordinates);
         occupationMap.AddOccupation(newCoordinates);
-        populationMap.AddPawn(pawn, newCoordinates);
+        populationMap.AddPiece(piece, newCoordinates);
     }
 }

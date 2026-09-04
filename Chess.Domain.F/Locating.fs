@@ -3,7 +3,7 @@ namespace Chess.Domain
 // Everything here will come in handy for the first version
 
 [<Struct>]
-type public PawnLocation = {
+type public PieceLocation = {
     X : uint32
     Y : uint32
 } with
@@ -21,11 +21,11 @@ type public PawnLocation = {
     }
 
 [<Struct>]
-type public PawnDislocation = {
+type public PieceDislocation = {
     Horizontal : uint32
     Vertical   : uint32
 } with
-    member public this.ApplyTo(location : PawnLocation) : PawnLocation = {
+    member public this.ApplyTo(location : PieceLocation) : PieceLocation = {
         X = location.X + this.Horizontal
         Y = location.Y + this.Vertical
     }
@@ -42,7 +42,7 @@ type public PawnDislocation = {
         this.Vertical   <> 0u
 
 [<Struct>]
-type public PawnDislodgement = {
-    Dislocation : PawnDislocation
+type public PieceDislodgement = {
+    Dislocation : PieceDislocation
     Spite : Spite
 }

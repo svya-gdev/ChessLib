@@ -1,21 +1,21 @@
 namespace Chess.Domain
 
 [<Struct>]
-type public PawnDevelopment = {
-    Advances : Set<PawnDislocation>
-    Captures : Set<PawnDislodgement>
+type public PieceDevelopment = {
+    Advances : Set<PieceDislocation>
+    Captures : Set<PieceDislodgement>
 }
 
 module public Development =
-    let internal Palfrey : PawnDevelopment = {
+    let internal Palfrey : PieceDevelopment = {
         Advances = Set.empty
         Captures = Set.empty
     }
-    let internal Destrier : PawnDevelopment = {
+    let internal Destrier : PieceDevelopment = {
         Advances = Set.empty
         Captures = Set.empty
     }
-    let internal Courser : PawnDevelopment = {
+    let internal Courser : PieceDevelopment = {
         Advances = Set.empty
         Captures = Set.empty
     }
