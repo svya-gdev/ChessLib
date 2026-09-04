@@ -1,17 +1,17 @@
 namespace Chess.Domain;
 
-public sealed class Room
+internal sealed class Room
 {
     private ulong occupation;
     
-    public bool IsOccupied(byte x, byte y)
+    internal bool IsOccupied(byte x, byte y)
     {
         if (x > 7 || y > 7) throw new ArgumentOutOfRangeException(x > 7 ? nameof(x) : nameof(y), "Coordinates must be 0..7.");
         
         return (occupation & (1UL << (y * 8 + x))) != 0UL;
     }
     
-    public void Toggle(byte x, byte y)
+    internal void Toggle(byte x, byte y)
     {
         if (x > 7 || y > 7) throw new ArgumentOutOfRangeException(x > 7 ? nameof(x) : nameof(y), "Coordinates must be 0..7.");
         
@@ -20,7 +20,7 @@ public sealed class Room
     
 /*
 
-    public void PlaceOn(OccupationMap map, RoomCoordinates coordinates) // Нарушает атомарность
+    internal void PlaceOn(OccupationMap map, RoomCoordinates coordinates) // Нарушает атомарность
     {
         var origin = coordinates.ToHomeCoordinates();
         
@@ -31,7 +31,7 @@ public sealed class Room
                 if (IsOccupied(x, y))
                 {
                     var home = new HomeCoordinates(origin.X + x, origin.Y + y);
-                    map.AddOccupationToCoordinates(home); // Т.к. здесь может выбросить исключение на любой итерации
+                    map.AddOccupationToCoordinates(home); // Т.к. здесь может выбросить исключение на любой итерации // use eng bruh would u?
                 }
             }
         }
