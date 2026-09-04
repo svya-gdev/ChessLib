@@ -178,7 +178,13 @@ type Feud =
         | WithEveryTeam               -> true
 
 [<Struct>]
-type Attack = {
+type PawnDislodgement = {
     PawnDislocation : PawnDislocation
     Feud : Feud
+}
+
+[<Struct>]
+type Pawn = {
+    Guid : System.Guid
+    Team : Team
 }

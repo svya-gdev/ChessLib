@@ -132,9 +132,18 @@ public sealed class Board
 
 
 
-    public bool IsLocationCapturable(PawnLocation location)
-        => IsLocationOccupiedByPawn(location);
-    // Yes, if occupied by pawn
+    public bool IsDislodgementPossible(PawnLocation attackerLocation, PawnDislodgement dislodgement)
+    // Yes, if both locations occupied by pawns and feud towards attacked pawn's team
+    {
+        if (!IsLocationOccupiedByPawn(attackerLocation)) return false;
+
+        var attackedLocation = dislodgement.PawnDislocation.ApplyTo(attackerLocation);
+        if (!IsLocationOccupiedByPawn(attackedLocation)) return false;
+
+        var attackerTeam = populationMap.ReadPawn(attackerLocation.HomeCoordinates).Team;
+        var attackedTeam = populationMap.ReadPawn(attackedLocation.HomeCoordinates).Team;
+        return dislodgement.Feud.IsTowards(attackerTeam, attackedTeam);
+    }
 
     public bool IsLocationAdvancable(PawnLocation location)
         => !occupationMap.IsOccupied(location.HomeCoordinates);
@@ -176,13 +185,13 @@ public sealed class Board
 
 
 
-    public void PawnCaptureFromLocation(PawnLocation location, PawnDislocation dislocation)
+    public void PawnCaptureFromLocation(PawnLocation location, PawnDislodgement dislodgement)
     {
-        var targetLocation = dislocation.ApplyTo(location);
+        var targetLocation = dislodgement.PawnDislocation.ApplyTo(location);
 
         if (!IsLocationOccupiedByPawn(location)) throw new RuleBrokenException();
-        if (!IsLocationCapturable(targetLocation)) throw new RuleBrokenException();
-        if (!IsPathWalkable(location, dislocation)) throw new RuleBrokenException();
+        if (!IsDislodgementPossible(location, dislodgement)) throw new RuleBrokenException();
+        if (!IsPathWalkable(location, dislodgement.PawnDislocation)) throw new RuleBrokenException();
 
         var oldCoordinates = location.HomeCoordinates;
         var newCoordinates = targetLocation.HomeCoordinates;
