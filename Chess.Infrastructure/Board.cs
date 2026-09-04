@@ -189,7 +189,6 @@ public sealed class Board
     {
         var targetLocation = dislodgement.PawnDislocation.ApplyTo(location);
 
-        if (!IsLocationOccupiedByPawn(location)) throw new RuleBrokenException();
         if (!IsDislodgementPossible(location, dislodgement)) throw new RuleBrokenException();
         if (!IsPathWalkable(location, dislodgement.PawnDislocation)) throw new RuleBrokenException();
 
