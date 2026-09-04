@@ -1,6 +1,4 @@
-using Chess.Domain;
-
-namespace Chess.Infrastructure;
+namespace Chess.Domain;
 
 public sealed class Pawn(Team team)
 {

@@ -1,12 +1,10 @@
-using Chess.Domain;
-
-namespace Chess.Infrastructure;
+namespace Chess.Domain;
 
 
 
-public sealed class PawnRepetitionException() : Exception();
-public sealed class PawnCollisionException() : Exception();
-public sealed class PawnAbsenceException() : Exception();
+internal sealed class PawnRepetitionException() : Exception();
+internal sealed class PawnCollisionException() : Exception();
+internal sealed class PawnAbsenceException() : Exception();
 
 
 
@@ -15,7 +13,7 @@ internal sealed class PopulationMap
     private readonly Dictionary<HomeCoordinates, Pawn> pawns = [];
     private readonly HashSet<Guid> guids = [];
 
-    public void AddPawn(Pawn pawn, HomeCoordinates coordinates)
+    internal void AddPawn(Pawn pawn, HomeCoordinates coordinates)
     {
         if (guids.Contains(pawn.Guid)) throw new PawnRepetitionException();
         if (!pawns.TryAdd(coordinates, pawn)) throw new PawnCollisionException();
@@ -23,26 +21,26 @@ internal sealed class PopulationMap
         guids.Add(pawn.Guid);
     }
 
-    public void RemovePawn(HomeCoordinates coordinates)
+    internal void RemovePawn(HomeCoordinates coordinates)
     {
         if (!pawns.Remove(coordinates, out var pawn)) throw new PawnAbsenceException();
 
         guids.Remove(pawn.Guid);
     }
 
-    public Pawn ReadPawn(HomeCoordinates coordinates)
+    internal Pawn ReadPawn(HomeCoordinates coordinates)
     {
         if (!pawns.TryGetValue(coordinates, out var pawn)) throw new PawnAbsenceException();
 
         return pawn;
     }
 
-    public bool IsPawnAdded(HomeCoordinates coordinates)
+    internal bool IsPawnAdded(HomeCoordinates coordinates)
     {
         return pawns.ContainsKey(coordinates);
     }
 
-    public bool IsPawnAdded(Pawn pawn)
+    internal bool IsPawnAdded(Pawn pawn)
     {
         return guids.Contains(pawn.Guid);
     }

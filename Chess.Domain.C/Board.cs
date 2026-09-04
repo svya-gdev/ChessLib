@@ -1,6 +1,4 @@
-using Chess.Domain;
-
-namespace Chess.Infrastructure;
+namespace Chess.Domain;
 
 
 
@@ -21,28 +19,28 @@ public sealed class Board
 
 
 
-    public void WallAddToCoordinates(WallCoordinates wallCoordinates)
+    internal void WallAddToCoordinates(WallCoordinates wallCoordinates)
     {
         var homeCoordinates = wallCoordinates.ToHomeCoordinates();
         if (occupationMap.IsOccupied(homeCoordinates)) throw new CoordinatesAlreadyOccupiedException();
         occupationMap.AddOccupation(homeCoordinates);
     }
 
-    public void WallRemoveFromCoordinates(WallCoordinates wallCoordinates)
+    internal void WallRemoveFromCoordinates(WallCoordinates wallCoordinates)
     {
         var homeCoordinates = wallCoordinates.ToHomeCoordinates();
         if (!occupationMap.IsOccupied(homeCoordinates)) throw new CoordinatesAlreadyUnoccupiedException();
         occupationMap.RemoveOccupation(homeCoordinates);
     }
 
-    public void BlockAddToCoordinates(TileCoordinates tileCoordinates)
+    internal void BlockAddToCoordinates(TileCoordinates tileCoordinates)
     {
         var homeCoordinates = tileCoordinates.ToHomeCoordinates();
         if (occupationMap.IsOccupied(homeCoordinates)) throw new CoordinatesAlreadyOccupiedException();
         occupationMap.AddOccupation(homeCoordinates);
     }
 
-    public void BlockRemoveFromCoordinates(TileCoordinates tileCoordinates)
+    internal void BlockRemoveFromCoordinates(TileCoordinates tileCoordinates)
     {
         var homeCoordinates = tileCoordinates.ToHomeCoordinates();
         if (!occupationMap.IsOccupied(homeCoordinates)) throw new CoordinatesAlreadyUnoccupiedException();
@@ -51,16 +49,6 @@ public sealed class Board
 
 
     
-
-      
-
-
-
-
-
-
-    
-
     // // // // // // // // // // PAWN PLACEMENT RULES // // // // // // // // // //
 
 
@@ -137,12 +125,12 @@ public sealed class Board
     {
         if (!IsLocationOccupiedByPawn(attackerLocation)) return false;
 
-        var attackedLocation = dislodgement.PawnDislocation.ApplyTo(attackerLocation);
+        var attackedLocation = dislodgement.Dislocation.ApplyTo(attackerLocation);
         if (!IsLocationOccupiedByPawn(attackedLocation)) return false;
 
         var attackerTeam = populationMap.ReadPawn(attackerLocation.HomeCoordinates).Team;
         var attackedTeam = populationMap.ReadPawn(attackedLocation.HomeCoordinates).Team;
-        return dislodgement.Feud.IsTowards(attackerTeam, attackedTeam);
+        return dislodgement.Spite.IsTeamHoldingSpiteAgainstTeam(attackerTeam, attackedTeam);
     }
 
     public bool IsLocationAdvancable(PawnLocation location)
@@ -187,10 +175,10 @@ public sealed class Board
 
     public void PawnCaptureFromLocation(PawnLocation location, PawnDislodgement dislodgement)
     {
-        var targetLocation = dislodgement.PawnDislocation.ApplyTo(location);
+        var targetLocation = dislodgement.Dislocation.ApplyTo(location);
 
         if (!IsDislodgementPossible(location, dislodgement)) throw new RuleBrokenException();
-        if (!IsPathWalkable(location, dislodgement.PawnDislocation)) throw new RuleBrokenException();
+        if (!IsPathWalkable(location, dislodgement.Dislocation)) throw new RuleBrokenException();
 
         var oldCoordinates = location.HomeCoordinates;
         var newCoordinates = targetLocation.HomeCoordinates;

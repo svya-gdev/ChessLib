@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Chess.Domain\Chess.Domain.fsproj" />
+    <ProjectReference Include="..\Chess.Domain.F\Chess.Domain.F.fsproj" />
   </ItemGroup>
 
   <PropertyGroup>
