@@ -183,8 +183,10 @@ type PawnDislodgement = {
     Feud : Feud
 }
 
+// // // // // // // // // // // // // // // // // // // // // // // // // // // // // // 
+
 [<Struct>]
-type Pawn = {
-    Guid : System.Guid
-    Team : Team
+type PawnDevelopment = {
+    Advances : Set<PawnDislocation>
+    Captures : Set<PawnDislodgement>
 }
