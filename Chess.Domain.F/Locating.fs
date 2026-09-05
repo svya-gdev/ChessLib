@@ -8,16 +8,16 @@ type public PieceLocation = {
     Y : uint32
 } with
     member internal this.RoomCoordinates : RoomCoordinates = {
-        X = uint8 (this.X / 4u)
-        Y = uint8 (this.Y / 4u)
+        A = uint8 (this.X / 4u)
+        B = uint8 (this.Y / 4u)
     }
     member internal this.HomeCoordinates : HomeCoordinates = {
         X = uint64 this.X * 2UL
         Y = uint64 this.Y * 2UL
     }
     member internal this.TileCoordinates : TileCoordinates = {
-        X = this.X
-        Y = this.Y
+        C = this.X
+        R = this.Y
     }
 
 [<Struct>]

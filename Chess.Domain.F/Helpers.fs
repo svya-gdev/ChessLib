@@ -2,64 +2,118 @@ namespace Chess.Domain
 
 // A place for types and modules that help describe dislocations
 
-[<Struct>]
-type internal Direction =
-    | Up
-    | UpRight
-    | Right
-    | DownRight
-    | Down
-    | DownLeft
-    | Left
-    | UpLeft
-    with
-    member internal this.ToOffset() =
-        match this with
-        | Up        -> (0u     , 1u     )
-        | UpRight   -> (1u     , 1u     )
-        | Right     -> (1u     , 0u     )
-        | DownRight -> (1u     , 0u - 1u)
-        | Down      -> (0u     , 0u - 1u)
-        | DownLeft  -> (0u - 1u, 0u - 1u)
-        | Left      -> (0u - 1u, 0u     )
-        | UpLeft    -> (0u - 1u, 1u     )
 
-[<Struct>]
-type internal StraightPath = {
-    Direction : Direction
-    Length : uint32
-} with
-    member internal this.ToPawnDislocation() =
-        let (h, v) = this.Direction.ToOffset()
+module internal Repeat =
+
+    let once(c) = [
         {
-            Horizontal = h * this.Length
-            Vertical   = v * this.Length
+            C = c.C
+            R = c.R
         }
+    ]
 
-[<Struct>]
-type internal Dash  =
-    | DashUp
-    | DashRight
-    | DashDown
-    | DashLeft
-    with
-    member internal this.ToOffset() =
-        match this with
-        | DashUp        -> (0u     , 1u     )
-        | DashRight     -> (1u     , 0u     )
-        | DashDown      -> (0u     , 0u - 1u)
-        | DashLeft      -> (0u - 1u, 0u     )
-
-[<Struct>]
-type internal HorseLikePath = {
-    Direction : Direction
-    Length : uint32
-    Dash : Dash
-} with
-    member internal this.ToPawnDislocation() =
-        let (lh, lv) = this.Direction.ToOffset()
-        let (dh, dv) = this.Dash.ToOffset()
+    let twiceAlongC(c) = [
         {
-            Horizontal = lh * this.Length + dh
-            Vertical   = lv * this.Length + dv
+            C = 0u - 1u
+            R = c.R
+        };
+        {
+            C = 1u
+            R = c.R
         }
+    ]
+
+    let twiceAlongR(c) = [
+        {
+            C = c.C
+            R = 0u - 1u
+        };
+        {
+            C = c.C
+            R = 1u
+        }
+    ]
+
+
+    let sevenTimes(c) = [
+        for n in 1u .. 7u -> {
+            C = c.C * n
+            R = c.R * n
+        }
+    ]
+
+    let sevenTimesFromList(l) = List.concat [
+        for n in l -> n |> sevenTimes
+    ]
+
+module internal ClassicalDirections =
+
+    let towardsBlacks = {
+        C = 0u
+        R = 1u
+    }
+
+    let   towardsNone = {
+        C = 0u
+        R = 0u
+    }
+
+    let towardsWhites = {
+        C = 0u
+        R = 0u - 1u
+    }
+
+    let diagonals = List.concat [
+        towardsBlacks |> Repeat.twiceAlongC;
+        towardsWhites |> Repeat.twiceAlongC
+    ]
+
+    let orthogonals = List.concat [
+        towardsBlacks |> Repeat.once
+        towardsNone   |> Repeat.twiceAlongC
+        towardsWhites |> Repeat.once
+    ]
+
+    let all = List.concat [
+        diagonals;
+        orthogonals
+    ]
+
+    let horseLike = List.concat [
+        {
+            C = 0u
+            R = 2u
+        } |> Repeat.twiceAlongC
+        {
+            C = 0u
+            R = 0u - 2u
+        } |> Repeat.twiceAlongC
+        {
+            C = 2u
+            R = 0u
+        } |> Repeat.twiceAlongR
+        {
+            C = 0u - 2u
+            R = 0u
+        } |> Repeat.twiceAlongR
+    ]
+
+
+module internal Convert =
+
+    let toDislocation(l) = [
+        for c in l -> {
+            Horizontal = c.C
+            Vertical   = c.R
+        }
+    ]
+
+    let toClassicalDislodgements(l) : List<PieceDislodgement> = [
+        for c in l -> {
+            Dislocation = {
+                Horizontal = c.C
+                Vertical   = c.R
+            }
+            Spite = WithOppositeTeam
+        }
+    ]
