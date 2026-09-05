@@ -45,14 +45,17 @@ module public ClassicalPieces =
         }
 
 module public NewPieces =
+
     let internal Palfrey : PieceDevelopment = {
         Advances = Set.empty // y
         Captures = Set.empty // n
     }
+
     let internal Destrier : PieceDevelopment = {
         Advances = Set.empty // n
         Captures = Set.empty // y
     }
+    
     let internal squire : PieceDevelopment = {
         Advances = Set.empty // y
         Captures = Set.empty // y

@@ -8,7 +8,7 @@ type public Team =
     //| Grey   // Opposite is Grey   // Neutral is Grey  // The same is Grey   //
     | Black  // Opposite is White  // Neutral is Grey  // The same is Black  //
     with
-    member public this.Opposite : Team =
+    member public this.Opposite =
         match this with
         | White -> Black
         //| Grey  -> Grey
@@ -24,7 +24,7 @@ type public Spite =
     //| WithTheSameAndOppositeTeams
     | WithEveryTeam
     with
-    member public this.IsTeamHoldingSpiteAgainstTeam(subject : Team, object : Team) : bool =
+    member public this.IsTeamHoldingSpiteAgainstTeam(subject : Team, object : Team) =
         match this with
         | WithOppositeTeam            -> subject.Opposite = object
         //| WithNeutralTeam             -> Grey             = object
