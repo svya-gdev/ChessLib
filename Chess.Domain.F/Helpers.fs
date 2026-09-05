@@ -103,16 +103,16 @@ module internal Convert =
 
     let toDislocation(l) = [
         for c in l -> {
-            Horizontal = c.C
-            Vertical   = c.R
+            FileDelta = c.C
+            RankDelta   = c.R
         }
     ]
 
     let toClassicalDislodgements(l) : List<PieceDislodgement> = [
         for c in l -> {
-            Dislocation = {
-                Horizontal = c.C
-                Vertical   = c.R
+            Relocation = {
+                FileDelta = c.C
+                RankDelta   = c.R
             }
             Spite = WithOppositeTeam
         }

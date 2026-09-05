@@ -4,45 +4,45 @@ namespace Chess.Domain
 
 [<Struct>]
 type public PieceLocation = {
-    X : uint32
-    Y : uint32
+    File: uint32
+    Rank: uint32
 } with
     member internal this.RoomCoordinates : RoomCoordinates = {
-        A = uint8 (this.X / 4u)
-        B = uint8 (this.Y / 4u)
+        A = uint8 (this.File / 4u)
+        B = uint8 (this.Rank / 4u)
     }
     member internal this.HomeCoordinates : HomeCoordinates = {
-        X = uint64 this.X * 2UL
-        Y = uint64 this.Y * 2UL
+        X = uint64 this.File * 2UL
+        Y = uint64 this.Rank * 2UL
     }
     member internal this.TileCoordinates : TileCoordinates = {
-        C = this.X
-        R = this.Y
+        C = this.File
+        R = this.Rank
     }
 
 [<Struct>]
-type public PieceDislocation = {
-    Horizontal : uint32
-    Vertical   : uint32
+type public PieceRelocation = {
+    FileDelta: uint32
+    RankDelta: uint32
 } with
-    member public this.ApplyTo(location : PieceLocation) : PieceLocation = {
-        X = location.X + this.Horizontal
-        Y = location.Y + this.Vertical
+    member public this.ApplyTo(location) = {
+        File = location.File + this.FileDelta
+        Rank = location.Rank + this.RankDelta
     }
-    member public this.IsHorseLike : bool =
-        this.Horizontal <> this.Vertical &&
-        this.Horizontal <> 0u            &&
-                     0u <> this.Vertical
-    member public this.IsStraight : bool =
-        this.Horizontal =  this.Vertical ||
-        this.Horizontal =  0u            ||
-                     0u =  this.Vertical
-    member public this.IsNonMoving : bool =
-        this.Horizontal =  0u &&
-        this.Vertical   =  0u
+    member public this.IsHorseLike =
+        this.FileDelta <> this.RankDelta &&
+        this.FileDelta <> 0u             &&
+                    0u <> this.RankDelta
+    member public this.IsStraight =
+        this.FileDelta =  this.RankDelta ||
+        this.FileDelta =  0u             ||
+                    0u =  this.RankDelta
+    member public this.IsNonMoving =
+        this.FileDelta =  0u &&
+        this.RankDelta =  0u
 
 [<Struct>]
 type public PieceDislodgement = {
-    Dislocation : PieceDislocation
+    Relocation : PieceRelocation
     Spite : Spite
 }

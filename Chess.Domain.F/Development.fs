@@ -2,7 +2,7 @@ namespace Chess.Domain
 
 [<Struct>]
 type public PieceDevelopment = {
-    Advances : Set<PieceDislocation>
+    Advances : Set<PieceRelocation>
     Captures : Set<PieceDislodgement>
 }
 
