@@ -15,7 +15,7 @@ public sealed class Board
 {
     private readonly OccupationMap occupationMap = new();
     private readonly PopulationMap populationMap = new();
-    private readonly DoorMap doorMap = new();
+    // private readonly DoorMap doorMap = new();
 
 
 
@@ -99,7 +99,7 @@ public sealed class Board
 
     public bool IsAbleToReadPieceFromLocation(PieceLocation location)
         => IsLocationOccupiedByPiece(location);
-    // Yes, if location is occupied by a pawn
+    // Yes, if location is occupied by a piece
 
 
 
