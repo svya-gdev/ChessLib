@@ -24,7 +24,7 @@ type public Spite =
     //| WithTheSameAndOppositeTeams
     | WithEveryTeam
     with
-    member public this.IsTeamHoldingSpiteAgainstTeam(subject : Team, object : Team) =
+    member public this.IsFronTeamToTeam(subject : Team, object : Team) =
         match this with
         | WithOppositeTeam            -> subject.Opposite = object
         //| WithNeutralTeam             -> Grey             = object

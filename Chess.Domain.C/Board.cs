@@ -130,7 +130,7 @@ public sealed class Board
 
         var attackerTeam = populationMap.ReadPiece(attackerLocation.HomeCoordinates).Team;
         var attackedTeam = populationMap.ReadPiece(attackedLocation.HomeCoordinates).Team;
-        return dislodgement.Spite.IsTeamHoldingSpiteAgainstTeam(attackerTeam, attackedTeam);
+        return dislodgement.Spite.IsFronTeamToTeam(attackerTeam, attackedTeam);
     }
 
     public bool IsLocationAdvancable(PieceLocation location)
