@@ -1,7 +1,5 @@
 namespace Chess.Domain
 
-// Everything here will come in handy for the first version
-
 [<Struct>]
 type public PieceLocation = {
     File: uint32
@@ -43,6 +41,6 @@ type public PieceRelocation = {
 
 [<Struct>]
 type public PieceDislodgement = {
-    Relocation : PieceRelocation
-    Spite : Spite
+    Relocation: PieceRelocation
+    Mindset:    PieceMindset
 }

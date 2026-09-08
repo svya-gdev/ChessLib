@@ -9,7 +9,6 @@
     <Compile Include="TeamAndSpite.fs" />
     <Compile Include="Coordinates.fs"  />
     <Compile Include="Locating.fs"     />
-    <Compile Include="Helpers.fs"      />
     <Compile Include="Development.fs"  />
   </ItemGroup>
 

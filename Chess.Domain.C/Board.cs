@@ -128,26 +128,24 @@ public sealed class Board
         var attackedLocation = dislodgement.Relocation.ApplyTo(attackerLocation);
         if (!IsLocationOccupiedByPiece(attackedLocation)) return false;
 
-        var attackerTeam = populationMap.ReadPiece(attackerLocation.HomeCoordinates).Team;
-        var attackedTeam = populationMap.ReadPiece(attackedLocation.HomeCoordinates).Team;
-        return dislodgement.Spite.IsFromTeamToTeam(attackerTeam, attackedTeam);
+        return dislodgement.Mindset.IsHostileTo(populationMap.ReadPiece(dislodgement.Relocation.ApplyTo(attackedLocation).HomeCoordinates).Mindset);
     }
 
     public bool IsLocationAdvancable(PieceLocation location)
         => !occupationMap.IsOccupied(location.HomeCoordinates);
     // Yes, if not occupied
 
-    public bool IsPathWalkable(PieceLocation location, PieceRelocation dislocation)
+    public bool IsPathWalkable(PieceLocation location, PieceRelocation relocation)
     // Yes, if path is horse-like or no occupation in the way
     {
-        if (dislocation.IsHorseLike) return true;
+        if (relocation.IsHorseLike) return true;
 
-        var stepX = Math.Sign(unchecked((int)dislocation.FileDelta));
-        var stepY = Math.Sign(unchecked((int)dislocation.RankDelta));
+        var stepX = Math.Sign(unchecked((int)relocation.FileDelta));
+        var stepY = Math.Sign(unchecked((int)relocation.RankDelta));
 
         var tileSteps = Math.Max(
-            Math.Abs(unchecked((int)dislocation.FileDelta)),
-            Math.Abs(unchecked((int)dislocation.RankDelta))
+            Math.Abs(unchecked((int)relocation.FileDelta)),
+            Math.Abs(unchecked((int)relocation.RankDelta))
         );
 
         var homeSteps = tileSteps * 2;
@@ -177,8 +175,10 @@ public sealed class Board
     {
         var targetLocation = dislodgement.Relocation.ApplyTo(location);
 
+        if (dislodgement.Relocation.IsNonMoving) throw new RuleBrokenException();
         if (!IsDislodgementPossible(location, dislodgement)) throw new RuleBrokenException();
         if (!IsPathWalkable(location, dislodgement.Relocation)) throw new RuleBrokenException();
+        if (!populationMap.ReadPiece(location.HomeCoordinates).Captures.Contains(dislodgement)) throw new RuleBrokenException();
 
         var oldCoordinates = location.HomeCoordinates;
         var newCoordinates = targetLocation.HomeCoordinates;
@@ -192,13 +192,15 @@ public sealed class Board
         populationMap.AddPiece(piece, newCoordinates);
     }
 
-    public void PieceAdvanceFromLocation(PieceLocation location, PieceRelocation dislocation)
+    public void PieceAdvanceFromLocation(PieceLocation location, PieceRelocation relocation)
     {
-        var targetLocation = dislocation.ApplyTo(location);
+        var targetLocation = relocation.ApplyTo(location);
 
+        if (relocation.IsNonMoving) throw new RuleBrokenException();
         if (!IsLocationOccupiedByPiece(location)) throw new RuleBrokenException();
         if (!IsLocationAdvancable(targetLocation)) throw new RuleBrokenException();
-        if (!IsPathWalkable(location, dislocation)) throw new RuleBrokenException();
+        if (!IsPathWalkable(location, relocation)) throw new RuleBrokenException();
+        if (!populationMap.ReadPiece(location.HomeCoordinates).Advances.Contains(relocation)) throw new RuleBrokenException();
 
         var oldCoordinates = location.HomeCoordinates;
         var newCoordinates = targetLocation.HomeCoordinates;
