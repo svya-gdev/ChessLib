@@ -10,7 +10,7 @@ type public Feud =
     | WithSameTeamAndOpposite
     | WithEveryone
     with
-    member internal this.isTeam1HostileToTeam2 team1 team2 =
+    member internal this.IsTeam1HostileToTeam2 team1 team2 =
         if team1 = Undefined || team2 = Undefined then
             false
         else
