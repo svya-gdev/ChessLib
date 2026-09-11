@@ -1,9 +1,7 @@
-﻿namespace Chess.Domain
-
-// This might be better, as it is more intuitive
+namespace Chess.Domain
 
 module internal Combinations =
-    let internal a = [
+    let internal orthogonalOneTileMoves = [
         {
             FileDelta = 1u
             RankDelta = 0u
@@ -21,7 +19,7 @@ module internal Combinations =
             RankDelta = 0u - 1u
         }
     ]
-    let internal aa = [
+    let internal orthogonalTwoTileMoves = [
         {
             FileDelta = 2u
             RankDelta = 0u
@@ -39,7 +37,7 @@ module internal Combinations =
             RankDelta = 0u - 2u
         }
     ]
-    let internal aaa = [
+    let internal orthogonalThreeTileMoves = [
         {
             FileDelta = 3u
             RankDelta = 0u
@@ -57,7 +55,7 @@ module internal Combinations =
             RankDelta = 0u - 3u
         }
     ]
-    let internal b = [
+    let internal diagonalOneTileMoves = [
         {
             FileDelta = 1u
             RankDelta = 1u
@@ -75,7 +73,7 @@ module internal Combinations =
             RankDelta = 0u - 1u
         }
     ]
-    let internal bb = [
+    let internal diagonalTwoTileMoves = [
         {
             FileDelta = 2u
             RankDelta = 2u
@@ -93,7 +91,7 @@ module internal Combinations =
             RankDelta = 0u - 2u
         }
     ]
-    let internal bbb = [
+    let internal diagonalThreeTileMoves = [
         {
             FileDelta = 3u
             RankDelta = 3u
@@ -111,7 +109,7 @@ module internal Combinations =
             RankDelta = 0u - 3u
         }
     ]
-    let internal c = [
+    let internal orthogonalKnightMoves = [
         {
             FileDelta = 2u
             RankDelta = 1u
@@ -145,17 +143,71 @@ module internal Combinations =
             RankDelta = 0u - 2u
         }
     ]
-
-    module internal NewPieces =
-    let internal Palfrey : PieceDevelopment = {
-        Advances = Set.empty // y
-        Captures = Set.empty // n
-    }
-    let internal Destrier : PieceDevelopment = {
-        Advances = Set.empty // n
-        Captures = Set.empty // y
-    }
-    let internal Squire : PieceDevelopment = {
-        Advances = Set.empty // y
-        Captures = Set.empty // y
-    }
+    let internal diagonalKnightMoves = [
+        {
+            FileDelta = 3u
+            RankDelta = 1u
+        }
+        {
+            FileDelta = 3u
+            RankDelta = 0u - 1u
+        }
+        {
+            FileDelta = 0u - 3u
+            RankDelta = 1u
+        }
+        {
+            FileDelta = 0u - 3u
+            RankDelta = 0u - 1u
+        }
+        {
+            FileDelta = 1u
+            RankDelta = 3u
+        }
+        {
+            FileDelta = 0u - 1u
+            RankDelta = 3u
+        }
+        {
+            FileDelta = 1u
+            RankDelta = 0u - 3u
+        }
+        {
+            FileDelta = 0u - 1u
+            RankDelta = 0u - 3u
+        }
+    ]
+    let internal remainingKnightMoves = [
+        {
+            FileDelta = 3u
+            RankDelta = 2u
+        }
+        {
+            FileDelta = 3u
+            RankDelta = 0u - 2u
+        }
+        {
+            FileDelta = 0u - 3u
+            RankDelta = 2u
+        }
+        {
+            FileDelta = 0u - 3u
+            RankDelta = 0u - 2u
+        }
+        {
+            FileDelta = 2u
+            RankDelta = 3u
+        }
+        {
+            FileDelta = 0u - 2u
+            RankDelta = 3u
+        }
+        {
+            FileDelta = 2u
+            RankDelta = 0u - 3u
+        }
+        {
+            FileDelta = 0u - 2u
+            RankDelta = 0u - 3u
+        }
+    ]

@@ -6,10 +6,27 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="TeamAndSpite.fs" />
-    <Compile Include="Coordinates.fs"  />
-    <Compile Include="Locating.fs"     />
-    <Compile Include="Development.fs"  />
+
+    <Compile Include="RoomCoordinates.fs" />
+
+    <Compile Include="HomeCoordinates.fs" />
+    <Compile Include="TileCoordinates.fs" />
+    <Compile Include="CoordinateShift.fs" />
+    <Compile Include="WallCoordinates.fs" />
+
+    <Compile Include="PieceLocation.fs" />
+    <Compile Include="PieceRelocation.fs" />
+
+    <Compile Include="Team.fs" />
+    <Compile Include="Feud.fs" />
+    <Compile Include="PieceMindset.fs" />
+
+    <Compile Include="PieceDislodgement.fs" />
+
+    <Compile Include="PieceDevelopment.fs" />
+    <Compile Include="Combinations.fs" />
+    <Compile Include="NewPieces.fs" />
+    
   </ItemGroup>
 
   <ItemGroup>

@@ -7,8 +7,6 @@ Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Chess.Domain.F", "Chess.Dom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chess.Domain.C", "Chess.Domain.C\Chess.Domain.C.csproj", "{6A8ACC7D-F294-4F16-BD14-F4AFE140ABD2}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Chess.Domain.Pieces", "Chess.Domain.Pieces\Chess.Domain.Pieces.fsproj", "{647ADD5D-A15E-43C9-B910-D79369AD4E6D}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
