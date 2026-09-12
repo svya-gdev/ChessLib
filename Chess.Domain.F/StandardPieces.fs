@@ -1,4 +1,6 @@
-﻿namespace Chess.Domain
+namespace Chess.Domain
+
+(* Known issue
 
 module internal Repeat =
     let once(c) = [
@@ -144,3 +146,5 @@ module internal Convert =
             Advances = ClassicalDirections.horseLike |> Convert.toDislocation            |> Set.ofList
             Captures = ClassicalDirections.horseLike |> Convert.toClassicalDislodgements |> Set.ofList
         }
+
+*)

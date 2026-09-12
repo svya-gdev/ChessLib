@@ -25,7 +25,9 @@
 
     <Compile Include="PieceDevelopment.fs" />
     <Compile Include="Combinations.fs" />
-    <Compile Include="NewPieces.fs" />
+    
+    <Compile Include="StandardPieces.fs" />
+    <Compile Include="AuthoredPieces.fs" />
     
   </ItemGroup>
 

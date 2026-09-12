@@ -1,9 +1,6 @@
 namespace Chess.Domain
 
-// Authored
-// Standard
-
-module public AuthoredPieces =
+module public NewPieces =
     let public sumpter = {
         Advances = Combinations.orthogonalKnightMoves |> Set.ofList
         Captures = Set.empty
