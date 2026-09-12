@@ -4,7 +4,7 @@
 
 ![5](Vectors/Group 2 (5).svg)
 
-![6]([Vectors/Group 2 (6).svg](https://github.com/svya-gdev/ChessLib/blob/master/Vectors/Group%202%20(6).svg))
+![6](https://github.com/svya-gdev/ChessLib/blob/master/Vectors/Group%202%20(6).svg)
 
 #### Minor types / Малые типы
 
