@@ -1,10 +1,114 @@
-#### Фундаментальные структуры
+#### Minor types / Малые типы
+
+##### PieceLocation / Локация фигуры
+
+```F#
+[<Struct>]
+type public PieceLocation = { //Локация фигуры
+    File: uint32              // Файл
+    Rank: uint32              // Ранк
+}
+```
+
+##### PieceRelocation / Смещение фигуры
+
+```F#
+[<Struct>]
+type public PieceRelocation = { // Смещение фигуры
+    FileDelta: uint32           // Дельта файла
+    RankDelta: uint32           // Дельта ранка
+}
+```
+
+##### Team / Команда
+
+```F#
+[<Struct>]
+type public Team = // Команда
+    | Undefined    // Не определена
+    | White        // Чёрных
+    | Grays        // Всех серых
+    | Black        // Белых
+```
+
+##### Feud / Вражда
+
+```F#
+[<Struct>]
+type public Feud =            // Вражда
+    | WithSameTeam            // С той же командой
+    | WithNeutrals            // С нейтральными командами
+    | WithOpposite            // С командой соперника
+    | WithSameTeamAndNeutrals // С той же командой и с нейтральными командами
+    | WithNeutralsAndOpposite // С нейтральными командами и с командой соперника
+    | WithSameTeamAndOpposite // С той же командой и с командой соперника
+    | WithEveryone            // С каждой командой
+```
+
+##### PieceDislodgement / Вытеснение фигуры
+
+```F#
+[<Struct>]
+type public PieceDislodgement = { // Вытеснение фигуры
+    Relocation: PieceRelocation   // Смещение фигуры
+    Feud:       Feud              // Вражда
+}
+```
+
+##### PieceDevelopment / Создание и улучшение фигуры
+
+```F#
+[<Struct>]
+type public PieceDevelopment = {     // Создание и улучшение фигуры
+    Advances: Set<PieceRelocation>   // Продвижения
+    Captures: Set<PieceDislodgement> // Взятия
+}
+```
+
+##### Piece / Фигура
+
+```C#
+// Фигура ( Создание и улучшение фигуры , Команда )
+public sealed class Piece(PieceDevelopment development, Team team)
+{
+    public readonly Guid Guid = Guid.NewGuid(); // Гуид
+    public readonly Team Team = team;           // Команда
+
+    public readonly HashSet<PieceRelocation>   Advances = development.Advances.ToHashSet(); // Продвижения
+    public readonly HashSet<PieceDislodgement> Captures = development.Captures.ToHashSet(); // Взятия
+}
+```
+
+#### Major types / Большие типы
+
+##### StandardPieces / Стандартные фигуры
+
+###### .whitePawn / Белая пешка
+
+###### .blackPawn / Чёрная пешка
+
+###### .anyBishop / Любой слон
+
+###### .anyRook / Любая ладья
+
+###### .anyKing / Любой король
+
+###### .anyQueen / Любой ферзь
+
+###### .anyKnight / Любой конь
+
+##### Board 
+
+
+
+
+# OutDated
+
+
+
 
 ##### Team { White, Black }
 Описывает две команды: белые и черные.
-
->[!NOTE]
-> В следующих версиях может быть добавлено больше команд и их взаимоотношений.
 
 ```F#
 [<Struct>]
