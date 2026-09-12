@@ -124,29 +124,29 @@ public sealed class Board
 
 
 
-    // // // // // // // // // // PIECE ADVANCEMENT RULES  // // // // // // // // // //
+    // // // // // // // // // // PIECE MOVEMENT RULES  // // // // // // // // // // //
 
 
 
-    public bool PieceIsAbleToAdvanceFromLocation(PieceLocation location)
+    public bool MoveIsPossibleFromLocation(PieceLocation location)
     {
         return populationMap.IsPieceAdded(location.ToHomeCoordinates);
         // Yes, if any piece is added to given location
     }
 
-    public bool PieceIsInformedAboutRelocation(PieceLocation location, PieceRelocation relocation)
+    public bool MoveIsChangingPiecePosition(PieceRelocation relocation)
     {
-        return populationMap.ReadPiece(location.ToHomeCoordinates).Advances.Contains(relocation);
-        // Yes, if piece on given location contains given relocation
+        return !relocation.IsNonMoving;
+        // Yes, if given relocation is not non-moving
     }
 
-    public bool PieceIsAbleToAdvanceToLocation(PieceLocation location)
+    public bool MoveIsChangingPiecePosition(PieceDislodgement dislodgement)
     {
-        return !occupationMap.IsOccupied(location.ToHomeCoordinates);
-        // Yes, if given location is not occupied
+        return MoveIsChangingPiecePosition(dislodgement.Relocation);
+        // Yes, if relocation in given dislodgement is not non-moving
     }
 
-    public bool PieceIsAbleToMoveByRelocation(PieceLocation location, PieceRelocation relocation)
+    public bool MoveIsPossibleThroughSpace(PieceLocation location, PieceRelocation relocation)
     {
         // Yes, if path is horse-like or no occupation is in the way
 
@@ -177,25 +177,28 @@ public sealed class Board
         return true;
     }
 
-
-
-    // // // // // // // // // // PIECE ADVANCEMENT COMMAND  // // // // // // // // //
-
-
-
-    public void PieceAdvanceFromLocationByRelocation(PieceLocation oldLocation, PieceRelocation relocation)
+    public bool MoveIsPossibleThroughSpace(PieceLocation location, PieceDislodgement dislodgement)
     {
-        var newLocation = relocation.ApplyTo(oldLocation);
+        return MoveIsPossibleThroughSpace(location, dislodgement.Relocation);
+        // Yes, if path is horse-like or no occupation is in the way
+    }
 
-        if (!PieceIsAbleToAdvanceFromLocation(oldLocation)) throw new RuleBrokenException();
-        if (!PieceIsInformedAboutRelocation(oldLocation, relocation)) throw new RuleBrokenException();
-        if (!PieceIsAbleToAdvanceToLocation(newLocation)) throw new RuleBrokenException();
-        if (!PieceIsAbleToMoveByRelocation(oldLocation, relocation)) throw new RuleBrokenException();
 
-        var oldCoordinates = oldLocation.ToHomeCoordinates;
-        var newCoordinates = newLocation.ToHomeCoordinates;
 
-        PieceMoveFromCoordinatesToCoordinates(oldCoordinates, newCoordinates);
+    // // // // // // // // // // PIECE ADVANCEMENT RULES  // // // // // // // // // //
+
+
+
+    public bool PieceIsInformedAboutRelocation(PieceLocation location, PieceRelocation relocation)
+    {
+        return populationMap.ReadPiece(location.ToHomeCoordinates).Advances.Contains(relocation);
+        // Yes, if piece on given location contains given relocation
+    }
+
+    public bool PieceIsAbleToAdvanceToLocation(PieceLocation location)
+    {
+        return !occupationMap.IsOccupied(location.ToHomeCoordinates);
+        // Yes, if given location is not occupied
     }
 
 
@@ -203,12 +206,6 @@ public sealed class Board
     // // // // // // // // // // PIECE CAPTUREMENT RULES  // // // // // // // // // //
 
 
-
-    public bool PieceIsAbleToCaptureFromLocation(PieceLocation location)
-    {
-        return populationMap.IsPieceAdded(location.ToHomeCoordinates);
-        // Yes, if any piece is added to given location
-    }
 
     public bool PieceIsInformedAboutDislodgement(PieceLocation location, PieceDislodgement dislodgement)
     {
@@ -222,19 +219,37 @@ public sealed class Board
         // Yes, if any piece is added to given location
     }
 
-    public bool PieceIsAbleToMoveByDislodgement(PieceLocation location, PieceDislodgement dislodgement)
-    {
-        return PieceIsAbleToMoveByRelocation(location, dislodgement.Relocation);
-        // Yes, if path is horse-like or no occupation is in the way
-    }
-
     public bool PieceIsWillingToCaptureByDislodgement(PieceLocation location, PieceDislodgement dislodgement)
     {
-        var fued    = dislodgement.Fued;
+        var feud    = dislodgement.Feud;
         var teamOne = PieceReadFromCoordinates(location.ToHomeCoordinates).Team;
         var teamTwo = PieceReadFromCoordinates(dislodgement.Relocation.ApplyTo(location).ToHomeCoordinates).Team;
 
-        return fued.IsTeamOneHostileToTeamTwo(teamOne, teamTwo);
+        return feud.IsTeamOneHostileToTeamTwo(teamOne, teamTwo);
+    }
+
+
+
+    // // // // // // // // // // PIECE ADVANCEMENT COMMAND  // // // // // // // // //
+
+
+
+    public void PieceAdvanceFromLocationByRelocation(PieceLocation oldLocation, PieceRelocation relocation)
+    {
+        var newLocation = relocation.ApplyTo(oldLocation);
+
+        if (!MoveIsPossibleFromLocation(oldLocation)) throw new RuleBrokenException();
+        if (!MoveIsChangingPiecePosition(relocation)) throw new RuleBrokenException();
+
+        if (!PieceIsInformedAboutRelocation(oldLocation, relocation)) throw new RuleBrokenException();
+        if (!PieceIsAbleToAdvanceToLocation(newLocation)) throw new RuleBrokenException();
+
+        if (!MoveIsPossibleThroughSpace(oldLocation, relocation)) throw new RuleBrokenException();
+
+        var oldCoordinates = oldLocation.ToHomeCoordinates;
+        var newCoordinates = newLocation.ToHomeCoordinates;
+
+        PieceMoveFromCoordinatesToCoordinates(oldCoordinates, newCoordinates);
     }
 
 
@@ -247,11 +262,14 @@ public sealed class Board
     {
         var newLocation = dislodgement.Relocation.ApplyTo(oldLocation);
 
-        if (!PieceIsAbleToCaptureFromLocation(oldLocation)) throw new RuleBrokenException();
+        if (!MoveIsPossibleFromLocation(oldLocation)) throw new RuleBrokenException();
+        if (!MoveIsChangingPiecePosition(dislodgement)) throw new RuleBrokenException();
+
         if (!PieceIsInformedAboutDislodgement(oldLocation, dislodgement)) throw new RuleBrokenException();
         if (!PieceIsAbleToCaptureOnLocation(newLocation)) throw new RuleBrokenException();
-        if (!PieceIsAbleToMoveByDislodgement(oldLocation, dislodgement)) throw new RuleBrokenException();
         if (!PieceIsWillingToCaptureByDislodgement(oldLocation, dislodgement)) throw new RuleBrokenException();
+
+        if (!MoveIsPossibleThroughSpace(oldLocation, dislodgement)) throw new RuleBrokenException();
 
         var oldCoordinates = oldLocation.ToHomeCoordinates;
         var newCoordinates = newLocation.ToHomeCoordinates;
