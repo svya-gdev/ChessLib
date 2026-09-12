@@ -1,5 +1,8 @@
 #### Minor types / Малые типы
 
+Self-explanatory structures and classes.
+Структуры и классы, не требующие пояснений.
+
 ##### PieceLocation / Локация фигуры
 
 ```F#
@@ -80,6 +83,9 @@ public sealed class Piece(PieceDevelopment development, Team team)
 ```
 
 #### Major types / Большие типы
+
+Modules and classes requiring explanation.
+Модули и классы, требующие пояснения.
 
 ##### StandardPieces / Стандартные фигуры
 

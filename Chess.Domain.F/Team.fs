@@ -1,11 +1,11 @@
 namespace Chess.Domain
 
 [<Struct>]
-type public Team =
-    | Undefined // SameTeam is Undefined // Neutrals are Undefined // Opposite is Undefined //
-    | White     // SameTeam is White     // Neutrals are Grays     // Opposite is Black     //
-    | Grays     // SameTeam is Undefined // Neutrals are Undefined // Opposite is Undefined //
-    | Black     // SameTeam is Black     // Neutrals are Grays     // Opposite is White     //
+type public Team = // Команда
+    | Undefined    // Не определена
+    | White        // Чёрных
+    | Grays        // Всех серых
+    | Black        // Белых
     with
     member internal this.SameTeam =
         match this with

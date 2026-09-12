@@ -1,9 +1,9 @@
 namespace Chess.Domain
 
 [<Struct>]
-type public PieceLocation = {
-    File: uint32
-    Rank: uint32
+type public PieceLocation = { //Локация фигуры
+    File: uint32              // Файл
+    Rank: uint32              // Ранк
 } with
     member internal this.ToRoomCoordinates = {
         A = uint8 (this.File / 4u)

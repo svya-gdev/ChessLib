@@ -1,7 +1,7 @@
 namespace Chess.Domain
 
 [<Struct>]
-type public PieceDislodgement = {
-    Relocation: PieceRelocation
-    Feud      : Feud
+type public PieceDislodgement = { // Вытеснение фигуры
+    Relocation: PieceRelocation   // Смещение фигуры
+    Feud:       Feud              // Вражда
 }

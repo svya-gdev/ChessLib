@@ -1,9 +1,9 @@
 namespace Chess.Domain
 
 [<Struct>]
-type public PieceRelocation = {
-    FileDelta: uint32
-    RankDelta: uint32
+type public PieceRelocation = { // Смещение фигуры
+    FileDelta: uint32           // Дельта файла
+    RankDelta: uint32           // Дельта ранка
 } with
     member internal this.ApplyTo location = {
         File = location.File + this.FileDelta
