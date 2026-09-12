@@ -1,11 +1,3 @@
-![3](https://github.com/svya-gdev/ChessLib/blob/master/Vectors/Group%202%20(3).svg)
-
-![4](Vectors/Group 2 (4).svg)
-
-![5](https://github.com/svya-gdev/ChessLib/blob/master/Vectors/Group%202%20(5).svg)
-
-![6](https://github.com/svya-gdev/ChessLib/blob/master/Vectors/Group%202%20(6).svg)
-
 #### Minor types / Малые типы
 
 Self-explanatory structures and classes. / Структуры и классы, не требующие пояснений.
