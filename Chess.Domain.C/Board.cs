@@ -2,9 +2,6 @@ namespace Chess.Domain;
 
 public sealed class Board
 {
-
-
-
     private readonly OccupationMap occupationMap = new();
     private readonly PopulationMap populationMap = new();
 
@@ -66,8 +63,8 @@ public sealed class Board
 
     public void PieceAddToLocation(Piece piece, PieceLocation location)
     {
-        if(!PieceIsAbleToAdd(piece)) throw new RuleBrokenException();
-        if(!PieceIsAbleToAddToLocation(location)) throw new RuleBrokenException();
+        if(!PieceIsAbleToAdd(piece))              throw new PieceAlreadyAddedSomewhereException();
+        if(!PieceIsAbleToAddToLocation(location)) throw new LocationAlreadyOccupiedBySomethingException();
 
         PieceAddToCoordinates(piece, location.ToHomeCoordinates);
     }
@@ -92,7 +89,7 @@ public sealed class Board
 
     public void PieceRemoveFromLocation(PieceLocation location)
     {
-        if (!PieceIsAbleToRemoveFromLocation(location)) throw new RuleBrokenException();
+        if (!PieceIsAbleToRemoveFromLocation(location)) throw new LocationAlreadyNotOccupiedByPieceException();
 
         PieceRemoveFromCoordinates(location.ToHomeCoordinates);
     }
@@ -117,7 +114,7 @@ public sealed class Board
 
     public Piece PieceReadFromLocation(PieceLocation location)
     {
-        if (!PieceIsAbleToReadFromLocation(location)) throw new RuleBrokenException();
+        if (!PieceIsAbleToReadFromLocation(location)) throw new PieceNotFoundException();
 
         return PieceReadFromCoordinates(location.ToHomeCoordinates);
     }
@@ -238,13 +235,13 @@ public sealed class Board
     {
         var newLocation = relocation.ApplyTo(oldLocation);
 
-        if (!MoveIsPossibleFromLocation(oldLocation)) throw new RuleBrokenException();
-        if (!MoveIsChangingPiecePosition(relocation)) throw new RuleBrokenException();
+        if (!MoveIsPossibleFromLocation(oldLocation))                 throw new NoPieceToMoveException();
+        if (!MoveIsChangingPiecePosition(relocation))                 throw new NoMoveToApplyException();
 
-        if (!PieceIsInformedAboutRelocation(oldLocation, relocation)) throw new RuleBrokenException();
-        if (!PieceIsAbleToAdvanceToLocation(newLocation)) throw new RuleBrokenException();
+        if (!PieceIsInformedAboutRelocation(oldLocation, relocation)) throw new RelocationUnknownException();
+        if (!PieceIsAbleToAdvanceToLocation(newLocation))             throw new NewLocationOccupiedBySomethingException();
 
-        if (!MoveIsPossibleThroughSpace(oldLocation, relocation)) throw new RuleBrokenException();
+        if (!MoveIsPossibleThroughSpace(oldLocation, relocation))     throw new NoSpaceToMoveException();
 
         var oldCoordinates = oldLocation.ToHomeCoordinates;
         var newCoordinates = newLocation.ToHomeCoordinates;
@@ -262,21 +259,18 @@ public sealed class Board
     {
         var newLocation = dislodgement.Relocation.ApplyTo(oldLocation);
 
-        if (!MoveIsPossibleFromLocation(oldLocation)) throw new RuleBrokenException();
-        if (!MoveIsChangingPiecePosition(dislodgement)) throw new RuleBrokenException();
+        if (!MoveIsPossibleFromLocation(oldLocation))                          throw new NoPieceToMoveException();
+        if (!MoveIsChangingPiecePosition(dislodgement))                        throw new NoMoveToApplyException();
 
-        if (!PieceIsInformedAboutDislodgement(oldLocation, dislodgement)) throw new RuleBrokenException();
-        if (!PieceIsAbleToCaptureOnLocation(newLocation)) throw new RuleBrokenException();
-        if (!PieceIsWillingToCaptureByDislodgement(oldLocation, dislodgement)) throw new RuleBrokenException();
+        if (!PieceIsInformedAboutDislodgement(oldLocation, dislodgement))      throw new DislodgementUnknownException();
+        if (!PieceIsAbleToCaptureOnLocation(newLocation))                      throw new NewLocationNotOccupiedByPieceException();
+        if (!PieceIsWillingToCaptureByDislodgement(oldLocation, dislodgement)) throw new NoWillToCaptureException();
 
-        if (!MoveIsPossibleThroughSpace(oldLocation, dislodgement)) throw new RuleBrokenException();
+        if (!MoveIsPossibleThroughSpace(oldLocation, dislodgement))            throw new NoSpaceToMoveException();
 
         var oldCoordinates = oldLocation.ToHomeCoordinates;
         var newCoordinates = newLocation.ToHomeCoordinates;
 
         PieceReplaceFromCoordinatesToCoordinates(oldCoordinates, newCoordinates);
     }
-
-
-
 }

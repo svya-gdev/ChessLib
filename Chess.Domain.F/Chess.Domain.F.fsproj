@@ -22,12 +22,12 @@
     
 
     <Compile Include="PieceDislodgement.fs" />
-
     <Compile Include="PieceDevelopment.fs" />
+
     <Compile Include="Combinations.fs" />
+    <Compile Include="AuthoredPieces.fs" />
     
-    
-    <Compile Include="AuthoredPieces.fs" /><Compile Include="StandardPieces.fs" />
+    <Compile Include="StandardPieces.fs" />
     
   </ItemGroup>
 
