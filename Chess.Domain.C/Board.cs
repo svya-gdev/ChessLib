@@ -30,7 +30,7 @@ public sealed class Board
     private void PieceMoveFromCoordinatesToCoordinates(HomeCoordinates oldCoordinates, HomeCoordinates newCoordinates)
     {
         var piece = PieceReadFromCoordinates(oldCoordinates);
-        PieceReadFromCoordinates(oldCoordinates);
+        PieceRemoveFromCoordinates(oldCoordinates);
         PieceAddToCoordinates(piece, newCoordinates);
     }
 
@@ -228,6 +228,15 @@ public sealed class Board
         // Yes, if path is horse-like or no occupation is in the way
     }
 
+    public bool PieceIsWillingToCaptureByDislodgement(PieceLocation location, PieceDislodgement dislodgement)
+    {
+        var fued    = dislodgement.Fued;
+        var teamOne = PieceReadFromCoordinates(location.ToHomeCoordinates).Team;
+        var teamTwo = PieceReadFromCoordinates(dislodgement.Relocation.ApplyTo(location).ToHomeCoordinates).Team;
+
+        return fued.IsTeamOneHostileToTeamTwo(teamOne, teamTwo);
+    }
+
 
 
     // // // // // // // // // // PIECE  CAPTUREMENT  COMMAND // // // // // // // // //
@@ -242,6 +251,7 @@ public sealed class Board
         if (!PieceIsInformedAboutDislodgement(oldLocation, dislodgement)) throw new RuleBrokenException();
         if (!PieceIsAbleToCaptureOnLocation(newLocation)) throw new RuleBrokenException();
         if (!PieceIsAbleToMoveByDislodgement(oldLocation, dislodgement)) throw new RuleBrokenException();
+        if (!PieceIsWillingToCaptureByDislodgement(oldLocation, dislodgement)) throw new RuleBrokenException();
 
         var oldCoordinates = oldLocation.ToHomeCoordinates;
         var newCoordinates = newLocation.ToHomeCoordinates;

@@ -5,21 +5,21 @@ module public NewPieces =
         Advances = Combinations.orthogonalKnightMoves |> Set.ofList
         Captures = Set.empty
     }
-    let public destrier(mindset) = {
+    let public destrier(fued) = {
         Advances = Set.empty
         Captures = [
             for move in Combinations.orthogonalKnightMoves -> {
                 Relocation = move
-                Mindset = mindset
+                Fued       = fued
             }
         ] |> Set.ofList
     }
-    let public knight(mindset) = {
+    let public knight(fued) = {
         Advances = Combinations.orthogonalKnightMoves |> Set.ofList
         Captures = [
             for move in Combinations.orthogonalKnightMoves -> {
                 Relocation = move
-                Mindset = mindset
+                Fued       = fued
             }
         ] |> Set.ofList
     }
@@ -27,25 +27,25 @@ module public NewPieces =
         Advances = Combinations.diagonalKnightMoves |> Set.ofList
         Captures = Set.empty
     }
-    let public coursier(mindset) = {
+    let public coursier(fued) = {
         Advances = Set.empty
         Captures = [
             for move in Combinations.diagonalKnightMoves -> {
                 Relocation = move
-                Mindset = mindset
+                Fued       = fued
             }
         ] |> Set.ofList
     }
-    let public paladin(mindset) = {
+    let public paladin(fued) = {
         Advances = Combinations.diagonalKnightMoves |> Set.ofList
         Captures = [
             for move in Combinations.diagonalKnightMoves -> {
                 Relocation = move
-                Mindset = mindset
+                Fued       = fued
             }
         ] |> Set.ofList
     }
-    let public rook(mindset) = {
+    let public rook(fued) = {
         Advances = List.concat [
             Combinations.orthogonalOneTileMoves
             Combinations.orthogonalTwoTileMoves
@@ -58,11 +58,11 @@ module public NewPieces =
                 Combinations.orthogonalThreeTileMoves
             ] -> {
                 Relocation = move
-                Mindset = mindset
+                Fued       = fued
             }
         ] |> Set.ofList
     }
-    let public rookie(mindset) = {
+    let public rookie(fued) = {
         Advances = List.concat [
             Combinations.orthogonalOneTileMoves
             Combinations.orthogonalTwoTileMoves
@@ -73,11 +73,11 @@ module public NewPieces =
                 Combinations.orthogonalTwoTileMoves
             ] -> {
                 Relocation = move
-                Mindset = mindset
+                Fued       = fued
             }
         ] |> Set.ofList
     }
-    let public roo(mindset) = {
+    let public roo(fued) = {
         Advances = List.concat [
             Combinations.orthogonalOneTileMoves
         ] |> Set.ofList
@@ -86,11 +86,11 @@ module public NewPieces =
                 Combinations.orthogonalOneTileMoves
             ] -> {
                 Relocation = move
-                Mindset = mindset
+                Fued       = fued
             }
         ] |> Set.ofList
     }
-    let public bishop(mindset) = {
+    let public bishop(fued) = {
         Advances = List.concat [
             Combinations.diagonalOneTileMoves
             Combinations.diagonalTwoTileMoves
@@ -103,11 +103,11 @@ module public NewPieces =
                 Combinations.diagonalThreeTileMoves
             ] -> {
                 Relocation = move
-                Mindset = mindset
+                Fued       = fued
             }
         ] |> Set.ofList
     }
-    let public bishie(mindset) = {
+    let public bishie(fued) = {
         Advances = List.concat [
             Combinations.diagonalOneTileMoves
             Combinations.diagonalTwoTileMoves
@@ -118,11 +118,11 @@ module public NewPieces =
                 Combinations.diagonalTwoTileMoves
             ] -> {
                 Relocation = move
-                Mindset = mindset
+                Fued       = fued
             }
         ] |> Set.ofList
     }
-    let public bee(mindset) = {
+    let public bee(fued) = {
         Advances = List.concat [
             Combinations.diagonalOneTileMoves
         ] |> Set.ofList
@@ -131,7 +131,7 @@ module public NewPieces =
                 Combinations.diagonalOneTileMoves
             ] -> {
                 Relocation = move
-                Mindset = mindset
+                Fued       = fued
             }
         ] |> Set.ofList
     }
@@ -142,7 +142,7 @@ module public NewPieces =
         ] |> Set.ofList
         Captures = Set.empty
     }
-    let public man(mindset) = {
+    let public man(fued) = {
         Advances = List.concat [
             Combinations.orthogonalOneTileMoves
             Combinations.diagonalOneTileMoves
@@ -153,11 +153,11 @@ module public NewPieces =
                 Combinations.diagonalOneTileMoves
             ] -> {
                 Relocation = move
-                Mindset = mindset
+                Fued       = fued
             }
         ] |> Set.ofList
     }
-    let public oldMan(mindset) = {
+    let public oldMan(fued) = {
         Advances = Set.empty
         Captures = [
             for move in List.concat [
@@ -165,7 +165,7 @@ module public NewPieces =
                 Combinations.diagonalOneTileMoves
             ] -> {
                 Relocation = move
-                Mindset = mindset
+                Fued       = fued
             }
         ] |> Set.ofList
     }
@@ -178,7 +178,7 @@ module public NewPieces =
         ] |> Set.ofList
         Captures = Set.empty
     }
-    let public human(mindset) = {
+    let public human(fued) = {
         Advances = List.concat [
             Combinations.orthogonalOneTileMoves
             Combinations.orthogonalTwoTileMoves
@@ -193,11 +193,11 @@ module public NewPieces =
                 Combinations.diagonalTwoTileMoves
             ] -> {
                 Relocation = move
-                Mindset = mindset
+                Fued       = fued
             }
         ] |> Set.ofList
     }
-    let public oldHuman(mindset) = {
+    let public oldHuman(fued) = {
         Advances = Set.empty
         Captures = [
             for move in List.concat [
@@ -207,7 +207,7 @@ module public NewPieces =
                 Combinations.diagonalTwoTileMoves
             ] -> {
                 Relocation = move
-                Mindset = mindset
+                Fued       = fued
             }
         ] |> Set.ofList
     }
@@ -222,7 +222,7 @@ module public NewPieces =
         ] |> Set.ofList
         Captures = Set.empty
     }
-    let public woman(mindset) = {
+    let public woman(fued) = {
         Advances = List.concat [
             Combinations.orthogonalOneTileMoves
             Combinations.orthogonalTwoTileMoves
@@ -241,11 +241,11 @@ module public NewPieces =
                 Combinations.diagonalThreeTileMoves
             ] -> {
                 Relocation = move
-                Mindset = mindset
+                Fued       = fued
             }
         ] |> Set.ofList
     }
-    let public oldWoman(mindset) = {
+    let public oldWoman(fued) = {
         Advances = Set.empty
         Captures = [
             for move in List.concat [
@@ -257,7 +257,7 @@ module public NewPieces =
                 Combinations.diagonalThreeTileMoves
             ] -> {
                 Relocation = move
-                Mindset = mindset
+                Fued       = fued
             }
         ] |> Set.ofList
     }

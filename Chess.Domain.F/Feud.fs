@@ -10,15 +10,15 @@ type public Feud =
     | WithSameTeamAndOpposite
     | WithEveryone
     with
-    member internal this.IsTeam1HostileToTeam2 team1 team2 =
-        if team1 = Undefined || team2 = Undefined then
+    member internal this.IsTeamOneHostileToTeamTwo(teamOne, teamTwo) =
+        if teamOne = Undefined || teamTwo = Undefined then
             false
         else
             match this with
-            | WithSameTeam -> team1.SameTeam = team2
-            | WithNeutrals -> team1.Neutrals = team2
-            | WithOpposite -> team1.Opposite = team2
-            | WithSameTeamAndNeutrals -> team1.SameTeam = team2 || team1.Neutrals = team2
-            | WithNeutralsAndOpposite -> team1.Neutrals = team2 || team1.Opposite = team2
-            | WithSameTeamAndOpposite -> team1.SameTeam = team2 || team1.Opposite = team2
+            | WithSameTeam -> teamOne.SameTeam = teamTwo
+            | WithNeutrals -> teamOne.Neutrals = teamTwo
+            | WithOpposite -> teamOne.Opposite = teamTwo
+            | WithSameTeamAndNeutrals -> teamOne.SameTeam = teamTwo || teamOne.Neutrals = teamTwo
+            | WithNeutralsAndOpposite -> teamOne.Neutrals = teamTwo || teamOne.Opposite = teamTwo
+            | WithSameTeamAndOpposite -> teamOne.SameTeam = teamTwo || teamOne.Opposite = teamTwo
             | WithEveryone -> true
