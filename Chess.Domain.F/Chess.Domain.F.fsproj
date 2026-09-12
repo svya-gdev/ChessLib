@@ -20,13 +20,12 @@
     <Compile Include="Team.fs" />
     <Compile Include="Feud.fs" />
     
-
     <Compile Include="PieceDislodgement.fs" />
     <Compile Include="PieceDevelopment.fs" />
 
-    <Compile Include="Combinations.fs" />
-    <Compile Include="AuthoredPieces.fs" />
-    
+    <Compile Include="Repeat.fs" />
+    <Compile Include="ClassicalDirections.fs" />
+    <Compile Include="Convert.fs" />
     <Compile Include="StandardPieces.fs" />
     
   </ItemGroup>
