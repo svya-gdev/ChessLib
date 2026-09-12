@@ -1,13 +1,5 @@
 ﻿namespace Chess.Domain;
 
-
-
-internal sealed class OccupationCollisionException() : Exception();
-
-internal sealed class OccupationAbsenceException() : Exception();
-
-
-
 internal sealed class OccupationMap
 {
     private readonly HashSet<HomeCoordinates> occupation = [];

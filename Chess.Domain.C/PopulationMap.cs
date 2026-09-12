@@ -1,13 +1,5 @@
 namespace Chess.Domain;
 
-
-
-internal sealed class PieceRepetitionException() : Exception();
-internal sealed class PieceCollisionException() : Exception();
-internal sealed class PieceAbsenceException() : Exception();
-
-
-
 internal sealed class PopulationMap
 {
     private readonly Dictionary<HomeCoordinates, Piece> pieces = [];

@@ -1,143 +1,155 @@
 namespace Chess.Domain;
 
-
-
-public sealed class CoordinatesAlreadyOccupiedException() : Exception();
-public sealed class CoordinatesAlreadyUnoccupiedException() : Exception();
-
-
-
-public sealed class RuleBrokenException() : Exception(); // WIP
-
-
-
 public sealed class Board
 {
+
+
+
     private readonly OccupationMap occupationMap = new();
     private readonly PopulationMap populationMap = new();
-    // private readonly DoorMap doorMap = new();
 
 
 
-    internal void WallAddToCoordinates(WallCoordinates wallCoordinates)
+    private void PieceAddToCoordinates(Piece piece, HomeCoordinates coordinates)
     {
-        var homeCoordinates = wallCoordinates.ToHomeCoordinates();
-        if (occupationMap.IsOccupied(homeCoordinates)) throw new CoordinatesAlreadyOccupiedException();
-        occupationMap.AddOccupation(homeCoordinates);
+        occupationMap.AddOccupation(coordinates);
+        populationMap.AddPiece(piece, coordinates);
     }
 
-    internal void WallRemoveFromCoordinates(WallCoordinates wallCoordinates)
+    private void PieceRemoveFromCoordinates(HomeCoordinates coordinates)
     {
-        var homeCoordinates = wallCoordinates.ToHomeCoordinates();
-        if (!occupationMap.IsOccupied(homeCoordinates)) throw new CoordinatesAlreadyUnoccupiedException();
-        occupationMap.RemoveOccupation(homeCoordinates);
+        occupationMap.RemoveOccupation(coordinates);
+        populationMap.RemovePiece(coordinates);
     }
 
-    internal void BlockAddToCoordinates(TileCoordinates tileCoordinates)
+    private Piece PieceReadFromCoordinates(HomeCoordinates coordinates)
     {
-        var homeCoordinates = tileCoordinates.ToHomeCoordinates();
-        if (occupationMap.IsOccupied(homeCoordinates)) throw new CoordinatesAlreadyOccupiedException();
-        occupationMap.AddOccupation(homeCoordinates);
+        return populationMap.ReadPiece(coordinates);
     }
 
-    internal void BlockRemoveFromCoordinates(TileCoordinates tileCoordinates)
+    private void PieceMoveFromCoordinatesToCoordinates(HomeCoordinates oldCoordinates, HomeCoordinates newCoordinates)
     {
-        var homeCoordinates = tileCoordinates.ToHomeCoordinates();
-        if (!occupationMap.IsOccupied(homeCoordinates)) throw new CoordinatesAlreadyUnoccupiedException();
-        occupationMap.RemoveOccupation(homeCoordinates);
+        var piece = PieceReadFromCoordinates(oldCoordinates);
+        PieceReadFromCoordinates(oldCoordinates);
+        PieceAddToCoordinates(piece, newCoordinates);
+    }
+
+    private void PieceReplaceFromCoordinatesToCoordinates(HomeCoordinates oldCoordinates, HomeCoordinates newCoordinates)
+    {
+        PieceRemoveFromCoordinates(newCoordinates);
+        PieceMoveFromCoordinatesToCoordinates(oldCoordinates, newCoordinates);
     }
 
 
-    
-    // // // // // // // // // // PIECE PLACEMENT RULES // // // // // // // // // //
+
+    // // // // // // // // // // PIECE PLACEMENT RULES // // // // // // // // // // //
 
 
 
-    public bool IsAbleToAddPieceToLocation(Piece piece, PieceLocation location)
-        => !populationMap.IsPieceAdded(piece) && !occupationMap.IsOccupied(location.HomeCoordinates);
-    // Yes, if piece is not added and location is not occupied
+    public bool PieceIsAbleToAdd(Piece piece)
+    {
+        return !populationMap.IsPieceAdded(piece);
+        // Yes, if given piece is not added
+    }
 
-    public bool IsLocationOccupiedByPiece(PieceLocation location)
-        => populationMap.IsPieceAdded(location.HomeCoordinates);
-    // Yes, if piece is added
-
-    public bool IsAbleToRemovePieceFromLocation(PieceLocation location)
-        => IsLocationOccupiedByPiece(location);
-    // Yes, if location is occupied by a piece
+    public bool PieceIsAbleToAddToLocation(PieceLocation location)
+    {
+        return !occupationMap.IsOccupied(location.ToHomeCoordinates);
+        // Yes, if given location is not occupied
+    }
 
 
 
-    // // // // // // // // // // PIECE PLACEMENT COMMANDS // // // // // // // // // //
+    // // // // // // // // // // PIECE PLACEMENT COMMAND  // // // // // // // // // //
 
 
 
     public void PieceAddToLocation(Piece piece, PieceLocation location)
     {
-        if (!IsAbleToAddPieceToLocation(piece, location)) throw new RuleBrokenException();
+        if(!PieceIsAbleToAdd(piece)) throw new RuleBrokenException();
+        if(!PieceIsAbleToAddToLocation(location)) throw new RuleBrokenException();
 
-        var homeCoordinates = location.HomeCoordinates;
-
-        occupationMap.AddOccupation(homeCoordinates);
-        populationMap.AddPiece(piece, homeCoordinates);
+        PieceAddToCoordinates(piece, location.ToHomeCoordinates);
     }
+
+
+
+    // // // // // // // // // // PIECE REMOVAL RULE // // // // // // // // // // // //
+
+
+
+    public bool PieceIsAbleToRemoveFromLocation(PieceLocation location)
+    {
+        return populationMap.IsPieceAdded(location.ToHomeCoordinates);
+        // Yes, if any piece is added to given location
+    }
+
+
+
+    // // // // // // // // // // PIECE REMOVAL COMMAND // // // // // // // // // // //
+
+
 
     public void PieceRemoveFromLocation(PieceLocation location)
     {
-        if (!IsAbleToRemovePieceFromLocation(location)) throw new RuleBrokenException();
+        if (!PieceIsAbleToRemoveFromLocation(location)) throw new RuleBrokenException();
 
-        var homeCoordinates = location.HomeCoordinates;
-
-        occupationMap.RemoveOccupation(homeCoordinates);
-        populationMap.RemovePiece(homeCoordinates);
+        PieceRemoveFromCoordinates(location.ToHomeCoordinates);
     }
 
 
 
-    // // // // // // // // // // PIECE READ RULE // // // // // // // // // //
+    // // // // // // // // // // PIECE  READMENT  RULE // // // // // // // // // // //
 
 
 
-    public bool IsAbleToReadPieceFromLocation(PieceLocation location)
-        => IsLocationOccupiedByPiece(location);
-    // Yes, if location is occupied by a piece
+    public bool PieceIsAbleToReadFromLocation(PieceLocation location)
+    {
+        return populationMap.IsPieceAdded(location.ToHomeCoordinates);
+        // Yes, if any piece is added to given location
+    }
 
 
 
-    // // // // // // // // // // PIECE READ COMMAND // // // // // // // // // //
+    // // // // // // // // // // PIECE  READMENT  COMMAND // // // // // // // // // //
 
 
 
     public Piece PieceReadFromLocation(PieceLocation location)
     {
-        if (!IsAbleToReadPieceFromLocation(location)) throw new RuleBrokenException();
+        if (!PieceIsAbleToReadFromLocation(location)) throw new RuleBrokenException();
 
-        return populationMap.ReadPiece(location.HomeCoordinates);
+        return PieceReadFromCoordinates(location.ToHomeCoordinates);
     }
 
 
 
-    // // // // // // // // // // PIECE MOVEMENT RULES // // // // // // // // // //
+    // // // // // // // // // // PIECE ADVANCEMENT RULES  // // // // // // // // // //
 
 
 
-    public bool IsDislodgementPossible(PieceLocation attackerLocation, PieceDislodgement dislodgement)
-    // Yes, if both locations occupied by pieces and spite against attacked piece's team
+    public bool PieceIsAbleToAdvanceFromLocation(PieceLocation location)
     {
-        if (!IsLocationOccupiedByPiece(attackerLocation)) return false;
-
-        var attackedLocation = dislodgement.Relocation.ApplyTo(attackerLocation);
-        if (!IsLocationOccupiedByPiece(attackedLocation)) return false;
-
-        return dislodgement.Mindset.IsHostileTo(populationMap.ReadPiece(dislodgement.Relocation.ApplyTo(attackedLocation).HomeCoordinates).Mindset);
+        return populationMap.IsPieceAdded(location.ToHomeCoordinates);
+        // Yes, if any piece is added to given location
     }
 
-    public bool IsLocationAdvancable(PieceLocation location)
-        => !occupationMap.IsOccupied(location.HomeCoordinates);
-    // Yes, if not occupied
-
-    public bool IsPathWalkable(PieceLocation location, PieceRelocation relocation)
-    // Yes, if path is horse-like or no occupation in the way
+    public bool PieceIsInformedAboutRelocation(PieceLocation location, PieceRelocation relocation)
     {
+        return populationMap.ReadPiece(location.ToHomeCoordinates).Advances.Contains(relocation);
+        // Yes, if piece on given location contains given relocation
+    }
+
+    public bool PieceIsAbleToAdvanceToLocation(PieceLocation location)
+    {
+        return !occupationMap.IsOccupied(location.ToHomeCoordinates);
+        // Yes, if given location is not occupied
+    }
+
+    public bool PieceIsAbleToMoveByRelocation(PieceLocation location, PieceRelocation relocation)
+    {
+        // Yes, if path is horse-like or no occupation is in the way
+
         if (relocation.IsHorseLike) return true;
 
         var stepX = Math.Sign(unchecked((int)relocation.FileDelta));
@@ -150,8 +162,8 @@ public sealed class Board
 
         var homeSteps = tileSteps * 2;
 
-        var x = (long)location.HomeCoordinates.X;
-        var y = (long)location.HomeCoordinates.Y;
+        var x = (long)location.ToHomeCoordinates.X;
+        var y = (long)location.ToHomeCoordinates.Y;
 
         for (var i = 1; i < homeSteps; i++)
         {
@@ -167,48 +179,76 @@ public sealed class Board
 
 
 
-    // // // // // // // // // // PIECE MOVEMENT COMMANDS // // // // // // // // // //
+    // // // // // // // // // // PIECE ADVANCEMENT COMMAND  // // // // // // // // //
 
 
 
-    public void PieceCaptureFromLocation(PieceLocation location, PieceDislodgement dislodgement)
+    public void PieceAdvanceFromLocationByRelocation(PieceLocation oldLocation, PieceRelocation relocation)
     {
-        var targetLocation = dislodgement.Relocation.ApplyTo(location);
+        var newLocation = relocation.ApplyTo(oldLocation);
 
-        if (dislodgement.Relocation.IsNonMoving) throw new RuleBrokenException();
-        if (!IsDislodgementPossible(location, dislodgement)) throw new RuleBrokenException();
-        if (!IsPathWalkable(location, dislodgement.Relocation)) throw new RuleBrokenException();
-        if (!populationMap.ReadPiece(location.HomeCoordinates).Captures.Contains(dislodgement)) throw new RuleBrokenException();
+        if (!PieceIsAbleToAdvanceFromLocation(oldLocation)) throw new RuleBrokenException();
+        if (!PieceIsInformedAboutRelocation(oldLocation, relocation)) throw new RuleBrokenException();
+        if (!PieceIsAbleToAdvanceToLocation(newLocation)) throw new RuleBrokenException();
+        if (!PieceIsAbleToMoveByRelocation(oldLocation, relocation)) throw new RuleBrokenException();
 
-        var oldCoordinates = location.HomeCoordinates;
-        var newCoordinates = targetLocation.HomeCoordinates;
-        var piece = populationMap.ReadPiece(oldCoordinates);
+        var oldCoordinates = oldLocation.ToHomeCoordinates;
+        var newCoordinates = newLocation.ToHomeCoordinates;
 
-        occupationMap.RemoveOccupation(oldCoordinates);
-        populationMap.RemovePiece(oldCoordinates);
-        occupationMap.RemoveOccupation(newCoordinates);
-        populationMap.RemovePiece(newCoordinates);
-        occupationMap.AddOccupation(newCoordinates);
-        populationMap.AddPiece(piece, newCoordinates);
+        PieceMoveFromCoordinatesToCoordinates(oldCoordinates, newCoordinates);
     }
 
-    public void PieceAdvanceFromLocation(PieceLocation location, PieceRelocation relocation)
+
+
+    // // // // // // // // // // PIECE CAPTUREMENT RULES  // // // // // // // // // //
+
+
+
+    public bool PieceIsAbleToCaptureFromLocation(PieceLocation location)
     {
-        var targetLocation = relocation.ApplyTo(location);
-
-        if (relocation.IsNonMoving) throw new RuleBrokenException();
-        if (!IsLocationOccupiedByPiece(location)) throw new RuleBrokenException();
-        if (!IsLocationAdvancable(targetLocation)) throw new RuleBrokenException();
-        if (!IsPathWalkable(location, relocation)) throw new RuleBrokenException();
-        if (!populationMap.ReadPiece(location.HomeCoordinates).Advances.Contains(relocation)) throw new RuleBrokenException();
-
-        var oldCoordinates = location.HomeCoordinates;
-        var newCoordinates = targetLocation.HomeCoordinates;
-        var piece = populationMap.ReadPiece(oldCoordinates);
-
-        occupationMap.RemoveOccupation(oldCoordinates);
-        populationMap.RemovePiece(oldCoordinates);
-        occupationMap.AddOccupation(newCoordinates);
-        populationMap.AddPiece(piece, newCoordinates);
+        return populationMap.IsPieceAdded(location.ToHomeCoordinates);
+        // Yes, if any piece is added to given location
     }
+
+    public bool PieceIsInformedAboutDislodgement(PieceLocation location, PieceDislodgement dislodgement)
+    {
+        return populationMap.ReadPiece(location.ToHomeCoordinates).Captures.Contains(dislodgement);
+        // Yes, if piece on given location contains given dislodgement
+    }
+
+    public bool PieceIsAbleToCaptureOnLocation(PieceLocation location)
+    {
+        return populationMap.IsPieceAdded(location.ToHomeCoordinates);
+        // Yes, if any piece is added to given location
+    }
+
+    public bool PieceIsAbleToMoveByDislodgement(PieceLocation location, PieceDislodgement dislodgement)
+    {
+        return PieceIsAbleToMoveByRelocation(location, dislodgement.Relocation);
+        // Yes, if path is horse-like or no occupation is in the way
+    }
+
+
+
+    // // // // // // // // // // PIECE  CAPTUREMENT  COMMAND // // // // // // // // //
+
+
+
+    public void PieceCaptureFromLocationByDislodgement(PieceLocation oldLocation, PieceDislodgement dislodgement)
+    {
+        var newLocation = dislodgement.Relocation.ApplyTo(oldLocation);
+
+        if (!PieceIsAbleToCaptureFromLocation(oldLocation)) throw new RuleBrokenException();
+        if (!PieceIsInformedAboutDislodgement(oldLocation, dislodgement)) throw new RuleBrokenException();
+        if (!PieceIsAbleToCaptureOnLocation(newLocation)) throw new RuleBrokenException();
+        if (!PieceIsAbleToMoveByDislodgement(oldLocation, dislodgement)) throw new RuleBrokenException();
+
+        var oldCoordinates = oldLocation.ToHomeCoordinates;
+        var newCoordinates = newLocation.ToHomeCoordinates;
+
+        PieceReplaceFromCoordinatesToCoordinates(oldCoordinates, newCoordinates);
+    }
+
+
+
 }
