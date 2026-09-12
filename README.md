@@ -1,10 +1,11 @@
-![[Group 2 (3).svg]]
+![3](Vectors/Group 2 (3).svg)
 
-![[Group 2 (4).svg]]
+![4](Vectors/Group 2 (4).svg)
 
-![[Group 2 (5).svg]]
+![5](Vectors/Group 2 (5).svg)
 
-![[Group 2 (6).svg]]
+![6](Vectors/Group 2 (6).svg)
+
 #### Minor types / Малые типы
 
 Self-explanatory structures and classes. / Структуры и классы, не требующие пояснений.
