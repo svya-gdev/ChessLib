@@ -2,7 +2,7 @@
 
 ![4](Vectors/Group 2 (4).svg)
 
-![5](Vectors/Group 2 (5).svg)
+![5](https://github.com/svya-gdev/ChessLib/blob/master/Vectors/Group%202%20(5).svg)
 
 ![6](https://github.com/svya-gdev/ChessLib/blob/master/Vectors/Group%202%20(6).svg)
 
