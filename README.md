@@ -1,7 +1,6 @@
 #### Minor types / Малые типы
 
-Self-explanatory structures and classes.
-Структуры и классы, не требующие пояснений.
+Self-explanatory structures and classes. / Структуры и классы, не требующие пояснений.
 
 ##### PieceLocation / Локация фигуры
 
@@ -84,10 +83,9 @@ public sealed class Piece(PieceDevelopment development, Team team)
 
 #### Major types / Большие типы
 
-Modules and classes requiring explanation.
-Модули и классы, требующие пояснения.
+Modules and classes requiring explanation. / Модули и классы, требующие пояснения.
 
-##### StandardPieces / Стандартные фигуры
+##### module public StandardPieces / Публичный модуль стандартные фигуры
 
 ###### .whitePawn / Белая пешка
 
@@ -103,152 +101,44 @@ Modules and classes requiring explanation.
 
 ###### .anyKnight / Любой конь
 
-##### Board 
+##### public sealed class Board / Публичный запечатанный класс доска
 
+###### .PieceIsAbleToAdd(Piece piece)
 
+###### .PieceIsAbleToAddToLocation(PieceLocation location)
 
+###### .PieceAddToLocation(Piece piece, PieceLocation location)
 
-# OutDated
+###### .PieceIsAbleToRemoveFromLocation(PieceLocation location)
 
+###### .PieceRemoveFromLocation(PieceLocation location)
 
+###### .PieceIsAbleToReadFromLocation(PieceLocation location)
 
+###### .PieceReadFromLocation(PieceLocation location)
 
-##### Team { White, Black }
-Описывает две команды: белые и черные.
+###### .MoveIsPossibleFromLocation(PieceLocation location)
 
-```F#
-[<Struct>]
-type public Team =
-    | White
-    | Black
-```
+###### .MoveIsChangingPiecePosition(PieceRelocation relocation)
 
-###### .Opposite
-Команда-противник. Для White — Black, и наоборот.
+###### .MoveIsChangingPiecePosition(PieceDislodgement dislodgement)
 
-```F#
-member public this.Opposite =
-    match this with
-    | White -> Black
-    | Black -> White
-```
+###### .MoveIsPossibleThroughSpace(PieceLocation location, PieceRelocation relocation)
 
-##### Spite { WithOppositeTeam, WithEveryTeam }
-Описывает кого может атаковать команда.
+###### .MoveIsPossibleThroughSpace(PieceLocation location, PieceDislodgement dislodgement)
 
->[!WARNING]
-> Имена громоздкие или не понятны интуитивно, а значит могут быть изменены в следующих версиях.
+###### .PieceIsInformedAboutRelocation(PieceLocation location, PieceRelocation relocation)
 
->[!NOTE]
-> В следующих версиях может быть добавлено больше команд и их взаимоотношений.
+###### .PieceIsAbleToAdvanceToLocation(PieceLocation location)
 
-```F#
-[<Struct>]
-type public Spite =
-    | WithOppositeTeam
-    | WithEveryTeam
-```
+###### .PieceIsInformedAboutDislodgement(PieceLocation location, PieceDislodgement dislodgement)
 
-###### .IsFromTeamToTeam(subject, object)
-Определяет, враждебна ли команда `subject` по отношению к `object`, согласно этому значению `Spite`.
+###### .PieceIsAbleToCaptureOnLocation(PieceLocation location)
 
-> [!WARNING]
-> Имена громоздкие или не понятны интуитивно, а значит могут быть изменены в следующих версиях.
+###### .PieceIsWillingToCaptureByDislodgement(PieceLocation location, PieceDislodgement dislodgement)
 
-```F#
-member public this.IsFromTeamToTeam(subject : Team, object : Team) =
-    match this with
-    | WithOppositeTeam -> subject.Opposite = object
-    | WithEveryTeam -> true
-```
+###### .PieceAdvanceFromLocationByRelocation(PieceLocation oldLocation, PieceRelocation relocation)
 
-##### PieceLocation(File, Rank)
-Описывает положение фигуры на доске.
+###### .PieceCaptureFromLocationByDislodgement(PieceLocation oldLocation, PieceDislodgement dislodgement)
 
-```F#
-[<Struct>]
-type public PieceLocation = {
-    File: uint32
-    Rank: uint32
-}
-```
-
-##### PieceRelocation(FileDelta, RankDelta)
-Описывает смещение фигуры с одной `PieceLocation(File, Rank)` к другой.
-
-> [!NOTE]
-> Отрицательные смещения кодируются через переполнение беззнакового `uint32` (например, смещение -1 хранится как `UInt32.MaxValue`). 
-
->[!CAUTION]
-> Не собирайте `PieceRelocation` вручную — используйте готовые фигуры из `ClassicPieces`.
-
-```F#
-[<Struct>]
-type public PieceRelocation = {
-    FileDelta: uint32
-    RankDelta: uint32
-}
-```
-###### .ApplyTo(PieceLocation(File, Rank))
-Возвращает клетку, в которой окажется фигура после применения этого смещения к исходной позиции.
-
-```F#
-member public this.ApplyTo(location) = {
-    File = location.File + this.FileDelta
-    Rank = location.Rank + this.RankDelta
-}
-```
-
-###### .IsHorseLike
-Истинно, если смещение имеет форму хода коня — обе оси ненулевые и не равны друг другу. Для таких смещений фигура перепрыгивает через промежуточные клетки, не проверяя их на занятость.
-
-```F#
-member public this.IsHorseLike =
-    this.FileDelta <> this.RankDelta &&
-    this.FileDelta <> 0u &&
-    0u <> this.RankDelta
-```
-
-###### .IsStraight
-Истинно, если смещение идёт по прямой линии — вдоль одной оси (горизонталь/вертикаль) либо строго по диагонали. Для таких смещений промежуточные клетки между исходной позицией и целью должны быть свободны.
-
-```F#
-member public this.IsStraight =
-    this.FileDelta = this.RankDelta ||
-    this.FileDelta = 0u ||
-    0u = this.RankDelta
-```
-
-###### .IsNonMoving
-Истинно только для нулевого смещения (`FileDelta = 0`, `RankDelta = 0`) — то есть когда фигура фактически остаётся на месте. Используется, чтобы отличить "не двигается" от смещений, которые двигают фигуру хотя бы на одну клетку.
-
-```F#
-member public this.IsNonMoving =
-    this.FileDelta = 0u &&
-    this.RankDelta = 0u
-```
-
-##### PieceDislodgement(Relocation, Spite)
-Описывает одно конкретное взятие: куда сдвигается атакующая фигура (`Relocation`) и против каких команд это взятие применимо (`Spite`).
-
->[!WARNING]
-> Имена громоздкие или не понятны интуитивно, а значит могут быть изменены в следующих версиях.
-
-```F#
-[<Struct>]
-type public PieceDislodgement = {
-    Relocation : PieceRelocation
-    Spite : Spite
-}
-```
-
-##### PieceDevelopment(Advances, Captures)
-Полный набор ходов фигуры: все смещения, на которые она может продвинуться без взятия (`Advances`), и все взятия, которые она может совершить (`Captures`). Готовые наборы для классических фигур — в `ClassicPieces`.
-
-```F#
-[<Struct>]
-type public PieceDevelopment = {
-    Advances : Set<PieceRelocation>
-    Captures : Set<PieceDislodgement>
-}
-```
+####
