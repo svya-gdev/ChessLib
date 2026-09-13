@@ -27,12 +27,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.RU.WIP.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "README.RU.WIP"
+              "title": "README"
             }
           }
         ],
@@ -98,7 +98,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "8ec51f74c07af57f",
@@ -203,8 +203,20 @@
       "bases:Create new base": false
     }
   },
-  "active": "4bf686f1acfe10c9",
+  "active": "b077db8d3804fb63",
   "lastOpenFiles": [
+    "Vectors/AnyBishopMoves.svg",
+    "README.md",
+    "Vectors/Canvas.svg",
+    "Vectors/AnyKnightMoves.svg",
+    "Vectors/AnyQueenMoves.svg",
+    "Vectors/AnyKingMoves.svg",
+    "Vectors/AnyRookMoves.svg",
+    "Vectors/BlackPawnMoves.svg",
+    "Group 67 (2).svg",
+    "Vectors/WhitePawnMoves.svg",
+    "Vectors",
+    "Untitled Folder",
     "README.EN.WIP.md",
     "README.RU.WIP.md"
   ]

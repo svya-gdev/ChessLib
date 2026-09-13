@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Grafika (https://www.grafika.cc/) -->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="222" height="822" viewBox="0 0 222 822" preserveAspectRatio="xMidYMid meet">
+	<g id="Group 73">
+		<g id="Group 66" transform="matrix(-1, -1.23223842228929e-16, 3.25817513764678e-16, -1, 167.848151012909, 148.171175258413)">
+			<g id="Rectangle 410" transform="matrix(-1, 0, 0, -1, -3.15184898709096, -622.828824741586)">
+				<path d="M-50 -50 L50 -50 L50 50 L-50 50 L-50 -50 Z" fill="#050505" fill-rule="evenodd" />
+				<path d="M-51 -50 L-51 50 C-51 50.55 -50.55 51 -50 51 L50 51 C50.55 51 51 50.55 51 50 L51 -50 C51 -50.55 50.55 -51 50 -51 L-50 -51 C-50.55 -51 -51 -50.55 -51 -50 Z M50 -50 L-50 -50 L-50 50 L50 50 L50 -50 Z" fill="#0A0A0A" fill-rule="evenodd" />
+			</g>
+			<g id="Group 65">
+				<rect transform="matrix(-1, 0, 0, -1, 36.848151012909, -662.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 411" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 36.848151012909, -582.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 412" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 36.848151012909, -622.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 413" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -43.151848987091, -662.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 414" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -43.151848987091, -582.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 415" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -43.151848987091, -622.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 416" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -3.15184898709096, -662.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 417" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -3.15184898709096, -582.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 418" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -3.15184898709096, -622.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 419" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 16.848151012909, -642.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 420" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 16.848151012909, -602.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 421" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -23.151848987091, -642.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 422" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -23.151848987091, -602.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 423" style="fill:#FAFAFA;" />
+			</g>
+		</g>
+		<g id="Group 19">
+			<g id="Rectangle 96">
+				<path d="M1 721 L101 721 L101 821 L1 821 L1 721 Z" fill="#FAFAFA" fill-rule="evenodd" />
+				<path d="M0 721 L0 821 C0 821.55 0.45 822 1 822 L101 822 C101.55 822 102 821.55 102 821 L102 721 C102 720.45 101.55 720 101 720 L1 720 C0.45 720 0 720.45 0 721 Z M101 721 L1 721 L1 821 L101 821 L101 721 Z" fill="#0A0A0A" fill-rule="evenodd" />
+			</g>
+			<g id="Group 18">
+				<rect x="1" y="801" width="20" height="20" id="Rectangle 98" style="fill:#050505;" />
+				<rect x="1" y="721" width="20" height="20" id="Rectangle 125" style="fill:#050505;" />
+				<rect x="1" y="761" width="20" height="20" id="Rectangle 126" style="fill:#050505;" />
+				<rect x="81" y="801" width="20" height="20" id="Rectangle 127" style="fill:#050505;" />
+				<rect x="81" y="721" width="20" height="20" id="Rectangle 128" style="fill:#050505;" />
+				<rect x="81" y="761" width="20" height="20" id="Rectangle 129" style="fill:#050505;" />
+				<rect x="41" y="801" width="20" height="20" id="Rectangle 130" style="fill:#050505;" />
+				<rect x="41" y="721" width="20" height="20" id="Rectangle 131" style="fill:#050505;" />
+				<rect x="41" y="761" width="20" height="20" id="Rectangle 132" style="fill:#050505;" />
+				<rect x="21" y="781" width="20" height="20" id="Rectangle 133" style="fill:#050505;" />
+				<rect x="21" y="741" width="20" height="20" id="Rectangle 134" style="fill:#050505;" />
+				<rect x="61" y="781" width="20" height="20" id="Rectangle 135" style="fill:#050505;" />
+				<rect x="61" y="741" width="20" height="20" id="Rectangle 136" style="fill:#050505;" />
+			</g>
+		</g>
+		<g id="Group 23">
+			<g id="Rectangle 137">
+				<path d="M41 721 L21 721 L21 741 L41 741 L41 721 Z M24 738 L24 724 L38 724 L38 738 L24 738 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 138">
+				<path d="M101 741 L81 741 L81 761 L101 761 L101 741 Z M84 758 L84 744 L98 744 L98 758 L84 758 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 139">
+				<path d="M21 781 L1 781 L1 801 L21 801 L21 781 Z M4 798 L4 784 L18 784 L18 798 L4 798 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 140">
+				<path d="M81 801 L61 801 L61 821 L81 821 L81 801 Z M64 818 L64 804 L78 804 L78 818 L64 818 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 141">
+				<path d="M21 741 L1 741 L1 761 L21 761 L21 741 Z M4 758 L4 744 L18 744 L18 758 L4 758 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 142">
+				<path d="M81 721 L61 721 L61 741 L81 741 L81 721 Z M64 738 L64 724 L78 724 L78 738 L64 738 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 143">
+				<path d="M41 801 L21 801 L21 821 L41 821 L41 801 Z M24 818 L24 804 L38 804 L38 818 L24 818 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 144">
+				<path d="M101 781 L81 781 L81 801 L101 801 L101 781 Z M84 798 L84 784 L98 784 L98 798 L84 798 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+		</g>
+		<g id="Group 52">
+			<g id="Rectangle 287">
+				<path d="M161 721 L141 721 L141 741 L161 741 L161 721 Z M144 738 L144 724 L158 724 L158 738 L144 738 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 288">
+				<path d="M221 741 L201 741 L201 761 L221 761 L221 741 Z M204 758 L204 744 L218 744 L218 758 L204 758 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 289">
+				<path d="M141 781 L121 781 L121 801 L141 801 L141 781 Z M124 798 L124 784 L138 784 L138 798 L124 798 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 290">
+				<path d="M201 801 L181 801 L181 821 L201 821 L201 801 Z M184 818 L184 804 L198 804 L198 818 L184 818 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 291">
+				<path d="M141 741 L121 741 L121 761 L141 761 L141 741 Z M124 758 L124 744 L138 744 L138 758 L124 758 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 292">
+				<path d="M201 721 L181 721 L181 741 L201 741 L201 721 Z M184 738 L184 724 L198 724 L198 738 L184 738 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 293">
+				<path d="M161 801 L141 801 L141 821 L161 821 L161 801 Z M144 818 L144 804 L158 804 L158 818 L144 818 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 294">
+				<path d="M221 781 L201 781 L201 801 L221 801 L221 781 Z M204 798 L204 784 L218 784 L218 798 L204 798 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+		</g>
+	</g>
+	<g id="Group 72">
+		<g id="Group 64" transform="matrix(-1, -1.23223842228929e-16, 3.25817513764678e-16, -1, 107.848151012909, 88.1711752584137)">
+			<g id="Rectangle 396" transform="matrix(-1, 0, 0, -1, 56.8481510129091, -562.828824741587)">
+				<path d="M-50 -50 L50 -50 L50 50 L-50 50 L-50 -50 Z" fill="#050505" fill-rule="evenodd" />
+				<path d="M-51 -50 L-51 50 C-51 50.55 -50.55 51 -50 51 L50 51 C50.55 51 51 50.55 51 50 L51 -50 C51 -50.55 50.55 -51 50 -51 L-50 -51 C-50.55 -51 -51 -50.55 -51 -50 Z M50 -50 L-50 -50 L-50 50 L50 50 L50 -50 Z" fill="#0A0A0A" fill-rule="evenodd" />
+			</g>
+			<g id="Group 49">
+				<rect transform="matrix(-1, 0, 0, -1, 96.8481510129091, -602.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 397" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 96.8481510129091, -522.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 398" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 96.8481510129091, -562.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 399" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 16.8481510129091, -602.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 400" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 16.8481510129091, -522.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 401" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 16.8481510129091, -562.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 402" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 56.8481510129091, -602.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 403" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 56.8481510129091, -522.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 404" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 56.8481510129091, -562.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 405" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 76.8481510129091, -582.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 406" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 76.8481510129091, -542.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 407" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 36.8481510129091, -582.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 408" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 36.8481510129091, -542.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 409" style="fill:#FAFAFA;" />
+			</g>
+		</g>
+		<g id="Group 12">
+			<g id="Rectangle 87">
+				<path d="M61 621 L41 621 L41 641 L61 641 L61 621 Z M44 638 L44 624 L58 624 L58 638 L44 638 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 88">
+				<path d="M61 601 L41 601 L41 621 L61 621 L61 601 Z M44 618 L44 604 L58 604 L58 618 L44 618 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 89">
+				<path d="M81 641 L61 641 L61 661 L81 661 L81 641 Z M64 658 L64 644 L78 644 L78 658 L64 658 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 90">
+				<path d="M101 641 L81 641 L81 661 L101 661 L101 641 Z M84 658 L84 644 L98 644 L98 658 L84 658 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 91">
+				<path d="M41 641 L21 641 L21 661 L41 661 L41 641 Z M24 658 L24 644 L38 644 L38 658 L24 658 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 92">
+				<path d="M21 641 L1 641 L1 661 L21 661 L21 641 Z M4 658 L4 644 L18 644 L18 658 L4 658 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 93">
+				<path d="M61 661 L41 661 L41 681 L61 681 L61 661 Z M44 678 L44 664 L58 664 L58 678 L44 678 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 94">
+				<path d="M61 681 L41 681 L41 701 L61 701 L61 681 Z M44 698 L44 684 L58 684 L58 698 L44 698 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 79">
+				<path d="M41 621 L21 621 L21 641 L41 641 L41 621 Z M24 638 L24 624 L38 624 L38 638 L24 638 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 80">
+				<path d="M21 601 L1 601 L1 621 L21 621 L21 601 Z M4 618 L4 604 L18 604 L18 618 L4 618 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 81">
+				<path d="M81 621 L61 621 L61 641 L81 641 L81 621 Z M64 638 L64 624 L78 624 L78 638 L64 638 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 82">
+				<path d="M101 601 L81 601 L81 621 L101 621 L101 601 Z M84 618 L84 604 L98 604 L98 618 L84 618 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 83">
+				<path d="M41 661 L21 661 L21 681 L41 681 L41 661 Z M24 678 L24 664 L38 664 L38 678 L24 678 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 84">
+				<path d="M21 681 L1 681 L1 701 L21 701 L21 681 Z M4 698 L4 684 L18 684 L18 698 L4 698 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 85">
+				<path d="M81 661 L61 661 L61 681 L81 681 L81 661 Z M64 678 L64 664 L78 664 L78 678 L64 678 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 86">
+				<path d="M101 681 L81 681 L81 701 L101 701 L101 681 Z M84 698 L84 684 L98 684 L98 698 L84 698 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+		</g>
+		<g id="Group 43">
+			<g id="Rectangle 221">
+				<path d="M121 601 L221 601 L221 701 L121 701 L121 601 Z" fill="#FAFAFA" fill-rule="evenodd" />
+				<path d="M120 601 L120 701 C120 701.55 120.45 702 121 702 L221 702 C221.55 702 222 701.55 222 701 L222 601 C222 600.45 221.55 600 221 600 L121 600 C120.45 600 120 600.45 120 601 Z M221 601 L121 601 L121 701 L221 701 L221 601 Z" fill="#0A0A0A" fill-rule="evenodd" />
+			</g>
+			<g id="Group 42">
+				<rect x="121" y="681" width="20" height="20" id="Rectangle 222" style="fill:#050505;" />
+				<rect x="121" y="601" width="20" height="20" id="Rectangle 223" style="fill:#050505;" />
+				<rect x="121" y="641" width="20" height="20" id="Rectangle 224" style="fill:#050505;" />
+				<rect x="201" y="681" width="20" height="20" id="Rectangle 225" style="fill:#050505;" />
+				<rect x="201" y="601" width="20" height="20" id="Rectangle 226" style="fill:#050505;" />
+				<rect x="201" y="641" width="20" height="20" id="Rectangle 227" style="fill:#050505;" />
+				<rect x="161" y="681" width="20" height="20" id="Rectangle 228" style="fill:#050505;" />
+				<rect x="161" y="601" width="20" height="20" id="Rectangle 229" style="fill:#050505;" />
+				<rect x="161" y="641" width="20" height="20" id="Rectangle 230" style="fill:#050505;" />
+				<rect x="141" y="661" width="20" height="20" id="Rectangle 231" style="fill:#050505;" />
+				<rect x="141" y="621" width="20" height="20" id="Rectangle 232" style="fill:#050505;" />
+				<rect x="181" y="661" width="20" height="20" id="Rectangle 233" style="fill:#050505;" />
+				<rect x="181" y="621" width="20" height="20" id="Rectangle 234" style="fill:#050505;" />
+			</g>
+		</g>
+		<g id="Group 44">
+			<g id="Rectangle 235">
+				<path d="M181 621 L161 621 L161 641 L181 641 L181 621 Z M164 638 L164 624 L178 624 L178 638 L164 638 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 236">
+				<path d="M181 601 L161 601 L161 621 L181 621 L181 601 Z M164 618 L164 604 L178 604 L178 618 L164 618 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 237">
+				<path d="M201 641 L181 641 L181 661 L201 661 L201 641 Z M184 658 L184 644 L198 644 L198 658 L184 658 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 238">
+				<path d="M221 641 L201 641 L201 661 L221 661 L221 641 Z M204 658 L204 644 L218 644 L218 658 L204 658 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 239">
+				<path d="M161 641 L141 641 L141 661 L161 661 L161 641 Z M144 658 L144 644 L158 644 L158 658 L144 658 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 240">
+				<path d="M141 641 L121 641 L121 661 L141 661 L141 641 Z M124 658 L124 644 L138 644 L138 658 L124 658 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 241">
+				<path d="M181 661 L161 661 L161 681 L181 681 L181 661 Z M164 678 L164 664 L178 664 L178 678 L164 678 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 242">
+				<path d="M181 681 L161 681 L161 701 L181 701 L181 681 Z M164 698 L164 684 L178 684 L178 698 L164 698 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 243">
+				<path d="M161 621 L141 621 L141 641 L161 641 L161 621 Z M144 638 L144 624 L158 624 L158 638 L144 638 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 244">
+				<path d="M141 601 L121 601 L121 621 L141 621 L141 601 Z M124 618 L124 604 L138 604 L138 618 L124 618 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 245">
+				<path d="M201 621 L181 621 L181 641 L201 641 L201 621 Z M184 638 L184 624 L198 624 L198 638 L184 638 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 246">
+				<path d="M221 601 L201 601 L201 621 L221 621 L221 601 Z M204 618 L204 604 L218 604 L218 618 L204 618 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 247">
+				<path d="M161 661 L141 661 L141 681 L161 681 L161 661 Z M144 678 L144 664 L158 664 L158 678 L144 678 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 248">
+				<path d="M141 681 L121 681 L121 701 L141 701 L141 681 Z M124 698 L124 684 L138 684 L138 698 L124 698 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 249">
+				<path d="M201 661 L181 661 L181 681 L201 681 L201 661 Z M184 678 L184 664 L198 664 L198 678 L184 678 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 250">
+				<path d="M221 681 L201 681 L201 701 L221 701 L221 681 Z M204 698 L204 684 L218 684 L218 698 L204 698 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+		</g>
+	</g>
+	<g id="Group 71">
+		<g id="Group 47" transform="matrix(-1, -1.23223842228929e-16, 3.25817513764678e-16, -1, 167.848151012909, 28.1711752584135)">
+			<g id="Rectangle 382" transform="matrix(-1, 0, 0, -1, -3.15184898709091, -502.828824741586)">
+				<path d="M-50 -50 L50 -50 L50 50 L-50 50 L-50 -50 Z" fill="#050505" fill-rule="evenodd" />
+				<path d="M-51 -50 L-51 50 C-51 50.55 -50.55 51 -50 51 L50 51 C50.55 51 51 50.55 51 50 L51 -50 C51 -50.55 50.55 -51 50 -51 L-50 -51 C-50.55 -51 -51 -50.55 -51 -50 Z M50 -50 L-50 -50 L-50 50 L50 50 L50 -50 Z" fill="#0A0A0A" fill-rule="evenodd" />
+			</g>
+			<g id="Group 46">
+				<rect transform="matrix(-1, 0, 0, -1, 36.8481510129091, -542.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 383" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 36.8481510129091, -462.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 384" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 36.8481510129091, -502.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 385" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -43.1518489870909, -542.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 386" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -43.1518489870909, -462.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 387" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -43.1518489870909, -502.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 388" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -3.15184898709091, -542.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 389" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -3.15184898709091, -462.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 390" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -3.15184898709091, -502.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 391" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 16.8481510129091, -522.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 392" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 16.8481510129091, -482.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 393" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -23.1518489870909, -522.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 394" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -23.1518489870909, -482.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 395" style="fill:#FAFAFA;" />
+			</g>
+		</g>
+		<g id="Group 22">
+			<g id="Rectangle 111">
+				<path d="M1 481 L101 481 L101 581 L1 581 L1 481 Z" fill="#FAFAFA" fill-rule="evenodd" />
+				<path d="M0 481 L0 581 C0 581.55 0.45 582 1 582 L101 582 C101.55 582 102 581.55 102 581 L102 481 C102 480.45 101.55 480 101 480 L1 480 C0.45 480 0 480.45 0 481 Z M101 481 L1 481 L1 581 L101 581 L101 481 Z" fill="#0A0A0A" fill-rule="evenodd" />
+			</g>
+			<g id="Group 21">
+				<rect x="1" y="561" width="20" height="20" id="Rectangle 112" style="fill:#050505;" />
+				<rect x="1" y="481" width="20" height="20" id="Rectangle 113" style="fill:#050505;" />
+				<rect x="1" y="521" width="20" height="20" id="Rectangle 114" style="fill:#050505;" />
+				<rect x="81" y="561" width="20" height="20" id="Rectangle 115" style="fill:#050505;" />
+				<rect x="81" y="481" width="20" height="20" id="Rectangle 116" style="fill:#050505;" />
+				<rect x="81" y="521" width="20" height="20" id="Rectangle 117" style="fill:#050505;" />
+				<rect x="41" y="561" width="20" height="20" id="Rectangle 118" style="fill:#050505;" />
+				<rect x="41" y="481" width="20" height="20" id="Rectangle 119" style="fill:#050505;" />
+				<rect x="41" y="521" width="20" height="20" id="Rectangle 120" style="fill:#050505;" />
+				<rect x="21" y="541" width="20" height="20" id="Rectangle 121" style="fill:#050505;" />
+				<rect x="21" y="501" width="20" height="20" id="Rectangle 122" style="fill:#050505;" />
+				<rect x="61" y="541" width="20" height="20" id="Rectangle 123" style="fill:#050505;" />
+				<rect x="61" y="501" width="20" height="20" id="Rectangle 124" style="fill:#050505;" />
+			</g>
+		</g>
+		<g id="Group 16">
+			<g id="Rectangle 95">
+				<path d="M61 501 L41 501 L41 521 L61 521 L61 501 Z M44 518 L44 504 L58 504 L58 518 L44 518 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 97">
+				<path d="M81 521 L61 521 L61 541 L81 541 L81 521 Z M64 538 L64 524 L78 524 L78 538 L64 538 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 99">
+				<path d="M41 521 L21 521 L21 541 L41 541 L41 521 Z M24 538 L24 524 L38 524 L38 538 L24 538 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 101">
+				<path d="M61 541 L41 541 L41 561 L61 561 L61 541 Z M44 558 L44 544 L58 544 L58 558 L44 558 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 103">
+				<path d="M41 501 L21 501 L21 521 L41 521 L41 501 Z M24 518 L24 504 L38 504 L38 518 L24 518 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 105">
+				<path d="M81 501 L61 501 L61 521 L81 521 L81 501 Z M64 518 L64 504 L78 504 L78 518 L64 518 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 107">
+				<path d="M41 541 L21 541 L21 561 L41 561 L41 541 Z M24 558 L24 544 L38 544 L38 558 L24 558 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 109">
+				<path d="M81 541 L61 541 L61 561 L81 561 L81 541 Z M64 558 L64 544 L78 544 L78 558 L64 558 Z" fill="#70C1B3" fill-rule="evenodd" />
+			</g>
+		</g>
+		<g id="Group 48">
+			<g id="Rectangle 265">
+				<path d="M181 501 L161 501 L161 521 L181 521 L181 501 Z M164 518 L164 504 L178 504 L178 518 L164 518 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 266">
+				<path d="M201 521 L181 521 L181 541 L201 541 L201 521 Z M184 538 L184 524 L198 524 L198 538 L184 538 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 267">
+				<path d="M161 521 L141 521 L141 541 L161 541 L161 521 Z M144 538 L144 524 L158 524 L158 538 L144 538 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 268">
+				<path d="M181 541 L161 541 L161 561 L181 561 L181 541 Z M164 558 L164 544 L178 544 L178 558 L164 558 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 269">
+				<path d="M161 501 L141 501 L141 521 L161 521 L161 501 Z M144 518 L144 504 L158 504 L158 518 L144 518 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 270">
+				<path d="M201 501 L181 501 L181 521 L201 521 L201 501 Z M184 518 L184 504 L198 504 L198 518 L184 518 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 271">
+				<path d="M161 541 L141 541 L141 561 L161 561 L161 541 Z M144 558 L144 544 L158 544 L158 558 L144 558 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 272">
+				<path d="M201 541 L181 541 L181 561 L201 561 L201 541 Z M184 558 L184 544 L198 544 L198 558 L184 558 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+		</g>
+	</g>
+	<g id="Group 75">
+		<g id="Group 74">
+			<g id="Group 45" transform="matrix(-1, -1.23223842228929e-16, 3.25817513764678e-16, -1, 107.848151012909, -31.8288247415865)">
+				<g id="Rectangle 368" transform="matrix(-1, 0, 0, -1, 56.8481510129091, -442.828824741587)">
+					<path d="M-50 -50 L50 -50 L50 50 L-50 50 L-50 -50 Z" fill="#050505" fill-rule="evenodd" />
+					<path d="M-51 -50 L-51 50 C-51 50.55 -50.55 51 -50 51 L50 51 C50.55 51 51 50.55 51 50 L51 -50 C51 -50.55 50.55 -51 50 -51 L-50 -51 C-50.55 -51 -51 -50.55 -51 -50 Z M50 -50 L-50 -50 L-50 50 L50 50 L50 -50 Z" fill="#0A0A0A" fill-rule="evenodd" />
+				</g>
+				<g id="Group 25">
+					<rect transform="matrix(-1, 0, 0, -1, 96.8481510129091, -482.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 369" style="fill:#FAFAFA;" />
+					<rect transform="matrix(-1, 0, 0, -1, 96.8481510129091, -402.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 370" style="fill:#FAFAFA;" />
+					<rect transform="matrix(-1, 0, 0, -1, 96.8481510129091, -442.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 371" style="fill:#FAFAFA;" />
+					<rect transform="matrix(-1, 0, 0, -1, 16.8481510129091, -482.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 372" style="fill:#FAFAFA;" />
+					<rect transform="matrix(-1, 0, 0, -1, 16.8481510129091, -402.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 373" style="fill:#FAFAFA;" />
+					<rect transform="matrix(-1, 0, 0, -1, 16.8481510129091, -442.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 374" style="fill:#FAFAFA;" />
+					<rect transform="matrix(-1, 0, 0, -1, 56.8481510129091, -482.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 375" style="fill:#FAFAFA;" />
+					<rect transform="matrix(-1, 0, 0, -1, 56.8481510129091, -402.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 376" style="fill:#FAFAFA;" />
+					<rect transform="matrix(-1, 0, 0, -1, 56.8481510129091, -442.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 377" style="fill:#FAFAFA;" />
+					<rect transform="matrix(-1, 0, 0, -1, 76.8481510129091, -462.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 378" style="fill:#FAFAFA;" />
+					<rect transform="matrix(-1, 0, 0, -1, 76.8481510129091, -422.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 379" style="fill:#FAFAFA;" />
+					<rect transform="matrix(-1, 0, 0, -1, 36.8481510129091, -462.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 380" style="fill:#FAFAFA;" />
+					<rect transform="matrix(-1, 0, 0, -1, 36.8481510129091, -422.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 381" style="fill:#FAFAFA;" />
+				</g>
+			</g>
+			<g id="Group 4">
+				<g id="Rectangle 35">
+					<path d="M61 381 L41 381 L41 401 L61 401 L61 381 Z M44 398 L44 384 L58 384 L58 398 L44 398 Z" fill="#70C1B3" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 36">
+					<path d="M61 361 L41 361 L41 381 L61 381 L61 361 Z M44 378 L44 364 L58 364 L58 378 L44 378 Z" fill="#70C1B3" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 37">
+					<path d="M81 401 L61 401 L61 421 L81 421 L81 401 Z M64 418 L64 404 L78 404 L78 418 L64 418 Z" fill="#70C1B3" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 38">
+					<path d="M101 401 L81 401 L81 421 L101 421 L101 401 Z M84 418 L84 404 L98 404 L98 418 L84 418 Z" fill="#70C1B3" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 39">
+					<path d="M41 401 L21 401 L21 421 L41 421 L41 401 Z M24 418 L24 404 L38 404 L38 418 L24 418 Z" fill="#70C1B3" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 40">
+					<path d="M21 401 L1 401 L1 421 L21 421 L21 401 Z M4 418 L4 404 L18 404 L18 418 L4 418 Z" fill="#70C1B3" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 41">
+					<path d="M61 421 L41 421 L41 441 L61 441 L61 421 Z M44 438 L44 424 L58 424 L58 438 L44 438 Z" fill="#70C1B3" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 42">
+					<path d="M61 441 L41 441 L41 461 L61 461 L61 441 Z M44 458 L44 444 L58 444 L58 458 L44 458 Z" fill="#70C1B3" fill-rule="evenodd" />
+				</g>
+			</g>
+		</g>
+		<g id="Group 36">
+			<g id="Rectangle 179">
+				<path d="M121 361 L221 361 L221 461 L121 461 L121 361 Z" fill="#FAFAFA" fill-rule="evenodd" />
+				<path d="M120 361 L120 461 C120 461.55 120.45 462 121 462 L221 462 C221.55 462 222 461.55 222 461 L222 361 C222 360.45 221.55 360 221 360 L121 360 C120.45 360 120 360.45 120 361 Z M221 361 L121 361 L121 461 L221 461 L221 361 Z" fill="#0A0A0A" fill-rule="evenodd" />
+			</g>
+			<g id="Group 35">
+				<rect x="121" y="441" width="20" height="20" id="Rectangle 180" style="fill:#050505;" />
+				<rect x="121" y="361" width="20" height="20" id="Rectangle 181" style="fill:#050505;" />
+				<rect x="121" y="401" width="20" height="20" id="Rectangle 182" style="fill:#050505;" />
+				<rect x="201" y="441" width="20" height="20" id="Rectangle 183" style="fill:#050505;" />
+				<rect x="201" y="361" width="20" height="20" id="Rectangle 184" style="fill:#050505;" />
+				<rect x="201" y="401" width="20" height="20" id="Rectangle 185" style="fill:#050505;" />
+				<rect x="161" y="441" width="20" height="20" id="Rectangle 186" style="fill:#050505;" />
+				<rect x="161" y="361" width="20" height="20" id="Rectangle 187" style="fill:#050505;" />
+				<rect x="161" y="401" width="20" height="20" id="Rectangle 188" style="fill:#050505;" />
+				<rect x="141" y="421" width="20" height="20" id="Rectangle 189" style="fill:#050505;" />
+				<rect x="141" y="381" width="20" height="20" id="Rectangle 190" style="fill:#050505;" />
+				<rect x="181" y="421" width="20" height="20" id="Rectangle 191" style="fill:#050505;" />
+				<rect x="181" y="381" width="20" height="20" id="Rectangle 192" style="fill:#050505;" />
+			</g>
+		</g>
+		<g id="Group 37">
+			<g id="Rectangle 193">
+				<path d="M181 381 L161 381 L161 401 L181 401 L181 381 Z M164 398 L164 384 L178 384 L178 398 L164 398 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 194">
+				<path d="M181 361 L161 361 L161 381 L181 381 L181 361 Z M164 378 L164 364 L178 364 L178 378 L164 378 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 195">
+				<path d="M201 401 L181 401 L181 421 L201 421 L201 401 Z M184 418 L184 404 L198 404 L198 418 L184 418 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 196">
+				<path d="M221 401 L201 401 L201 421 L221 421 L221 401 Z M204 418 L204 404 L218 404 L218 418 L204 418 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 197">
+				<path d="M161 401 L141 401 L141 421 L161 421 L161 401 Z M144 418 L144 404 L158 404 L158 418 L144 418 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 198">
+				<path d="M141 401 L121 401 L121 421 L141 421 L141 401 Z M124 418 L124 404 L138 404 L138 418 L124 418 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 199">
+				<path d="M181 421 L161 421 L161 441 L181 441 L181 421 Z M164 438 L164 424 L178 424 L178 438 L164 438 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 200">
+				<path d="M181 441 L161 441 L161 461 L181 461 L181 441 Z M164 458 L164 444 L178 444 L178 458 L164 458 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+		</g>
+	</g>
+	<g id="Group 69">
+		<g id="Group 1" transform="matrix(-1, -1.23223842228929e-16, 3.25817513764678e-16, -1, 167.848151012909, -91.8288247415864)">
+			<g id="Rectangle" transform="matrix(-1, 0, 0, -1, -3.15184898709089, -382.828824741587)">
+				<path d="M-50 -50 L50 -50 L50 50 L-50 50 L-50 -50 Z" fill="#050505" fill-rule="evenodd" />
+				<path d="M-51 -50 L-51 50 C-51 50.55 -50.55 51 -50 51 L50 51 C50.55 51 51 50.55 51 50 L51 -50 C51 -50.55 50.55 -51 50 -51 L-50 -51 C-50.55 -51 -51 -50.55 -51 -50 Z M50 -50 L-50 -50 L-50 50 L50 50 L50 -50 Z" fill="#0A0A0A" fill-rule="evenodd" />
+			</g>
+			<g id="Group">
+				<rect transform="matrix(-1, 0, 0, -1, 36.8481510129091, -422.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 1" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 36.8481510129091, -342.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 356" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 36.8481510129091, -382.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 357" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -43.1518489870909, -422.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 358" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -43.1518489870909, -342.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 359" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -43.1518489870909, -382.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 360" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -3.15184898709089, -422.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 361" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -3.15184898709089, -342.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 362" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -3.15184898709089, -382.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 363" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 16.8481510129091, -402.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 364" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 16.8481510129091, -362.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 365" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -23.1518489870909, -402.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 366" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -23.1518489870909, -362.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 367" style="fill:#FAFAFA;" />
+			</g>
+		</g>
+		<g id="Group 7">
+			<g id="Rectangle 43">
+				<path d="M1 241 L101 241 L101 341 L1 341 L1 241 Z" fill="#FAFAFA" fill-rule="evenodd" />
+				<path d="M0 241 L0 341 C0 341.55 0.45 342 1 342 L101 342 C101.55 342 102 341.55 102 341 L102 241 C102 240.45 101.55 240 101 240 L1 240 C0.45 240 0 240.45 0 241 Z M101 241 L1 241 L1 341 L101 341 L101 241 Z" fill="#0A0A0A" fill-rule="evenodd" />
+			</g>
+			<g id="Group 6">
+				<rect x="1" y="321" width="20" height="20" id="Rectangle 44" style="fill:#050505;" />
+				<rect x="1" y="241" width="20" height="20" id="Rectangle 45" style="fill:#050505;" />
+				<rect x="1" y="281" width="20" height="20" id="Rectangle 46" style="fill:#050505;" />
+				<rect x="81" y="321" width="20" height="20" id="Rectangle 47" style="fill:#050505;" />
+				<rect x="81" y="241" width="20" height="20" id="Rectangle 48" style="fill:#050505;" />
+				<rect x="81" y="281" width="20" height="20" id="Rectangle 49" style="fill:#050505;" />
+				<rect x="41" y="321" width="20" height="20" id="Rectangle 50" style="fill:#050505;" />
+				<rect x="41" y="241" width="20" height="20" id="Rectangle 51" style="fill:#050505;" />
+				<rect x="41" y="281" width="20" height="20" id="Rectangle 52" style="fill:#050505;" />
+				<rect x="21" y="301" width="20" height="20" id="Rectangle 53" style="fill:#050505;" />
+				<rect x="21" y="261" width="20" height="20" id="Rectangle 54" style="fill:#050505;" />
+				<rect x="61" y="301" width="20" height="20" id="Rectangle 55" style="fill:#050505;" />
+				<rect x="61" y="261" width="20" height="20" id="Rectangle 56" style="fill:#050505;" />
+			</g>
+		</g>
+		<g id="Group 9">
+			<g id="Group 8">
+				<g id="Rectangle 57">
+					<path d="M41 261 L21 261 L21 281 L41 281 L41 261 Z M24 278 L24 264 L38 264 L38 278 L24 278 Z" fill="#70C1B3" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 58">
+					<path d="M21 241 L1 241 L1 261 L21 261 L21 241 Z M4 258 L4 244 L18 244 L18 258 L4 258 Z" fill="#70C1B3" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 59">
+					<path d="M81 261 L61 261 L61 281 L81 281 L81 261 Z M64 278 L64 264 L78 264 L78 278 L64 278 Z" fill="#70C1B3" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 60">
+					<path d="M101 241 L81 241 L81 261 L101 261 L101 241 Z M84 258 L84 244 L98 244 L98 258 L84 258 Z" fill="#70C1B3" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 61">
+					<path d="M41 301 L21 301 L21 321 L41 321 L41 301 Z M24 318 L24 304 L38 304 L38 318 L24 318 Z" fill="#70C1B3" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 62">
+					<path d="M21 321 L1 321 L1 341 L21 341 L21 321 Z M4 338 L4 324 L18 324 L18 338 L4 338 Z" fill="#70C1B3" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 63">
+					<path d="M81 301 L61 301 L61 321 L81 321 L81 301 Z M64 318 L64 304 L78 304 L78 318 L64 318 Z" fill="#70C1B3" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 64">
+					<path d="M101 321 L81 321 L81 341 L101 341 L101 321 Z M84 338 L84 324 L98 324 L98 338 L84 338 Z" fill="#70C1B3" fill-rule="evenodd" />
+				</g>
+			</g>
+		</g>
+		<g id="Group 40">
+			<g id="Group 39">
+				<g id="Rectangle 213">
+					<path d="M161 261 L141 261 L141 281 L161 281 L161 261 Z M144 278 L144 264 L158 264 L158 278 L144 278 Z" fill="#F25F5C" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 214">
+					<path d="M141 241 L121 241 L121 261 L141 261 L141 241 Z M124 258 L124 244 L138 244 L138 258 L124 258 Z" fill="#F25F5C" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 215">
+					<path d="M201 261 L181 261 L181 281 L201 281 L201 261 Z M184 278 L184 264 L198 264 L198 278 L184 278 Z" fill="#F25F5C" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 216">
+					<path d="M221 241 L201 241 L201 261 L221 261 L221 241 Z M204 258 L204 244 L218 244 L218 258 L204 258 Z" fill="#F25F5C" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 217">
+					<path d="M161 301 L141 301 L141 321 L161 321 L161 301 Z M144 318 L144 304 L158 304 L158 318 L144 318 Z" fill="#F25F5C" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 218">
+					<path d="M141 321 L121 321 L121 341 L141 341 L141 321 Z M124 338 L124 324 L138 324 L138 338 L124 338 Z" fill="#F25F5C" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 219">
+					<path d="M201 301 L181 301 L181 321 L201 321 L201 301 Z M184 318 L184 304 L198 304 L198 318 L184 318 Z" fill="#F25F5C" fill-rule="evenodd" />
+				</g>
+				<g id="Rectangle 220">
+					<path d="M221 321 L201 321 L201 341 L221 341 L221 321 Z M204 338 L204 324 L218 324 L218 338 L204 338 Z" fill="#F25F5C" fill-rule="evenodd" />
+				</g>
+			</g>
+		</g>
+	</g>
+	<g id="Group 68">
+		<g id="Group 24" transform="matrix(-1, -1.23223842228929e-16, 3.25817513764678e-16, -1, 107.848151012909, -151.828824741586)">
+			<g id="Rectangle 342" transform="matrix(-1, 0, 0, -1, 56.8481510129091, -322.828824741587)">
+				<path d="M-50 -50 L50 -50 L50 50 L-50 50 L-50 -50 Z" fill="#050505" fill-rule="evenodd" />
+				<path d="M-51 -50 L-51 50 C-51 50.55 -50.55 51 -50 51 L50 51 C50.55 51 51 50.55 51 50 L51 -50 C51 -50.55 50.55 -51 50 -51 L-50 -51 C-50.55 -51 -51 -50.55 -51 -50 Z M50 -50 L-50 -50 L-50 50 L50 50 L50 -50 Z" fill="#0A0A0A" fill-rule="evenodd" />
+			</g>
+			<g id="Group 13">
+				<rect transform="matrix(-1, 0, 0, -1, 96.8481510129091, -362.828824741587)" x="-10" y="-10" width="20" height="20" id="Rectangle 343" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 96.8481510129091, -282.828824741587)" x="-10" y="-10" width="20" height="20" id="Rectangle 344" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 96.8481510129091, -322.828824741587)" x="-10" y="-10" width="20" height="20" id="Rectangle 345" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 16.8481510129091, -362.828824741587)" x="-10" y="-10" width="20" height="20" id="Rectangle 346" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 16.8481510129091, -282.828824741587)" x="-10" y="-10" width="20" height="20" id="Rectangle 347" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 16.8481510129091, -322.828824741587)" x="-10" y="-10" width="20" height="20" id="Rectangle 348" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 56.8481510129091, -362.828824741587)" x="-10" y="-10" width="20" height="20" id="Rectangle 349" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 56.8481510129091, -282.828824741587)" x="-10" y="-10" width="20" height="20" id="Rectangle 350" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 56.8481510129091, -322.828824741587)" x="-10" y="-10" width="20" height="20" id="Rectangle 351" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 76.8481510129091, -342.828824741587)" x="-10" y="-10" width="20" height="20" id="Rectangle 352" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 76.8481510129091, -302.828824741587)" x="-10" y="-10" width="20" height="20" id="Rectangle 353" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 36.8481510129091, -342.828824741587)" x="-10" y="-10" width="20" height="20" id="Rectangle 354" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 36.8481510129091, -302.828824741587)" x="-10" y="-10" width="20" height="20" id="Rectangle 355" style="fill:#FAFAFA;" />
+			</g>
+		</g>
+		<g id="Rectangle 164">
+			<path d="M61 181 L41 181 L41 201 L61 201 L61 181 Z M44 198 L44 184 L58 184 L58 198 L44 198 Z" fill="#70C1B3" fill-rule="evenodd" />
+		</g>
+		<g id="Group 55" transform="matrix(-1, 0, 0, -1, 167.848151012909, -151.828824741586)">
+			<g id="Rectangle 295" transform="matrix(-1, 0, 0, -1, -3.1518489870909, -322.828824741587)">
+				<path d="M-50 -50 L50 -50 L50 50 L-50 50 L-50 -50 Z" fill="#FAFAFA" fill-rule="evenodd" />
+				<path d="M-51 -50 L-51 50 C-51 50.55 -50.55 51 -50 51 L50 51 C50.55 51 51 50.55 51 50 L51 -50 C51 -50.55 50.55 -51 50 -51 L-50 -51 C-50.55 -51 -51 -50.55 -51 -50 Z M50 -50 L-50 -50 L-50 50 L50 50 L50 -50 Z" fill="#0A0A0A" fill-rule="evenodd" />
+			</g>
+			<g id="Group 54">
+				<rect transform="matrix(-1, 0, 0, -1, 36.8481510129091, -362.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 296" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, 0, -1, 36.8481510129091, -282.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 297" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, 0, -1, 36.8481510129091, -322.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 298" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, 0, -1, -43.1518489870909, -362.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 299" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, 0, -1, -43.1518489870909, -282.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 300" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, 0, -1, -43.1518489870909, -322.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 301" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, 0, -1, -3.1518489870909, -362.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 302" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, 0, -1, -3.1518489870909, -282.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 303" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, 0, -1, -3.1518489870909, -322.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 304" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, 0, -1, 16.8481510129091, -342.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 305" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, 0, -1, 16.8481510129091, -302.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 306" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, 0, -1, -23.1518489870909, -342.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 307" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, 0, -1, -23.1518489870909, -302.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 308" style="fill:#050505;" />
+			</g>
+		</g>
+		<g id="Rectangle 309">
+			<path d="M161 181 L141 181 L141 201 L161 201 L161 181 Z M144 198 L144 184 L158 184 L158 198 L144 198 Z" fill="#F25F5C" fill-rule="evenodd" />
+		</g>
+		<g id="Rectangle 310">
+			<path d="M201 181 L181 181 L181 201 L201 201 L201 181 Z M184 198 L184 184 L198 184 L198 198 L184 198 Z" fill="#F25F5C" fill-rule="evenodd" />
+		</g>
+	</g>
+	<g id="Group 67">
+		<g id="Group 59" transform="matrix(-1, 5.01788919494018e-17, 1.77535010404842e-16, -1, 107.848151012909, -211.828824741586)">
+			<g id="Rectangle 311" transform="matrix(-1, 0, -2.22654381897336e-32, -1, 56.8481510129091, -262.828824741586)">
+				<path d="M-50 -50 L50 -50 L50 50 L-50 50 L-50 -50 Z" fill="#FAFAFA" fill-rule="evenodd" />
+				<path d="M-51 -50 L-51 50 C-51 50.55 -50.55 51 -50 51 L50 51 C50.55 51 51 50.55 51 50 L51 -50 C51 -50.55 50.55 -51 50 -51 L-50 -51 C-50.55 -51 -51 -50.55 -51 -50 Z M50 -50 L-50 -50 L-50 50 L50 50 L50 -50 Z" fill="#0A0A0A" fill-rule="evenodd" />
+			</g>
+			<g id="Group 58">
+				<rect transform="matrix(-1, 0, -2.22654381897336e-32, -1, 96.8481510129091, -302.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 312" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, -2.22654381897336e-32, -1, 96.8481510129091, -222.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 313" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, -2.22654381897336e-32, -1, 96.8481510129091, -262.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 314" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, -2.22654381897336e-32, -1, 16.8481510129091, -302.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 315" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, -2.22654381897336e-32, -1, 16.8481510129091, -222.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 316" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, -2.22654381897336e-32, -1, 16.8481510129091, -262.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 317" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, -2.22654381897336e-32, -1, 56.8481510129091, -302.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 318" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, -2.22654381897336e-32, -1, 56.8481510129091, -222.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 319" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, -2.22654381897336e-32, -1, 56.8481510129091, -262.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 320" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, -2.22654381897336e-32, -1, 76.8481510129091, -282.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 321" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, -2.22654381897336e-32, -1, 76.8481510129091, -242.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 322" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, -2.22654381897336e-32, -1, 36.8481510129091, -282.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 323" style="fill:#050505;" />
+				<rect transform="matrix(-1, 0, -2.22654381897336e-32, -1, 36.8481510129091, -242.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 324" style="fill:#050505;" />
+			</g>
+		</g>
+		<g id="Rectangle 325" transform="matrix(1, -5.01788919494018e-17, -1.77535010404842e-16, 1, 51.0000000000001, 31.0000000000002)">
+			<path d="M10 -10 L-10 -10 L-10 10 L10 10 L10 -10 Z M-7 7 L-7 -7 L7 -7 L7 7 L-7 7 Z" fill="#70C1B3" fill-rule="evenodd" />
+		</g>
+		<g id="Group 62" transform="matrix(-1, -1.23223842228929e-16, 3.25817513764678e-16, -1, 167.848151012909, -211.828824741587)">
+			<g id="Rectangle 326" transform="matrix(-1, 0, 0, -1, -3.15184898709084, -262.828824741586)">
+				<path d="M-50 -50 L50 -50 L50 50 L-50 50 L-50 -50 Z" fill="#050505" fill-rule="evenodd" />
+				<path d="M-51 -50 L-51 50 C-51 50.55 -50.55 51 -50 51 L50 51 C50.55 51 51 50.55 51 50 L51 -50 C51 -50.55 50.55 -51 50 -51 L-50 -51 C-50.55 -51 -51 -50.55 -51 -50 Z M50 -50 L-50 -50 L-50 50 L50 50 L50 -50 Z" fill="#0A0A0A" fill-rule="evenodd" />
+			</g>
+			<g id="Group 61">
+				<rect transform="matrix(-1, 0, 0, -1, 36.8481510129092, -302.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 327" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 36.8481510129092, -222.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 328" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 36.8481510129092, -262.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 329" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -43.1518489870908, -302.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 330" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -43.1518489870908, -222.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 331" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -43.1518489870908, -262.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 332" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -3.15184898709084, -302.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 333" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -3.15184898709084, -222.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 334" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -3.15184898709084, -262.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 335" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 16.8481510129092, -282.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 336" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, 16.8481510129092, -242.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 337" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -23.1518489870908, -282.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 338" style="fill:#FAFAFA;" />
+				<rect transform="matrix(-1, 0, 0, -1, -23.1518489870908, -242.828824741586)" x="-10" y="-10" width="20" height="20" id="Rectangle 339" style="fill:#FAFAFA;" />
+			</g>
+		</g>
+		<g id="Group 63" transform="matrix(-1, -1.23223842228929e-16, 3.25817513764678e-16, -1, 60.409452952766, 762.985818132873)">
+			<g id="Rectangle 340" transform="matrix(-1, 0, 0, -1, -90.5905470472338, 731.985818132872)">
+				<path d="M10 -10 L-10 -10 L-10 10 L10 10 L10 -10 Z M-7 7 L-7 -7 L7 -7 L7 7 L-7 7 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+			<g id="Rectangle 341" transform="matrix(-1, 0, 0, -1, -130.590547047234, 731.985818132872)">
+				<path d="M10 -10 L-10 -10 L-10 10 L10 10 L10 -10 Z M-7 7 L-7 -7 L7 -7 L7 7 L-7 7 Z" fill="#F25F5C" fill-rule="evenodd" />
+			</g>
+		</g>
+	</g>
+</svg>

@@ -87,19 +87,39 @@ Modules and classes requiring explanation. / Модули и классы, тр�
 
 ##### module public StandardPieces / Публичный модуль стандартные фигуры
 
+Contains `PieceDevelopment`s for creating standard `Piece`s. / Содержит `PieceDevelopment`'ы для создания стандартных `Piece`.
+
+Green indicates which `PieceRelocation`s are included in `Piece.Advances`. / Зеленый показывает, какие `PieceRelocation`'ы включены в `Piece.Advances`.
+
+Red indicates which `PieceDislodgement`s are included in `Piece.Captures`. / Красный показывает, какие `PieceDislodgement`'ы включены в `Piece.Captures`.
+
 ###### .whitePawn / Белая пешка
+
+![[Vectors/WhitePawnMoves.svg]]
 
 ###### .blackPawn / Чёрная пешка
 
+![[Vectors/BlackPawnMoves.svg]]
+
 ###### .anyBishop / Любой слон
+
+![[Vectors/AnyBishopMoves.svg]]
 
 ###### .anyRook / Любая ладья
 
+![[Vectors/AnyRookMoves.svg]]
+
 ###### .anyKing / Любой король
+
+![[Vectors/AnyKingMoves.svg]]
 
 ###### .anyQueen / Любой ферзь
 
+![[Vectors/AnyQueenMoves.svg]]
+
 ###### .anyKnight / Любой конь
+
+![[Vectors/AnyKnightMoves.svg]]
 
 ##### public sealed class Board / Публичный запечатанный класс доска
 
