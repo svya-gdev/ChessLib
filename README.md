@@ -95,31 +95,31 @@ Red indicates which `PieceDislodgement`s are included in `Piece.Captures`. / К�
 
 ###### .whitePawn / Белая пешка
 
-![[Vectors/WhitePawnMoves.svg]]
+![Vectors/WhitePawnMoves.svg](https://github.com/svya-gdev/ChessLib/blob/master/Vectors/WhitePawnMoves.svg)
 
 ###### .blackPawn / Чёрная пешка
 
-![[Vectors/BlackPawnMoves.svg]]
+![Vectors/BlackPawnMoves.svg](https://github.com/svya-gdev/ChessLib/blob/master/Vectors/BlackPawnMoves.svg)
 
 ###### .anyBishop / Любой слон
 
-![[Vectors/AnyBishopMoves.svg]]
+![Vectors/AnyBishopMoves.svg](https://github.com/svya-gdev/ChessLib/blob/master/Vectors/AnyBishopMoves.svg)
 
 ###### .anyRook / Любая ладья
 
-![[Vectors/AnyRookMoves.svg]]
+![Vectors/AnyRookMoves.svg](https://github.com/svya-gdev/ChessLib/blob/master/Vectors/AnyRookMoves.svg)
 
 ###### .anyKing / Любой король
 
-![[Vectors/AnyKingMoves.svg]]
+![Vectors/AnyKingMoves.svg](https://github.com/svya-gdev/ChessLib/blob/master/Vectors/AnyKingMoves.svg)
 
 ###### .anyQueen / Любой ферзь
 
-![[Vectors/AnyQueenMoves.svg]]
+![Vectors/AnyQueenMoves.svg](https://github.com/svya-gdev/ChessLib/blob/master/Vectors/AnyQueenMoves.svg)
 
 ###### .anyKnight / Любой конь
 
-![[Vectors/AnyKnightMoves.svg]]
+![Vectors/AnyKnightMoves.svg](https://github.com/svya-gdev/ChessLib/blob/master/Vectors/AnyKnightMoves.svg)
 
 ##### public sealed class Board / Публичный запечатанный класс доска
 
