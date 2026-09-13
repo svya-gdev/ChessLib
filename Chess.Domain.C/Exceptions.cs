@@ -13,19 +13,19 @@ public sealed class PieceRepetitionException()     : DomainBrokenException();
 
 public        class RuleBrokenException()                         : Exception();
 
-public sealed class PieceAlreadyAddedSomewhereException()         : Exception();
-public sealed class LocationAlreadyOccupiedBySomethingException() : Exception();
-public sealed class LocationAlreadyNotOccupiedByPieceException()  : Exception();
+public sealed class PieceAlreadyAddedSomewhereException()         : RuleBrokenException();
+public sealed class LocationAlreadyOccupiedBySomethingException() : RuleBrokenException();
+public sealed class LocationAlreadyNotOccupiedByPieceException()  : RuleBrokenException();
 
-public sealed class PieceNotFoundException()                      : Exception();
+public sealed class PieceNotFoundException()                      : RuleBrokenException();
 
-public sealed class NoPieceToMoveException()                      : Exception();
-public sealed class NoMoveToApplyException()                      : Exception();
-public sealed class NoSpaceToMoveException()                      : Exception();
+public sealed class NoPieceToMoveException()                      : RuleBrokenException();
+public sealed class NoMoveToApplyException()                      : RuleBrokenException();
+public sealed class NoSpaceToMoveException()                      : RuleBrokenException();
 
-public sealed class RelocationUnknownException()                  : Exception();
-public sealed class NewLocationOccupiedBySomethingException()     : Exception();
+public sealed class RelocationUnknownException()                  : RuleBrokenException();
+public sealed class NewLocationOccupiedBySomethingException()     : RuleBrokenException();
 
-public sealed class DislodgementUnknownException()                : Exception();
-public sealed class NewLocationNotOccupiedByPieceException()      : Exception();
-public sealed class NoWillToCaptureException()                    : Exception();
+public sealed class DislodgementUnknownException()                : RuleBrokenException();
+public sealed class NewLocationNotOccupiedByPieceException()      : RuleBrokenException();
+public sealed class NoWillToCaptureException()                    : RuleBrokenException();

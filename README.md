@@ -1,6 +1,7 @@
 #### Minor types / Малые типы
 
-Self-explanatory structures and classes. / Структуры и классы, не требующие пояснений.
+Self-explanatory structures and classes.
+Структуры и классы, не требующие пояснений.
 
 ##### PieceLocation / Локация фигуры
 
@@ -83,15 +84,19 @@ public sealed class Piece(PieceDevelopment development, Team team)
 
 #### Major types / Большие типы
 
-Modules and classes requiring explanation. / Модули и классы, требующие пояснения.
+Modules and classes requiring explanation.
+Модули и классы, требующие пояснения.
 
 ##### module public StandardPieces / Публичный модуль стандартные фигуры
 
-Contains `PieceDevelopment`s for creating standard `Piece`s. / Содержит `PieceDevelopment`'ы для создания стандартных `Piece`.
+Contains `PieceDevelopment`s for creating standard `Piece`s.
+Содержит `PieceDevelopment`'ы для создания стандартных `Piece`.
 
-Green indicates which `PieceRelocation`s are included in `Piece.Advances`. / Зеленый показывает, какие `PieceRelocation`'ы включены в `Piece.Advances`.
+Green indicates which `PieceRelocation`s are included in `Piece.Advances`.
+Зеленый показывает, какие `PieceRelocation`'ы включены в `Piece.Advances`.
 
-Red indicates which `PieceDislodgement`s are included in `Piece.Captures`. / Красный показывает, какие `PieceDislodgement`'ы включены в `Piece.Captures`.
+Red indicates which `PieceDislodgement`s are included in `Piece.Captures`.
+Красный показывает, какие `PieceDislodgement`'ы включены в `Piece.Captures`.
 
 ###### .whitePawn / Белая пешка
 
@@ -123,11 +128,20 @@ Red indicates which `PieceDislodgement`s are included in `Piece.Captures`. / К�
 
 ##### public sealed class Board / Публичный запечатанный класс доска
 
-###### .PieceIsAbleToAdd(Piece piece)
+###### .CanAddPiece(Piece piece)
 
-###### .PieceIsAbleToAddToLocation(PieceLocation location)
+Returns **`true`** if the `piece` can be added; otherwise, **`false`**.
+Возвращает **`true`**, если `piece` можно добавить; в противном случае — **`false`**.
 
-###### .PieceAddToLocation(Piece piece, PieceLocation location)
+###### .CanAddPiece(PieceLocation location)
+
+Returns **`true`** if a `Piece` can be added to the `location`; otherwise, **`false`**.
+Возвращает **`true`**, если `Piece` можно добавить в `location`; в противном случае — **`false`**.
+
+###### .AddPiece(Piece piece, PieceLocation location)
+
+Adds the `piece` to **`this`** `Board` if can add to the `location`; otherwise, throws.
+Добавляет `piece` на **`this`** `Board`, если может добавить в `location`; в противном случае выбрасывает исключение.
 
 ###### .PieceIsAbleToRemoveFromLocation(PieceLocation location)
 
@@ -161,4 +175,4 @@ Red indicates which `PieceDislodgement`s are included in `Piece.Captures`. / К�
 
 ###### .PieceCaptureFromLocationByDislodgement(PieceLocation oldLocation, PieceDislodgement dislodgement)
 
-####
+#### 

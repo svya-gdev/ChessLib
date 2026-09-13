@@ -43,16 +43,40 @@ public sealed class Board
 
 
 
-    public bool PieceIsAbleToAdd(Piece piece)
+    /// <summary>
+    /// Returns <see langword="true"/> if the <paramref name="piece"/>'s <see cref="Piece.Guid"/> has not been added yet; otherwise, <see langword="false"/>.
+    /// </summary>
+
+    /// <param name="piece">
+    /// A <see cref="Piece"/> whose <see cref="Piece.Guid"/> should be checked.
+    /// </param>
+
+    /// <returns>
+    /// <see langword="true"/> if the <paramref name="piece"/> can be added; otherwise, <see langword="false"/>.
+    /// </returns>
+
+    public bool CanAddPiece(Piece piece)
     {
         return !populationMap.IsPieceAdded(piece);
-        // Yes, if given piece is not added
     }
 
-    public bool PieceIsAbleToAddToLocation(PieceLocation location)
+
+
+    /// <summary>
+    /// Returns <see langword="true"/> if the <paramref name="location"/> has not been occupied yet; otherwise, <see langword="false"/>.
+    /// </summary>
+
+    /// <param name="location">
+    /// A <see cref="PieceLocation"/> to check.
+    /// </param>
+
+    /// <returns>
+    /// <see langword="true"/> if a <see cref="Piece"/> can be added to the <paramref name="location"/>; otherwise, <see langword="false"/>.
+    /// </returns>
+
+    public bool CanAddPiece(PieceLocation location)
     {
         return !occupationMap.IsOccupied(location.ToHomeCoordinates);
-        // Yes, if given location is not occupied
     }
 
 
@@ -61,10 +85,30 @@ public sealed class Board
 
 
 
-    public void PieceAddToLocation(Piece piece, PieceLocation location)
+    /// <summary>
+    /// Adds the <paramref name="piece"/> to <see langword="this"/> <see cref="Board"/> if can add to the <paramref name="location"/>; otherwise, throws.
+    /// </summary>
+
+    /// <param name="piece">
+    /// A <see cref="Piece"/> to add.
+    /// </param>
+
+    /// <param name="location">
+    /// A <see cref="PieceLocation"/> to add to.
+    /// </param>
+
+    /// <exception cref="PieceAlreadyAddedSomewhereException">
+    /// Thrown when the <paramref name="piece"/>'s <see cref="Piece.Guid"/> has already been added.
+    /// </exception>
+
+    /// <exception cref="LocationAlreadyOccupiedBySomethingException">
+    /// Thrown when the <paramref name="location"/> has already been occupied.
+    /// </exception>
+
+    public void AddPiece(Piece piece, PieceLocation location)
     {
-        if(!PieceIsAbleToAdd(piece))              throw new PieceAlreadyAddedSomewhereException();
-        if(!PieceIsAbleToAddToLocation(location)) throw new LocationAlreadyOccupiedBySomethingException();
+        if(!CanAddPiece(piece))    throw new PieceAlreadyAddedSomewhereException();
+        if(!CanAddPiece(location)) throw new LocationAlreadyOccupiedBySomethingException();
 
         PieceAddToCoordinates(piece, location.ToHomeCoordinates);
     }
@@ -74,6 +118,18 @@ public sealed class Board
     // // // // // // // // // // PIECE REMOVAL RULE // // // // // // // // // // // //
 
 
+
+    /// <summary>
+    /// 
+    /// </summary>
+
+    /// <param name="location">
+    /// 
+    /// </param>
+
+    /// <returns>
+    /// 
+    /// </returns>
 
     public bool PieceIsAbleToRemoveFromLocation(PieceLocation location)
     {
