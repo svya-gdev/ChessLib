@@ -133,10 +133,16 @@ Red indicates which `PieceDislodgement`s are included in `Piece.Captures`.
 Checks whether the `piece` can be added to **`this`** `Board`.
 Проверяет, можно ли добавить `piece` на **`this`** `Board`.
 
+Returns **`true`** if the `piece`'s `Piece.Guid` has not been added yet; otherwise, **`false`**.
+Возвращает **`true`**, если `Piece.Guid` параметра `piece` еще не был добавлен; в противном случае — **`false`**.
+
 ###### .CanAddPiece(PieceLocation location)
 
-Checks whether a `Piece` can be added to **`this`** `Board` on the `location`.
+Checks whether a `Piece` can be added to the `location` on **`this`** `Board`.
 Проверяет, можно ли добавить `Piece` на **`this`** `Board` в указанную `location`.
+
+Returns **`true`** if the `location` on **`this`** `Board` has not been occupied; otherwise, **`false`**.
+Возвращает **`true`**, если `location` на **`this`** `Board` не оккупирована; в противном случае — **`false`**.
 
 ###### .AddPiece(Piece piece, PieceLocation location)
 
@@ -148,6 +154,9 @@ Adds the `piece` to the `location` on **`this`** `Board`.
 Checks whether a `Piece` can be removed from the `location` on **`this`** `Board`.
 Проверяет, можно ли убрать `Piece` с`location` на **`this`** `Board`.
 
+Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
+Возвращает **`true`**, если `location` на **`this`** `Board` занята`Piece`; в противном случае — **`false`**.
+
 ###### .RemovePiece(PieceLocation location)
 
 Removes a `Piece` from the `location` on **`this`** `Board`.
@@ -158,9 +167,13 @@ Removes a `Piece` from the `location` on **`this`** `Board`.
 Checks whether a `Piece` can be read from the `location` on **`this`** `Board`.
 Проверяет, можно ли прочитать `Piece` из `location` на **`this`** `Board`.
 
+Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
+Возвращает **`true`**, если `location` на **`this`** `Board` занята`Piece`; в противном случае — **`false`**.
+
 ###### .ReadPiece(PieceLocation location)
 
-
+Reads a `Piece` from the `location` on **`this`** `Board`.
+Считывает `Piece` из `location` на **`this`** `Board`.
 
 ###### .MoveIsPossibleFromLocation(PieceLocation location)
 

@@ -67,7 +67,7 @@ public sealed class Board
 
 
     /// <summary>
-    /// Checks whether a <see cref="Piece"/> can be added to <see langword="this"/> <see cref="Board"/> on the <paramref name="location"/>.
+    /// Checks whether a <see cref="Piece"/> can be added to the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.
     /// </summary>
 
     /// <param name="location">
@@ -195,19 +195,19 @@ public sealed class Board
 
 
     /// <summary>
-    /// 
+    /// Reads a <see cref="Piece"/> from the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.
     /// </summary>
     /// 
     /// <param name="location">
-    /// 
+    /// A <see cref="PieceLocation"/> to read from.
     /// </param>
     /// 
     /// <returns>
-    /// 
+    /// A <see cref="Piece"/> that occupies the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.
     /// </returns>
     /// 
     /// <exception cref="PieceNotFoundException">
-    /// 
+    /// Thrown when the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/> has not been occupied by a <see cref="Piece"/>.
     /// </exception>
 
     public Piece ReadPiece(PieceLocation location)
