@@ -5,36 +5,40 @@ public sealed class Board
     private readonly OccupationMap occupationMap = new();
     private readonly PopulationMap populationMap = new();
 
-
-
-    private void PieceAddToCoordinates(Piece piece, HomeCoordinates coordinates)
+    private void AddPiece(HomeCoordinates coordinates, Piece piece)
     {
         occupationMap.AddOccupation(coordinates);
         populationMap.AddPiece(piece, coordinates);
     }
 
-    private void PieceRemoveFromCoordinates(HomeCoordinates coordinates)
+    private Piece SeePiece(HomeCoordinates coordinates)
+    {
+        return populationMap.ReadPiece(coordinates);
+    }
+
+    private void DelPiece(HomeCoordinates coordinates)
     {
         occupationMap.RemoveOccupation(coordinates);
         populationMap.RemovePiece(coordinates);
     }
 
-    private Piece PieceReadFromCoordinates(HomeCoordinates coordinates)
+    private Piece GetPiece(HomeCoordinates coordinates)
     {
-        return populationMap.ReadPiece(coordinates);
+        var piece = SeePiece(coordinates);
+        DelPiece(coordinates);
+        return piece;
     }
 
-    private void PieceMoveFromCoordinatesToCoordinates(HomeCoordinates oldCoordinates, HomeCoordinates newCoordinates)
+    private void MovePiece(HomeCoordinates oldCoordinates, HomeCoordinates newCoordinates)
     {
-        var piece = PieceReadFromCoordinates(oldCoordinates);
-        PieceRemoveFromCoordinates(oldCoordinates);
-        PieceAddToCoordinates(piece, newCoordinates);
+        var piece = GetPiece(oldCoordinates);
+        AddPiece(newCoordinates, piece);
     }
 
-    private void PieceReplaceFromCoordinatesToCoordinates(HomeCoordinates oldCoordinates, HomeCoordinates newCoordinates)
+    private void PushPiece(HomeCoordinates oldCoordinates, HomeCoordinates newCoordinates)
     {
-        PieceRemoveFromCoordinates(newCoordinates);
-        PieceMoveFromCoordinatesToCoordinates(oldCoordinates, newCoordinates);
+        DelPiece(newCoordinates);
+        MovePiece(oldCoordinates, newCoordinates);
     }
 
 
@@ -44,7 +48,7 @@ public sealed class Board
 
 
     /// <summary>
-    /// Returns <see langword="true"/> if the <paramref name="piece"/>'s <see cref="Piece.Guid"/> has not been added yet; otherwise, <see langword="false"/>.
+    /// Checks whether the <paramref name="piece"/> can be added to <see langword="this"/> <see cref="Board"/>.
     /// </summary>
 
     /// <param name="piece">
@@ -52,7 +56,7 @@ public sealed class Board
     /// </param>
 
     /// <returns>
-    /// <see langword="true"/> if the <paramref name="piece"/> can be added; otherwise, <see langword="false"/>.
+    /// Returns <see langword="true"/> if the <paramref name="piece"/>'s <see cref="Piece.Guid"/> has not been added yet; otherwise, <see langword="false"/>.
     /// </returns>
 
     public bool CanAddPiece(Piece piece)
@@ -63,7 +67,7 @@ public sealed class Board
 
 
     /// <summary>
-    /// Returns <see langword="true"/> if the <paramref name="location"/> has not been occupied yet; otherwise, <see langword="false"/>.
+    /// Checks whether a <see cref="Piece"/> can be added to <see langword="this"/> <see cref="Board"/> on the <paramref name="location"/>.
     /// </summary>
 
     /// <param name="location">
@@ -71,7 +75,7 @@ public sealed class Board
     /// </param>
 
     /// <returns>
-    /// <see langword="true"/> if a <see cref="Piece"/> can be added to the <paramref name="location"/>; otherwise, <see langword="false"/>.
+    /// <see langword="true"/> if the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/> has not been occupied; otherwise, <see langword="false"/>.
     /// </returns>
 
     public bool CanAddPiece(PieceLocation location)
@@ -86,7 +90,7 @@ public sealed class Board
 
 
     /// <summary>
-    /// Adds the <paramref name="piece"/> to <see langword="this"/> <see cref="Board"/> if can add to the <paramref name="location"/>; otherwise, throws.
+    /// Adds the <paramref name="piece"/> to the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.
     /// </summary>
 
     /// <param name="piece">
@@ -110,7 +114,7 @@ public sealed class Board
         if(!CanAddPiece(piece))    throw new PieceAlreadyAddedSomewhereException();
         if(!CanAddPiece(location)) throw new LocationAlreadyOccupiedBySomethingException();
 
-        PieceAddToCoordinates(piece, location.ToHomeCoordinates);
+        AddPiece(location.ToHomeCoordinates, piece);
     }
 
 
@@ -120,21 +124,20 @@ public sealed class Board
 
 
     /// <summary>
-    /// 
+    /// Checks whether a <see cref="Piece"/> can be removed from the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.
     /// </summary>
 
     /// <param name="location">
-    /// 
+    /// A <see cref="PieceLocation"/> to check.
     /// </param>
 
     /// <returns>
-    /// 
+    /// <see langword="true"/> if the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/> has been occupied by a <see cref="Piece"/>; otherwise, <see langword="false"/>.
     /// </returns>
 
-    public bool PieceIsAbleToRemoveFromLocation(PieceLocation location)
+    public bool CanRemovePiece(PieceLocation location)
     {
         return populationMap.IsPieceAdded(location.ToHomeCoordinates);
-        // Yes, if any piece is added to given location
     }
 
 
@@ -143,11 +146,23 @@ public sealed class Board
 
 
 
-    public void PieceRemoveFromLocation(PieceLocation location)
-    {
-        if (!PieceIsAbleToRemoveFromLocation(location)) throw new LocationAlreadyNotOccupiedByPieceException();
+    /// <summary>
+    /// Removes a <see cref="Piece"/> from the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.
+    /// </summary>
+    /// 
+    /// <param name="location">
+    /// A <see cref="PieceLocation"/> to remove from.
+    /// </param>
+    /// 
+    /// <exception cref="LocationAlreadyNotOccupiedByPieceException">
+    /// Thrown when the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/> has not been occupied by a <see cref="Piece"/>.
+    /// </exception>
 
-        PieceRemoveFromCoordinates(location.ToHomeCoordinates);
+    public void RemovePiece(PieceLocation location)
+    {
+        if (!CanRemovePiece(location)) throw new LocationAlreadyNotOccupiedByPieceException();
+
+        DelPiece(location.ToHomeCoordinates);
     }
 
 
@@ -156,10 +171,21 @@ public sealed class Board
 
 
 
-    public bool PieceIsAbleToReadFromLocation(PieceLocation location)
+    /// <summary>
+    /// Checks whether a <see cref="Piece"/> can be read from the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.
+    /// </summary>
+    /// 
+    /// <param name="location">
+    /// A <see cref="PieceLocation"/> to check.
+    /// </param>
+    /// 
+    /// <returns>
+    /// <see langword="true"/> if the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/> has been occupied by a <see cref="Piece"/>; otherwise, <see langword="false"/>.
+    /// </returns>
+
+    public bool CanReadPiece(PieceLocation location)
     {
         return populationMap.IsPieceAdded(location.ToHomeCoordinates);
-        // Yes, if any piece is added to given location
     }
 
 
@@ -168,11 +194,27 @@ public sealed class Board
 
 
 
-    public Piece PieceReadFromLocation(PieceLocation location)
-    {
-        if (!PieceIsAbleToReadFromLocation(location)) throw new PieceNotFoundException();
+    /// <summary>
+    /// 
+    /// </summary>
+    /// 
+    /// <param name="location">
+    /// 
+    /// </param>
+    /// 
+    /// <returns>
+    /// 
+    /// </returns>
+    /// 
+    /// <exception cref="PieceNotFoundException">
+    /// 
+    /// </exception>
 
-        return PieceReadFromCoordinates(location.ToHomeCoordinates);
+    public Piece ReadPiece(PieceLocation location)
+    {
+        if (!CanReadPiece(location)) throw new PieceNotFoundException();
+
+        return SeePiece(location.ToHomeCoordinates);
     }
 
 
@@ -275,8 +317,8 @@ public sealed class Board
     public bool PieceIsWillingToCaptureByDislodgement(PieceLocation location, PieceDislodgement dislodgement)
     {
         var feud    = dislodgement.Feud;
-        var teamOne = PieceReadFromCoordinates(location.ToHomeCoordinates).Team;
-        var teamTwo = PieceReadFromCoordinates(dislodgement.Relocation.ApplyTo(location).ToHomeCoordinates).Team;
+        var teamOne = SeePiece(location.ToHomeCoordinates).Team;
+        var teamTwo = SeePiece(dislodgement.Relocation.ApplyTo(location).ToHomeCoordinates).Team;
 
         return feud.IsTeamOneHostileToTeamTwo(teamOne, teamTwo);
     }
@@ -302,7 +344,7 @@ public sealed class Board
         var oldCoordinates = oldLocation.ToHomeCoordinates;
         var newCoordinates = newLocation.ToHomeCoordinates;
 
-        PieceMoveFromCoordinatesToCoordinates(oldCoordinates, newCoordinates);
+        MovePiece(oldCoordinates, newCoordinates);
     }
 
 
@@ -327,6 +369,6 @@ public sealed class Board
         var oldCoordinates = oldLocation.ToHomeCoordinates;
         var newCoordinates = newLocation.ToHomeCoordinates;
 
-        PieceReplaceFromCoordinatesToCoordinates(oldCoordinates, newCoordinates);
+        PushPiece(oldCoordinates, newCoordinates);
     }
 }

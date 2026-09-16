@@ -130,26 +130,37 @@ Red indicates which `PieceDislodgement`s are included in `Piece.Captures`.
 
 ###### .CanAddPiece(Piece piece)
 
-Returns **`true`** if the `piece` can be added; otherwise, **`false`**.
-Возвращает **`true`**, если `piece` можно добавить; в противном случае — **`false`**.
+Checks whether the `piece` can be added to **`this`** `Board`.
+Проверяет, можно ли добавить `piece` на **`this`** `Board`.
 
 ###### .CanAddPiece(PieceLocation location)
 
-Returns **`true`** if a `Piece` can be added to the `location`; otherwise, **`false`**.
-Возвращает **`true`**, если `Piece` можно добавить в `location`; в противном случае — **`false`**.
+Checks whether a `Piece` can be added to **`this`** `Board` on the `location`.
+Проверяет, можно ли добавить `Piece` на **`this`** `Board` в указанную `location`.
 
 ###### .AddPiece(Piece piece, PieceLocation location)
 
-Adds the `piece` to **`this`** `Board` if can add to the `location`; otherwise, throws.
-Добавляет `piece` на **`this`** `Board`, если может добавить в `location`; в противном случае выбрасывает исключение.
+Adds the `piece` to the `location` on **`this`** `Board`.
+Добавляет `piece` на **`this`** `Board`, в указанную `location`.
 
-###### .PieceIsAbleToRemoveFromLocation(PieceLocation location)
+###### .CanRemovePiece(PieceLocation location)
 
-###### .PieceRemoveFromLocation(PieceLocation location)
+Checks whether a `Piece` can be removed from the `location` on **`this`** `Board`.
+Проверяет, можно ли убрать `Piece` с`location` на **`this`** `Board`.
 
-###### .PieceIsAbleToReadFromLocation(PieceLocation location)
+###### .RemovePiece(PieceLocation location)
 
-###### .PieceReadFromLocation(PieceLocation location)
+Removes a `Piece` from the `location` on **`this`** `Board`.
+Удаляет `Piece` из `location` на **`this`** `Board`.
+
+###### .CanReadPiece(PieceLocation location)
+
+Checks whether a `Piece` can be read from the `location` on **`this`** `Board`.
+Проверяет, можно ли прочитать `Piece` из `location` на **`this`** `Board`.
+
+###### .ReadPiece(PieceLocation location)
+
+
 
 ###### .MoveIsPossibleFromLocation(PieceLocation location)
 
