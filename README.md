@@ -175,11 +175,29 @@ Returns **`true`** if the `location` on **`this`** `Board` has been occupied by 
 Reads a `Piece` from the `location` on **`this`** `Board`.
 Считывает `Piece` из `location` на **`this`** `Board`.
 
-###### .MoveIsPossibleFromLocation(PieceLocation location)
+###### .CanMoveFromLocation(PieceLocation location)
 
-###### .MoveIsChangingPiecePosition(PieceRelocation relocation)
+Checks whether a `Piece` can be moved from the `location` on **`this`** `Board`.
+Проверяет, можно ли переместить `Piece` с указанной `location` на **`this`** `Board`.
 
-###### .MoveIsChangingPiecePosition(PieceDislodgement dislodgement)
+Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
+Возвращает **`true`**, если `location` на **`this`** `Board` занята`Piece`; в противном случае — **`false`**.
+
+###### .IsMoveChangingPieceLocation(PieceRelocation relocation)
+
+Checks whether the `relocation` is changing a `Piece`'s `PieceLocation` on **`this`** `Board`.
+Проверяет, изменяет ли `relocation` `PieceLocation` `Piece`'ы на **`this`** `Board`.
+
+Returns **`true`** if the `relocation` is not non-moving; otherwise, **`false`**.
+Возвращает **`true`**, если `relocation` не является non-moving; в противном случае — **`false`**.
+
+###### .IsMoveChangingPieceLocation(PieceDislodgement dislodgement)
+
+Checks whether the `dislodgement`'s `PieceRelocation` is changing a `Piece`'s `PieceLocation` on **`this`** `Board`.
+Проверяет, изменяет ли `PieceRelocation` параметра `dislodgement` `PieceLocation` `Piece`'ы на **`this`** `Board`.
+
+**`true`** if the `dislodgement`'s `PieceRelocation` is not non-moving; otherwise, **`false`**.
+Возвращает **`true`**, если `PieceRelocation` параметра `dislodgement` не является non-moving; в противном случае — **`false`**.
 
 ###### .MoveIsPossibleThroughSpace(PieceLocation location, PieceRelocation relocation)
 
@@ -198,5 +216,3 @@ Reads a `Piece` from the `location` on **`this`** `Board`.
 ###### .PieceAdvanceFromLocationByRelocation(PieceLocation oldLocation, PieceRelocation relocation)
 
 ###### .PieceCaptureFromLocationByDislodgement(PieceLocation oldLocation, PieceDislodgement dislodgement)
-
-#### 
