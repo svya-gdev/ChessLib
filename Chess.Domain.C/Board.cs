@@ -181,11 +181,11 @@ public sealed class Board
         return populationMap.IsPieceAdded(location.ToHomeCoordinates);
     }
 
-    /// <summary></summary>
-    /// <param name="oldLocation"></param>
-    /// <param name="relocation"></param>
-    /// <exception cref="NoMoveToApplyException"></exception>
-    /// <exception cref="NoPieceToMoveException"></exception>
+    /// <summary>Advances a <see cref="Piece"/> on <see langword="this"/> <see cref="Board"/> from the <paramref name="oldLocation"/> by the <paramref name="relocation"/>.</summary>
+    /// <param name="oldLocation">A <see cref="PieceLocation"/> on <see langword="this"/> <see cref="Board"/> with a moving <see cref="Piece"/>.</param>
+    /// <param name="relocation">A <see cref="PieceRelocation"/> to apply.</param>
+    /// <exception cref="NoMoveToApplyException">Thrown when the <paramref name="relocation"/> is non-moving.</exception>
+    /// <exception cref="NoPieceToMoveException">Thrown when the <paramref name="oldLocation"/> has not been occupied by a <see cref="Piece"/>.</exception>
     /// <exception cref="CannotAdvanceException"></exception>
     /// <exception cref="AdvanceUntoldException"></exception>
     /// <exception cref="NoSpaceToMoveException"></exception>
@@ -207,11 +207,11 @@ public sealed class Board
         MovePiece(oldCoordinates, newCoordinates);
     }
 
-    /// <summary></summary>
-    /// <param name="oldLocation"></param>
-    /// <param name="dislodgement"></param>
-    /// <exception cref="NoMoveToApplyException"></exception>
-    /// <exception cref="NoPieceToMoveException"></exception>
+    /// <summary>Captures a <see cref="Piece"/> on <see langword="this"/> <see cref="Board"/> from the <paramref name="oldLocation"/> by the <paramref name="dislodgement"/>.</summary>
+    /// <param name="oldLocation">A <see cref="PieceLocation"/> on <see langword="this"/> <see cref="Board"/> with an attacking <see cref="Piece"/>.</param>
+    /// <param name="dislodgement">A <see cref="PieceDislodgement"/> to apply.</param>
+    /// <exception cref="NoMoveToApplyException">Thrown when the <paramref name="dislodgement"/>'s <see cref="PieceDislodgement.Relocation"/> is non-moving.</exception>
+    /// <exception cref="NoPieceToMoveException">Thrown when the <paramref name="oldLocation"/> has not been occupied by a <see cref="Piece"/>.</exception>
     /// <exception cref="NoneToCaptureException"></exception>
     /// <exception cref="CaptureUntoldException"></exception>
     /// <exception cref="WillNotAttackException"></exception>

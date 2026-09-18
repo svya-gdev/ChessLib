@@ -96,14 +96,11 @@ Modules and classes requiring explanation.
 
 ##### module public StandardPieces / Публичный модуль стандартные фигуры
 
-Contains `PieceDevelopment`s for creating standard `Piece`s.
-Содержит `PieceDevelopment`'ы для создания стандартных `Piece`.
+Contains `PieceDevelopment`s for creating standard `Piece`s. / Содержит `PieceDevelopment`'ы для создания стандартных `Piece`.
 
-Green indicates which `PieceRelocation`s are included in `Piece.Advances`.
-Зеленый показывает, какие `PieceRelocation`'ы включены в `Piece.Advances`.
+🟦 blue indicates which `PieceRelocation`s are included in `Piece.Advances`. / Синий показывает, какие `PieceRelocation`'ы включены в `Piece.Advances`.
 
-Red indicates which `PieceDislodgement`s are included in `Piece.Captures`.
-Красный показывает, какие `PieceDislodgement`'ы включены в `Piece.Captures`.
+🟥 Red indicates which `PieceDislodgement`s are included in `Piece.Captures`. / Красный показывает, какие `PieceDislodgement`'ы включены в `Piece.Captures`.
 
 ###### .whitePawn / Белая пешка
 
@@ -162,7 +159,7 @@ Returns **`true`** if the `location` on **`this`** `Board` has not been occupied
 Adds the `piece` to the `location` on **`this`** `Board`.
 Добавляет `piece` на **`this`** `Board`, в указанную `location`.
 
-###### ❔ .CanRemovePiece(PieceLocation location) / Можно ли снять фигуру?
+###### ❔ .CanDeletePiece(PieceLocation location) / Можно ли снять фигуру?
 
 Checks whether a `Piece` can be removed from the `location` on **`this`** `Board`.
 Проверяет, можно ли убрать `Piece` с`location` на **`this`** `Board`.
@@ -170,7 +167,7 @@ Checks whether a `Piece` can be removed from the `location` on **`this`** `Board
 Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` занята`Piece`; в противном случае — **`false`**.
 
-###### ❕ .RemovePiece(PieceLocation location) / Снять фигуру!
+###### ❕ .DeletePiece(PieceLocation location) / Снять фигуру!
 
 Removes a `Piece` from the `location` on **`this`** `Board`.
 Удаляет `Piece` из `location` на **`this`** `Board`.
@@ -233,10 +230,12 @@ Checks whether a `Piece` on **`this`** `Board` can capture on the `location`.
 Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` занимает `Piece`; в противном случае — **`false`**.
 
-###### .Advance(PieceLocation oldLocation, PieceRelocation relocation)
+###### ❕ .Advance(PieceLocation oldLocation, PieceRelocation relocation) / Продвинуть!
 
+Advances a `Piece` on **`this`** `Board` from the `oldLocation` by the `relocation`.
+Перемещает `Piece` на **`this`** `Board` из `oldLocation` с помощью `relocation`.
 
+###### ❕ .Capture(PieceLocation oldLocation, PieceDislodgement dislodgement) / Захватить!
 
-###### .Capture(PieceLocation oldLocation, PieceDislodgement dislodgement)
-
-
+Captures a `Piece` on **`this`** `Board` from the `oldLocation` by the `dislodgement`.
+Захватывает `Piece` на **`this`** `Board` из `oldLocation` с помощью `dislodgement`.
