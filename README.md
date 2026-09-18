@@ -126,7 +126,16 @@ Red indicates which `PieceDislodgement`s are included in `Piece.Captures`.
 
 ![Vectors/AnyKnightMoves.svg](https://github.com/svya-gdev/ChessLib/blob/master/Vectors/AnyKnightMoves.svg)
 
+test
+
+![Vectors/AnyKnightMoves.svg](Vectors/AnyKnightMoves.svg)
 ##### public sealed class Board / Публичный запечатанный класс доска
+
+❔indicates
+❔
+
+❕indicates
+❕
 
 ###### .CanAddPiece(Piece piece)❔
 
@@ -183,31 +192,47 @@ Checks whether a `Piece` can be moved from the `location` on **`this`** `Board`.
 Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` занята`Piece`; в противном случае — **`false`**.
 
-###### .IsMoveChangingPieceLocation(PieceRelocation relocation)❔
+###### .IsMoveChangingLocation(PieceRelocation relocation)❔
 
 Checks whether the `relocation` is changing a `Piece`'s `PieceLocation` on **`this`** `Board`.
 Проверяет, изменяет ли `relocation` `PieceLocation` `Piece`'ы на **`this`** `Board`.
 
 Returns **`true`** if the `relocation` is not non-moving; otherwise, **`false`**.
-Возвращает **`true`**, если `relocation` не является non-moving; в противном случае — **`false`**.
+Возвращает **`true`**, если `relocation` не является non-moving; в противном случае — **`false`**.PieceDislodgement
 
-###### .IsMoveChangingPieceLocation(PieceDislodgement dislodgement)❔
+There is an overload for `PieceDislodgement`. Существует перегрузка для `PieceDislodgement`.
 
-Checks whether the `dislodgement`'s `PieceRelocation` is changing a `Piece`'s `PieceLocation` on **`this`** `Board`.
-Проверяет, изменяет ли `PieceRelocation` параметра `dislodgement` `PieceLocation` `Piece`'ы на **`this`** `Board`.
+```C#
+public bool IsMoveChangingLocation(PieceDislodgement dislodgement)
+{
+    return IsMoveChangingLocation(dislodgement.Relocation);
+}
+```
 
-**`true`** if the `dislodgement`'s `PieceRelocation` is not non-moving; otherwise, **`false`**.
-Возвращает **`true`**, если `PieceRelocation` параметра `dislodgement` не является non-moving; в противном случае — **`false`**.
+###### .CanMoveThrough(PieceLocation location, PieceRelocation relocation)❔
 
-###### .MoveIsPossibleThroughSpace(PieceLocation location, PieceRelocation relocation)
 
-###### .MoveIsPossibleThroughSpace(PieceLocation location, PieceDislodgement dislodgement)
 
-###### .PieceIsInformedAboutRelocation(PieceLocation location, PieceRelocation relocation)
+There is an overload for `PieceDislodgement`. Существует перегрузка для `PieceDislodgement`.
+
+```C#
+public bool CanMoveThrough(PieceLocation location, PieceDislodgement dislodgement)
+{
+    return CanMoveThrough(location, dislodgement.Relocation);
+}
+```
+
+###### .IsPieceInformed(PieceLocation location, PieceRelocation relocation)
+
+
+
+There is an overload for `PieceDislodgement`. Существует перегрузка для `PieceDislodgement`.
+
+```C#
+// Code hidden. Код скрыт.
+```
 
 ###### .PieceIsAbleToAdvanceToLocation(PieceLocation location)
-
-###### .PieceIsInformedAboutDislodgement(PieceLocation location, PieceDislodgement dislodgement)
 
 ###### .PieceIsAbleToCaptureOnLocation(PieceLocation location)
 
