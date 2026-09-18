@@ -128,11 +128,11 @@ Red indicates which `PieceDislodgement`s are included in `Piece.Captures`.
 
 ##### public sealed class Board / Публичный запечатанный класс доска
 
-❔indicates
-❔
+❔ indicates method-predicate. / Oбозначает метод-предикат.
 
-❕indicates
-❕
+❕ indicates method-mutator. / Oбозначает метод-мутатор.
+
+❗ indicates method-accessor. / Oбозначает метод-аксессор.
 
 ###### .CanAddPiece(Piece piece)❔
 
@@ -176,7 +176,7 @@ Checks whether a `Piece` can be read from the `location` on **`this`** `Board`.
 Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` занята`Piece`; в противном случае — **`false`**.
 
-###### .ReadPiece(PieceLocation location)❕
+###### .ReadPiece(PieceLocation location)❗
 
 Reads a `Piece` from the `location` on **`this`** `Board`.
 Считывает `Piece` из `location` на **`this`** `Board`.
@@ -197,7 +197,8 @@ Checks whether the `relocation` is changing a `Piece`'s `PieceLocation` on **`th
 Returns **`true`** if the `relocation` is not non-moving; otherwise, **`false`**.
 Возвращает **`true`**, если `relocation` не является non-moving; в противном случае — **`false`**.PieceDislodgement
 
-There is an overload for `PieceDislodgement`. Существует перегрузка для `PieceDislodgement`.
+There is an overload for `PieceDislodgement`.
+Существует перегрузка для `PieceDislodgement`.
 
 ```C#
 public bool IsMoveChangingLocation(PieceDislodgement dislodgement)
@@ -208,9 +209,10 @@ public bool IsMoveChangingLocation(PieceDislodgement dislodgement)
 
 ###### .CanMoveThrough(PieceLocation location, PieceRelocation relocation)❔
 
+Checks whether a `Piece` on **`this`** `Board` can move from `location` by `relocation`.
 
-
-There is an overload for `PieceDislodgement`. Существует перегрузка для `PieceDislodgement`.
+There is an overload for `PieceDislodgement`.
+Существует перегрузка для `PieceDislodgement`.
 
 ```C#
 public bool CanMoveThrough(PieceLocation location, PieceDislodgement dislodgement)
@@ -219,11 +221,12 @@ public bool CanMoveThrough(PieceLocation location, PieceDislodgement dislodgemen
 }
 ```
 
-###### .IsPieceInformed(PieceLocation location, PieceRelocation relocation)
+###### .IsPieceInformed(PieceLocation location, PieceRelocation relocation)❔
 
 
 
-There is an overload for `PieceDislodgement`. Существует перегрузка для `PieceDislodgement`.
+There is an overload for `PieceDislodgement`.
+Существует перегрузка для `PieceDislodgement`.
 
 ```C#
 // Code hidden. Код скрыт.

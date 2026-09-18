@@ -47,27 +47,17 @@ public sealed class Board
 
 
 
-    /// <summary>
-    /// Checks whether the <paramref name="piece"/> can be added to <see langword="this"/> <see cref="Board"/>.
-    /// </summary>
+    /// <summary>Checks whether the <paramref name="piece"/> can be added to <see langword="this"/> <see cref="Board"/>.</summary>
     /// <param name="piece">A <see cref="Piece"/> whose <see cref="Piece.Guid"/> should be checked.</param>
-    /// <returns>
-    /// Returns <see langword="true"/> if the <paramref name="piece"/>'s <see cref="Piece.Guid"/> has not been added yet; otherwise, <see langword="false"/>.
-    /// </returns>
+    /// <returns>Returns <see langword="true"/> if the <paramref name="piece"/>'s <see cref="Piece.Guid"/> has not been added yet; otherwise, <see langword="false"/>.</returns>
     public bool CanAddPiece(Piece piece)
     {
         return !populationMap.IsPieceAdded(piece);
     }
 
-
-
-    /// <summary>
-    /// Checks whether a <see cref="Piece"/> can be added to the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.
-    /// </summary>
+    /// <summary>Checks whether a <see cref="Piece"/> can be added to the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.</summary>
     /// <param name="location">A <see cref="PieceLocation"/> to check.</param>
-    /// <returns>
-    /// <see langword="true"/> if the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/> has not been occupied; otherwise, <see langword="false"/>.
-    /// </returns>
+    /// <returns><see langword="true"/> if the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/> has not been occupied; otherwise, <see langword="false"/>.</returns>
     public bool CanAddPiece(PieceLocation location)
     {
         return !occupationMap.IsOccupied(location.ToHomeCoordinates);
@@ -79,17 +69,11 @@ public sealed class Board
 
 
 
-    /// <summary>
-    /// Adds the <paramref name="piece"/> to the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.
-    /// </summary>
+    /// <summary>Adds the <paramref name="piece"/> to the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.</summary>
     /// <param name="piece">A <see cref="Piece"/> to add.</param>
     /// <param name="location">A <see cref="PieceLocation"/> to add to.</param>
-    /// <exception cref="PieceAlreadyAddedSomewhereException">
-    /// Thrown when the <paramref name="piece"/>'s <see cref="Piece.Guid"/> has already been added.
-    /// </exception>
-    /// <exception cref="LocationAlreadyOccupiedBySomethingException">
-    /// Thrown when the <paramref name="location"/> has already been occupied.
-    /// </exception>
+    /// <exception cref="PieceAlreadyAddedSomewhereException">Thrown when the <paramref name="piece"/>'s <see cref="Piece.Guid"/> has already been added.</exception>
+    /// <exception cref="LocationAlreadyOccupiedBySomethingException">Thrown when the <paramref name="location"/> has already been occupied.</exception>
     public void AddPiece(Piece piece, PieceLocation location)
     {
         if(!CanAddPiece(piece))    throw new PieceAlreadyAddedSomewhereException();
@@ -104,13 +88,9 @@ public sealed class Board
 
 
 
-    /// <summary>
-    /// Checks whether a <see cref="Piece"/> can be removed from the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.
-    /// </summary>
+    /// <summary>Checks whether a <see cref="Piece"/> can be removed from the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.</summary>
     /// <param name="location">A <see cref="PieceLocation"/> to check.</param>
-    /// <returns>
-    /// <see langword="true"/> if the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/> has been occupied by a <see cref="Piece"/>; otherwise, <see langword="false"/>.
-    /// </returns>
+    /// <returns><see langword="true"/> if the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/> has been occupied by a <see cref="Piece"/>; otherwise, <see langword="false"/>.</returns>
     public bool CanRemovePiece(PieceLocation location)
     {
         return populationMap.IsPieceAdded(location.ToHomeCoordinates);
@@ -122,13 +102,9 @@ public sealed class Board
 
 
 
-    /// <summary>
-    /// Removes a <see cref="Piece"/> from the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.
-    /// </summary>
+    /// <summary>Removes a <see cref="Piece"/> from the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.</summary>
     /// <param name="location">A <see cref="PieceLocation"/> to remove from.</param>
-    /// <exception cref="LocationAlreadyNotOccupiedByPieceException">
-    /// Thrown when the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/> has not been occupied by a <see cref="Piece"/>.
-    /// </exception>
+    /// <exception cref="LocationAlreadyNotOccupiedByPieceException">Thrown when the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/> has not been occupied by a <see cref="Piece"/>.</exception>
     public void RemovePiece(PieceLocation location)
     {
         if (!CanRemovePiece(location)) throw new LocationAlreadyNotOccupiedByPieceException();
@@ -142,13 +118,9 @@ public sealed class Board
 
 
 
-    /// <summary>
-    /// Checks whether a <see cref="Piece"/> can be read from the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.
-    /// </summary>
+    /// <summary>Checks whether a <see cref="Piece"/> can be read from the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.</summary>
     /// <param name="location">A <see cref="PieceLocation"/> to check.</param>
-    /// <returns>
-    /// <see langword="true"/> if the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/> has been occupied by a <see cref="Piece"/>; otherwise, <see langword="false"/>.
-    /// </returns>
+    /// <returns><see langword="true"/> if the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/> has been occupied by a <see cref="Piece"/>; otherwise, <see langword="false"/>.</returns>
     public bool CanReadPiece(PieceLocation location)
     {
         return populationMap.IsPieceAdded(location.ToHomeCoordinates);
@@ -160,16 +132,10 @@ public sealed class Board
 
 
 
-    /// <summary>
-    /// Reads a <see cref="Piece"/> from the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.
-    /// </summary>
+    /// <summary>Reads a <see cref="Piece"/> from the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.</summary>
     /// <param name="location">A <see cref="PieceLocation"/> to read from.</param>
-    /// <returns>
-    /// A <see cref="Piece"/> that occupies the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.
-    /// </returns>
-    /// <exception cref="PieceNotFoundException">
-    /// Thrown when the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/> has not been occupied by a <see cref="Piece"/>.
-    /// </exception>
+    /// <returns>A <see cref="Piece"/> that occupies the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/>.</returns>
+    /// <exception cref="PieceNotFoundException">Thrown when the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/> has not been occupied by a <see cref="Piece"/>.</exception>
     public Piece ReadPiece(PieceLocation location)
     {
         if (!CanReadPiece(location)) throw new PieceNotFoundException();
@@ -183,43 +149,35 @@ public sealed class Board
 
 
 
-    /// <summary>
-    /// Checks whether a <see cref="Piece"/> can be moved from the <paramref name="location"/> <see langword="this"/> <see cref="Board"/>.
-    /// </summary>
+    /// <summary>Checks whether a <see cref="Piece"/> can be moved from the <paramref name="location"/> <see langword="this"/> <see cref="Board"/>.</summary>
     /// <param name="location">A <see cref="PieceLocation"/> to check.</param>
-    /// <returns>
-    /// <see langword="true"/> if the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/> has been occupied by a <see cref="Piece"/>; otherwise, <see langword="false"/>.
-    /// </returns>
+    /// <returns><see langword="true"/> if the <paramref name="location"/> on <see langword="this"/> <see cref="Board"/> has been occupied by a <see cref="Piece"/>; otherwise, <see langword="false"/>.</returns>
     public bool CanMoveFromLocation(PieceLocation location)
     {
         return populationMap.IsPieceAdded(location.ToHomeCoordinates);
     }
     
-    /// <summary>
-    /// Checks whether the <paramref name="relocation"/> is changing a <see cref="Piece"/>'s <see cref="PieceLocation"/> on <see langword="this"/> <see cref="Board"/>.
-    /// </summary>
+    /// <summary>Checks whether the <paramref name="relocation"/> is changing a <see cref="Piece"/>'s <see cref="PieceLocation"/> on <see langword="this"/> <see cref="Board"/>.</summary>
     /// <param name="relocation">A <see cref="PieceRelocation"/> to check.</param>
-    /// <returns>
-    /// <see langword="true"/> if the <paramref name="relocation"/> is not non-moving; otherwise, <see langword="false"/>.
-    /// </returns>
-    public bool IsMoveChangingPieceLocation(PieceRelocation relocation)
+    /// <returns><see langword="true"/> if the <paramref name="relocation"/> is not non-moving; otherwise, <see langword="false"/>.</returns>
+    public bool IsMoveChangingLocation(PieceRelocation relocation)
     {
         return !relocation.IsNonMoving;
     }
 
-    /// <summary>
-    /// Checks whether the <paramref name="dislodgement"/>'s <see cref="PieceRelocation"/> is changing a <see cref="Piece"/>'s <see cref="PieceLocation"/> on <see langword="this"/> <see cref="Board"/>.
-    /// </summary>
+    /// <summary>Checks whether the <paramref name="dislodgement"/>'s <see cref="PieceRelocation"/> is changing a <see cref="Piece"/>'s <see cref="PieceLocation"/> on <see langword="this"/> <see cref="Board"/>.</summary>
     /// <param name="dislodgement">A <see cref="PieceDislodgement"/> to check.</param>
-    /// <returns>
-    /// <see langword="true"/> if the <paramref name="dislodgement"/>'s <see cref="PieceRelocation"/> is not non-moving; otherwise, <see langword="false"/>.
-    /// </returns>
-    public bool IsMoveChangingPieceLocation(PieceDislodgement dislodgement)
+    /// <returns><see langword="true"/> if the <paramref name="dislodgement"/>'s <see cref="PieceRelocation"/> is not non-moving; otherwise, <see langword="false"/>.</returns>
+    public bool IsMoveChangingLocation(PieceDislodgement dislodgement)
     {
-        return IsMoveChangingPieceLocation(dislodgement.Relocation);
+        return IsMoveChangingLocation(dislodgement.Relocation);
     }
 
-    public bool MoveIsPossibleThroughSpace(PieceLocation location, PieceRelocation relocation)
+    /// <summary>Checks whether a <see cref="Piece"/> on <see langword="this"/> <see cref="Board"/> can move from <paramref name="location"/> by <paramref name="relocation"/>.</summary>
+    /// <param name="location">A starting <see cref="PieceLocation"/> to check.</param>
+    /// <param name="relocation">A <see cref="PieceRelocation"/> to check.</param>
+    /// <returns><see langword="true"/> if the <paramref name="relocation"/> is horse-like or no occupation in the way; otherwise, <see langword="false"/>.</returns>
+    public bool CanMoveThrough(PieceLocation location, PieceRelocation relocation)
     {
         // Yes, if path is horse-like or no occupation is in the way
 
@@ -250,10 +208,25 @@ public sealed class Board
         return true;
     }
 
-    public bool MoveIsPossibleThroughSpace(PieceLocation location, PieceDislodgement dislodgement)
+    /// <summary>Checks whether a <see cref="Piece"/> on <see langword="this"/> <see cref="Board"/> can move from <paramref name="location"/> by <paramref name="dislodgement"/>.</summary>
+    /// <param name="location">A starting <see cref="PieceLocation"/> to check.</param>
+    /// <param name="dislodgement">A <see cref="PieceDislodgement"/> whose <see cref="PieceRelocation"/> to check.</param>
+    /// <returns><see langword="true"/> if the <paramref name="dislodgement"/>'s <paramref name="PieceRelocation"/> is horse-like or no occupation in the way; otherwise, <see langword="false"/>.</returns>
+    public bool CanMoveThrough(PieceLocation location, PieceDislodgement dislodgement)
     {
-        return MoveIsPossibleThroughSpace(location, dislodgement.Relocation);
-        // Yes, if path is horse-like or no occupation is in the way
+        return CanMoveThrough(location, dislodgement.Relocation);
+    }
+
+    public bool IsPieceInformed(PieceLocation location, PieceRelocation relocation)
+    {
+        return populationMap.ReadPiece(location.ToHomeCoordinates).Advances.Contains(relocation);
+        // Yes, if piece on given location contains given relocation
+    }
+
+    public bool IsPieceInformed(PieceLocation location, PieceDislodgement dislodgement)
+    {
+        return populationMap.ReadPiece(location.ToHomeCoordinates).Captures.Contains(dislodgement);
+        // Yes, if piece on given location contains given dislodgement
     }
 
 
@@ -261,12 +234,6 @@ public sealed class Board
     // // // // // // // // // // PIECE ADVANCEMENT RULES  // // // // // // // // // //
 
 
-
-    public bool PieceIsInformedAboutRelocation(PieceLocation location, PieceRelocation relocation)
-    {
-        return populationMap.ReadPiece(location.ToHomeCoordinates).Advances.Contains(relocation);
-        // Yes, if piece on given location contains given relocation
-    }
 
     public bool PieceIsAbleToAdvanceToLocation(PieceLocation location)
     {
@@ -279,12 +246,6 @@ public sealed class Board
     // // // // // // // // // // PIECE CAPTUREMENT RULES  // // // // // // // // // //
 
 
-
-    public bool PieceIsInformedAboutDislodgement(PieceLocation location, PieceDislodgement dislodgement)
-    {
-        return populationMap.ReadPiece(location.ToHomeCoordinates).Captures.Contains(dislodgement);
-        // Yes, if piece on given location contains given dislodgement
-    }
 
     public bool PieceIsAbleToCaptureOnLocation(PieceLocation location)
     {
@@ -312,12 +273,12 @@ public sealed class Board
         var newLocation = relocation.ApplyTo(oldLocation);
 
         if (!CanMoveFromLocation(oldLocation))                        throw new NoPieceToMoveException();
-        if (!IsMoveChangingPieceLocation(relocation))                 throw new NoMoveToApplyException();
+        if (!IsMoveChangingLocation(relocation))                      throw new NoMoveToApplyException();
 
-        if (!PieceIsInformedAboutRelocation(oldLocation, relocation)) throw new RelocationUnknownException();
+        if (!IsPieceInformed(oldLocation, relocation)) throw new RelocationUnknownException();
         if (!PieceIsAbleToAdvanceToLocation(newLocation))             throw new NewLocationOccupiedBySomethingException();
 
-        if (!MoveIsPossibleThroughSpace(oldLocation, relocation))     throw new NoSpaceToMoveException();
+        if (!CanMoveThrough(oldLocation, relocation))     throw new NoSpaceToMoveException();
 
         var oldCoordinates = oldLocation.ToHomeCoordinates;
         var newCoordinates = newLocation.ToHomeCoordinates;
@@ -336,13 +297,13 @@ public sealed class Board
         var newLocation = dislodgement.Relocation.ApplyTo(oldLocation);
 
         if (!CanMoveFromLocation(oldLocation))                                 throw new NoPieceToMoveException();
-        if (!IsMoveChangingPieceLocation(dislodgement))                        throw new NoMoveToApplyException();
+        if (!IsMoveChangingLocation(dislodgement))                             throw new NoMoveToApplyException();
 
-        if (!PieceIsInformedAboutDislodgement(oldLocation, dislodgement))      throw new DislodgementUnknownException();
+        if (!IsPieceInformed(oldLocation, dislodgement))      throw new DislodgementUnknownException();
         if (!PieceIsAbleToCaptureOnLocation(newLocation))                      throw new NewLocationNotOccupiedByPieceException();
         if (!PieceIsWillingToCaptureByDislodgement(oldLocation, dislodgement)) throw new NoWillToCaptureException();
 
-        if (!MoveIsPossibleThroughSpace(oldLocation, dislodgement))            throw new NoSpaceToMoveException();
+        if (!CanMoveThrough(oldLocation, dislodgement))            throw new NoSpaceToMoveException();
 
         var oldCoordinates = oldLocation.ToHomeCoordinates;
         var newCoordinates = newLocation.ToHomeCoordinates;
