@@ -128,7 +128,7 @@ Red indicates which `PieceDislodgement`s are included in `Piece.Captures`.
 
 ##### public sealed class Board / Публичный запечатанный класс доска
 
-###### .CanAddPiece(Piece piece)
+###### .CanAddPiece(Piece piece)❔
 
 Checks whether the `piece` can be added to **`this`** `Board`.
 Проверяет, можно ли добавить `piece` на **`this`** `Board`.
@@ -136,7 +136,7 @@ Checks whether the `piece` can be added to **`this`** `Board`.
 Returns **`true`** if the `piece`'s `Piece.Guid` has not been added yet; otherwise, **`false`**.
 Возвращает **`true`**, если `Piece.Guid` параметра `piece` еще не был добавлен; в противном случае — **`false`**.
 
-###### .CanAddPiece(PieceLocation location)
+###### .CanAddPiece(PieceLocation location)❔
 
 Checks whether a `Piece` can be added to the `location` on **`this`** `Board`.
 Проверяет, можно ли добавить `Piece` на **`this`** `Board` в указанную `location`.
@@ -144,12 +144,12 @@ Checks whether a `Piece` can be added to the `location` on **`this`** `Board`.
 Returns **`true`** if the `location` on **`this`** `Board` has not been occupied; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` не оккупирована; в противном случае — **`false`**.
 
-###### .AddPiece(Piece piece, PieceLocation location)
+###### .AddPiece(Piece piece, PieceLocation location)❕
 
 Adds the `piece` to the `location` on **`this`** `Board`.
 Добавляет `piece` на **`this`** `Board`, в указанную `location`.
 
-###### .CanRemovePiece(PieceLocation location)
+###### .CanRemovePiece(PieceLocation location)❔
 
 Checks whether a `Piece` can be removed from the `location` on **`this`** `Board`.
 Проверяет, можно ли убрать `Piece` с`location` на **`this`** `Board`.
@@ -157,12 +157,12 @@ Checks whether a `Piece` can be removed from the `location` on **`this`** `Board
 Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` занята`Piece`; в противном случае — **`false`**.
 
-###### .RemovePiece(PieceLocation location)
+###### .RemovePiece(PieceLocation location)❕
 
 Removes a `Piece` from the `location` on **`this`** `Board`.
 Удаляет `Piece` из `location` на **`this`** `Board`.
 
-###### .CanReadPiece(PieceLocation location)
+###### .CanReadPiece(PieceLocation location)❔
 
 Checks whether a `Piece` can be read from the `location` on **`this`** `Board`.
 Проверяет, можно ли прочитать `Piece` из `location` на **`this`** `Board`.
@@ -170,12 +170,12 @@ Checks whether a `Piece` can be read from the `location` on **`this`** `Board`.
 Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` занята`Piece`; в противном случае — **`false`**.
 
-###### .ReadPiece(PieceLocation location)
+###### .ReadPiece(PieceLocation location)❕
 
 Reads a `Piece` from the `location` on **`this`** `Board`.
 Считывает `Piece` из `location` на **`this`** `Board`.
 
-###### .CanMoveFromLocation(PieceLocation location)
+###### .CanMoveFromLocation(PieceLocation location)❔
 
 Checks whether a `Piece` can be moved from the `location` on **`this`** `Board`.
 Проверяет, можно ли переместить `Piece` с указанной `location` на **`this`** `Board`.
@@ -183,7 +183,7 @@ Checks whether a `Piece` can be moved from the `location` on **`this`** `Board`.
 Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` занята`Piece`; в противном случае — **`false`**.
 
-###### .IsMoveChangingPieceLocation(PieceRelocation relocation)
+###### .IsMoveChangingPieceLocation(PieceRelocation relocation)❔
 
 Checks whether the `relocation` is changing a `Piece`'s `PieceLocation` on **`this`** `Board`.
 Проверяет, изменяет ли `relocation` `PieceLocation` `Piece`'ы на **`this`** `Board`.
@@ -191,7 +191,7 @@ Checks whether the `relocation` is changing a `Piece`'s `PieceLocation` on **`th
 Returns **`true`** if the `relocation` is not non-moving; otherwise, **`false`**.
 Возвращает **`true`**, если `relocation` не является non-moving; в противном случае — **`false`**.
 
-###### .IsMoveChangingPieceLocation(PieceDislodgement dislodgement)
+###### .IsMoveChangingPieceLocation(PieceDislodgement dislodgement)❔
 
 Checks whether the `dislodgement`'s `PieceRelocation` is changing a `Piece`'s `PieceLocation` on **`this`** `Board`.
 Проверяет, изменяет ли `PieceRelocation` параметра `dislodgement` `PieceLocation` `Piece`'ы на **`this`** `Board`.
