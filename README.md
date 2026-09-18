@@ -77,8 +77,15 @@ public sealed class Piece(PieceDevelopment development, Team team)
     public readonly Guid Guid = Guid.NewGuid(); // Гуид
     public readonly Team Team = team;           // Команда
 
-    public readonly HashSet<PieceRelocation>   Advances = development.Advances.ToHashSet(); // Продвижения
-    public readonly HashSet<PieceDislodgement> Captures = development.Captures.ToHashSet(); // Взятия
+    private readonly HashSet<PieceRelocation>   Advances
+        = development.Advances.ToHashSet();     // Продвижения
+    private readonly HashSet<PieceDislodgement> Captures
+        = development.Captures.ToHashSet();     // Взятия
+
+    public bool ContainsAdvance(PieceRelocation relocation)
+        => Advances.Contains(relocation);       // Есть ли продвижение?
+    public bool ContainsCapture(PieceDislodgement dislodgement)
+        => Captures.Contains(dislodgement);     // Есть ли взятие?
 }
 ```
 
@@ -134,7 +141,7 @@ Red indicates which `PieceDislodgement`s are included in `Piece.Captures`.
 
 ❗ indicates method-accessor. / Oбозначает метод-аксессор.
 
-###### .CanAddPiece(Piece piece)❔
+###### ❔ .CanAddPiece(Piece piece) / Можно ли добавить фигуру?
 
 Checks whether the `piece` can be added to **`this`** `Board`.
 Проверяет, можно ли добавить `piece` на **`this`** `Board`.
@@ -142,7 +149,7 @@ Checks whether the `piece` can be added to **`this`** `Board`.
 Returns **`true`** if the `piece`'s `Piece.Guid` has not been added yet; otherwise, **`false`**.
 Возвращает **`true`**, если `Piece.Guid` параметра `piece` еще не был добавлен; в противном случае — **`false`**.
 
-###### .CanAddPiece(PieceLocation location)❔
+###### ❔ .CanAddPiece(PieceLocation location) / Можно ли добавить фигуру?
 
 Checks whether a `Piece` can be added to the `location` on **`this`** `Board`.
 Проверяет, можно ли добавить `Piece` на **`this`** `Board` в указанную `location`.
@@ -150,12 +157,12 @@ Checks whether a `Piece` can be added to the `location` on **`this`** `Board`.
 Returns **`true`** if the `location` on **`this`** `Board` has not been occupied; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` не оккупирована; в противном случае — **`false`**.
 
-###### .AddPiece(Piece piece, PieceLocation location)❕
+###### ❕ .AddPiece(Piece piece, PieceLocation location) / Добавить фигуру!
 
 Adds the `piece` to the `location` on **`this`** `Board`.
 Добавляет `piece` на **`this`** `Board`, в указанную `location`.
 
-###### .CanRemovePiece(PieceLocation location)❔
+###### ❔ .CanRemovePiece(PieceLocation location) / Можно ли снять фигуру?
 
 Checks whether a `Piece` can be removed from the `location` on **`this`** `Board`.
 Проверяет, можно ли убрать `Piece` с`location` на **`this`** `Board`.
@@ -163,12 +170,12 @@ Checks whether a `Piece` can be removed from the `location` on **`this`** `Board
 Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` занята`Piece`; в противном случае — **`false`**.
 
-###### .RemovePiece(PieceLocation location)❕
+###### ❕ .RemovePiece(PieceLocation location) / Снять фигуру!
 
 Removes a `Piece` from the `location` on **`this`** `Board`.
 Удаляет `Piece` из `location` на **`this`** `Board`.
 
-###### .CanReadPiece(PieceLocation location)❔
+###### ❔ .CanReadPiece(PieceLocation location) / Можно ли прочитать фигуру?
 
 Checks whether a `Piece` can be read from the `location` on **`this`** `Board`.
 Проверяет, можно ли прочитать `Piece` из `location` на **`this`** `Board`.
@@ -176,12 +183,15 @@ Checks whether a `Piece` can be read from the `location` on **`this`** `Board`.
 Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` занята`Piece`; в противном случае — **`false`**.
 
-###### .ReadPiece(PieceLocation location)❗
+###### ❗ .ReadPiece(PieceLocation location) / Прочитать фигуру!
 
 Reads a `Piece` from the `location` on **`this`** `Board`.
 Считывает `Piece` из `location` на **`this`** `Board`.
 
-###### .CanMoveFromLocation(PieceLocation location)❔
+Returns a `Piece` that occupies the `location` on **`this`** `Board`.
+Возвращает `Piece`, занимающую `location` на **`this`** `Board`.
+
+###### ❔ .CanMoveFrom(PieceLocation location)
 
 Checks whether a `Piece` can be moved from the `location` on **`this`** `Board`.
 Проверяет, можно ли переместить `Piece` с указанной `location` на **`this`** `Board`.
@@ -189,27 +199,13 @@ Checks whether a `Piece` can be moved from the `location` on **`this`** `Board`.
 Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` занята`Piece`; в противном случае — **`false`**.
 
-###### .IsMoveChangingLocation(PieceRelocation relocation)❔
-
-Checks whether the `relocation` is changing a `Piece`'s `PieceLocation` on **`this`** `Board`.
-Проверяет, изменяет ли `relocation` `PieceLocation` `Piece`'ы на **`this`** `Board`.
-
-Returns **`true`** if the `relocation` is not non-moving; otherwise, **`false`**.
-Возвращает **`true`**, если `relocation` не является non-moving; в противном случае — **`false`**.PieceDislodgement
-
-There is an overload for `PieceDislodgement`.
-Существует перегрузка для `PieceDislodgement`.
-
-```C#
-public bool IsMoveChangingLocation(PieceDislodgement dislodgement)
-{
-    return IsMoveChangingLocation(dislodgement.Relocation);
-}
-```
-
-###### .CanMoveThrough(PieceLocation location, PieceRelocation relocation)❔
+###### ❔ .CanMoveThrough(PieceLocation location, PieceRelocation relocation) / Может ли пройти?
 
 Checks whether a `Piece` on **`this`** `Board` can move from `location` by `relocation`.
+Проверяет, может ли `Piece` на **`this`** `Board` переместиться из позиции `location` согласно `relocation`.
+
+Returns **`true`** if the `relocation` is horse-like or no occupation in the way; otherwise, **`false`**.
+Возвращает **`true`**, если `relocation` напоминает ход коня или на пути нет занятых клеток; в противном случае — **`false`**.
 
 There is an overload for `PieceDislodgement`.
 Существует перегрузка для `PieceDislodgement`.
@@ -221,23 +217,22 @@ public bool CanMoveThrough(PieceLocation location, PieceDislodgement dislodgemen
 }
 ```
 
-###### .IsPieceInformed(PieceLocation location, PieceRelocation relocation)❔
+###### ❔ .CanAdvanceTo(PieceLocation location)
 
+Checks whether a `Piece` on **`this`** `Board` can advance to the `location`.
+Проверяет, может ли `Piece` на **`this`** `Board` доске переместиться в указанную позицию.
 
+Returns **`true`** if the `location` on **`this`** `Board` has not been occupied; otherwise, **`false`**.
+Возвращает **`true`**, если `location` на **`this`** `Board` не занята; в противном случае — **`false`**.
 
-There is an overload for `PieceDislodgement`.
-Существует перегрузка для `PieceDislodgement`.
+###### ❔ .CanCaptureOn(PieceLocation location)
 
-```C#
-// Code hidden. Код скрыт.
-```
+Checks whether a `Piece` on **`this`** `Board` can capture on the `location`.
+Проверяет, может ли `Piece` на **`this`** `Board` взять `Piece` в указанной позиции.
 
-###### .PieceIsAbleToAdvanceToLocation(PieceLocation location)
+Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
+Возвращает **`true`**, если `location` на **`this`** `Board` занимает `Piece`; в противном случае — **`false`**.
 
-###### .PieceIsAbleToCaptureOnLocation(PieceLocation location)
+###### .Advance(PieceLocation oldLocation, PieceRelocation relocation)
 
-###### .PieceIsWillingToCaptureByDislodgement(PieceLocation location, PieceDislodgement dislodgement)
-
-###### .PieceAdvanceFromLocationByRelocation(PieceLocation oldLocation, PieceRelocation relocation)
-
-###### .PieceCaptureFromLocationByDislodgement(PieceLocation oldLocation, PieceDislodgement dislodgement)
+###### .Capture(PieceLocation oldLocation, PieceDislodgement dislodgement)
