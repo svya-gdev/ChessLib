@@ -11,21 +11,17 @@ public sealed class PieceRepetitionException()     : DomainBrokenException();
 
 
 
-public        class RuleBrokenException()                         : Exception();
+public class PieceBoardRuleBrokenException() : Exception();
 
-public sealed class PieceAlreadyAddedSomewhereException()         : RuleBrokenException();
-public sealed class LocationAlreadyOccupiedBySomethingException() : RuleBrokenException();
-public sealed class LocationAlreadyNotOccupiedByPieceException()  : RuleBrokenException();
-
-public sealed class PieceNotFoundException()                      : RuleBrokenException();
-
-public sealed class NoPieceToMoveException()                      : RuleBrokenException();
-public sealed class NoMoveToApplyException()                      : RuleBrokenException();
-public sealed class NoSpaceToMoveException()                      : RuleBrokenException();
-
-public sealed class RelocationUnknownException()                  : RuleBrokenException();
-public sealed class NewLocationOccupiedBySomethingException()     : RuleBrokenException();
-
-public sealed class DislodgementUnknownException()                : RuleBrokenException();
-public sealed class NewLocationNotOccupiedByPieceException()      : RuleBrokenException();
-public sealed class NoWillToCaptureException()                    : RuleBrokenException();
+public sealed class IDDuplicationException() : PieceBoardRuleBrokenException();
+public sealed class PieceAdditionException() : PieceBoardRuleBrokenException();
+public sealed class PieceDeletionException() : PieceBoardRuleBrokenException();
+public sealed class PieceReadmentException() : PieceBoardRuleBrokenException();
+public sealed class NoMoveToApplyException() : PieceBoardRuleBrokenException();
+public sealed class NoPieceToMoveException() : PieceBoardRuleBrokenException();
+public sealed class CannotAdvanceException() : PieceBoardRuleBrokenException();
+public sealed class AdvanceUntoldException() : PieceBoardRuleBrokenException();
+public sealed class NoneToCaptureException() : PieceBoardRuleBrokenException();
+public sealed class WillNotAttackException() : PieceBoardRuleBrokenException();
+public sealed class CaptureUntoldException() : PieceBoardRuleBrokenException();
+public sealed class NoSpaceToMoveException() : PieceBoardRuleBrokenException();

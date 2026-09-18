@@ -191,7 +191,7 @@ Reads a `Piece` from the `location` on **`this`** `Board`.
 Returns a `Piece` that occupies the `location` on **`this`** `Board`.
 Возвращает `Piece`, занимающую `location` на **`this`** `Board`.
 
-###### ❔ .CanMoveFrom(PieceLocation location)
+###### ❔ .CanMoveFrom(PieceLocation location) / Можно ли сдвинуться?
 
 Checks whether a `Piece` can be moved from the `location` on **`this`** `Board`.
 Проверяет, можно ли переместить `Piece` с указанной `location` на **`this`** `Board`.
@@ -199,7 +199,7 @@ Checks whether a `Piece` can be moved from the `location` on **`this`** `Board`.
 Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` занята`Piece`; в противном случае — **`false`**.
 
-###### ❔ .CanMoveThrough(PieceLocation location, PieceRelocation relocation) / Может ли пройти?
+###### ❔ .CanMoveThrough(PieceLocation location, PieceRelocation relocation) / Можно ли пройти?
 
 Checks whether a `Piece` on **`this`** `Board` can move from `location` by `relocation`.
 Проверяет, может ли `Piece` на **`this`** `Board` переместиться из позиции `location` согласно `relocation`.
@@ -217,7 +217,7 @@ public bool CanMoveThrough(PieceLocation location, PieceDislodgement dislodgemen
 }
 ```
 
-###### ❔ .CanAdvanceTo(PieceLocation location)
+###### ❔ .CanAdvanceTo(PieceLocation location) / Можно ли продвинуться?
 
 Checks whether a `Piece` on **`this`** `Board` can advance to the `location`.
 Проверяет, может ли `Piece` на **`this`** `Board` доске переместиться в указанную позицию.
@@ -225,7 +225,7 @@ Checks whether a `Piece` on **`this`** `Board` can advance to the `location`.
 Returns **`true`** if the `location` on **`this`** `Board` has not been occupied; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` не занята; в противном случае — **`false`**.
 
-###### ❔ .CanCaptureOn(PieceLocation location)
+###### ❔ .CanCaptureOn(PieceLocation location) / Можно ли захватить?
 
 Checks whether a `Piece` on **`this`** `Board` can capture on the `location`.
 Проверяет, может ли `Piece` на **`this`** `Board` взять `Piece` в указанной позиции.
@@ -235,4 +235,8 @@ Returns **`true`** if the `location` on **`this`** `Board` has been occupied by 
 
 ###### .Advance(PieceLocation oldLocation, PieceRelocation relocation)
 
+
+
 ###### .Capture(PieceLocation oldLocation, PieceDislodgement dislodgement)
+
+
