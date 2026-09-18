@@ -1,9 +1,9 @@
-#### Minor types / Малые типы
+## Minor types / Малые типы
 
 Self-explanatory structures and classes.
 Структуры и классы, не требующие пояснений.
 
-##### PieceLocation / Локация фигуры
+### PieceLocation / Локация фигуры
 
 ```F#
 [<Struct>]
@@ -13,7 +13,7 @@ type public PieceLocation = { //Локация фигуры
 }
 ```
 
-##### PieceRelocation / Смещение фигуры
+### PieceRelocation / Смещение фигуры
 
 ```F#
 [<Struct>]
@@ -23,7 +23,7 @@ type public PieceRelocation = { // Смещение фигуры
 }
 ```
 
-##### Team / Команда
+### Team / Команда
 
 ```F#
 [<Struct>]
@@ -34,7 +34,7 @@ type public Team = // Команда
     | Black        // Белых
 ```
 
-##### Feud / Вражда
+### Feud / Вражда
 
 ```F#
 [<Struct>]
@@ -48,7 +48,7 @@ type public Feud =            // Вражда
     | WithEveryone            // С каждой командой
 ```
 
-##### PieceDislodgement / Вытеснение фигуры
+### PieceDislodgement / Вытеснение фигуры
 
 ```F#
 [<Struct>]
@@ -58,7 +58,7 @@ type public PieceDislodgement = { // Вытеснение фигуры
 }
 ```
 
-##### PieceDevelopment / Создание и улучшение фигуры
+### PieceDevelopment / Создание и улучшение фигуры
 
 ```F#
 [<Struct>]
@@ -68,7 +68,7 @@ type public PieceDevelopment = {     // Создание и улучшение �
 }
 ```
 
-##### Piece / Фигура
+### Piece / Фигура
 
 ```C#
 // Фигура ( Создание и улучшение фигуры , Команда )
@@ -89,12 +89,12 @@ public sealed class Piece(PieceDevelopment development, Team team)
 }
 ```
 
-#### Major types / Большие типы
+## Major types / Большие типы
 
 Modules and classes requiring explanation.
 Модули и классы, требующие пояснения.
 
-##### module public StandardPieces / Публичный модуль стандартные фигуры
+### module public StandardPieces / Публичный модуль стандартные фигуры
 
 Contains `PieceDevelopment`s for creating standard `Piece`s. / Содержит `PieceDevelopment`'ы для создания стандартных `Piece`.
 
@@ -102,35 +102,35 @@ Contains `PieceDevelopment`s for creating standard `Piece`s. / Содержит 
 
 🟥 Red indicates which `PieceDislodgement`s are included in `Piece.Captures`. / Красный показывает, какие `PieceDislodgement`'ы включены в `Piece.Captures`.
 
-###### .whitePawn / Белая пешка
+#### .whitePawn / Белая пешка
 
 ![Vectors/WhitePawnMoves.svg](Vectors/WhitePawnMoves.svg)
 
-###### .blackPawn / Чёрная пешка
+#### .blackPawn / Чёрная пешка
 
 ![Vectors/BlackPawnMoves.svg](Vectors/BlackPawnMoves.svg)
 
-###### .anyBishop / Любой слон
+#### .anyBishop / Любой слон
 
 ![Vectors/AnyBishopMoves.svg](Vectors/AnyBishopMoves.svg)
 
-###### .anyRook / Любая ладья
+#### .anyRook / Любая ладья
 
 ![Vectors/AnyRookMoves.svg](Vectors/AnyRookMoves.svg)
 
-###### .anyKing / Любой король
+#### .anyKing / Любой король
 
 ![Vectors/AnyKingMoves.svg](Vectors/AnyKingMoves.svg)
 
-###### .anyQueen / Любой ферзь
+#### .anyQueen / Любой ферзь
 
 ![Vectors/AnyQueenMoves.svg](Vectors/AnyQueenMoves.svg)
 
-###### .anyKnight / Любой конь
+#### .anyKnight / Любой конь
 
 ![Vectors/AnyKnightMoves.svg](Vectors/AnyKnightMoves.svg)
 
-##### public sealed class Board / Публичный запечатанный класс доска
+### public sealed class Board / Публичный запечатанный класс доска
 
 ❔ indicates method-predicate. / Oбозначает метод-предикат.
 
@@ -138,7 +138,7 @@ Contains `PieceDevelopment`s for creating standard `Piece`s. / Содержит 
 
 ❗ indicates method-accessor. / Oбозначает метод-аксессор.
 
-###### ❔ .CanAddPiece(Piece piece) / Можно ли добавить фигуру?
+#### ❔ .CanAddPiece(Piece piece) / Можно ли добавить фигуру?
 
 Checks whether the `piece` can be added to **`this`** `Board`.
 Проверяет, можно ли добавить `piece` на **`this`** `Board`.
@@ -146,7 +146,7 @@ Checks whether the `piece` can be added to **`this`** `Board`.
 Returns **`true`** if the `piece`'s `Piece.Guid` has not been added yet; otherwise, **`false`**.
 Возвращает **`true`**, если `Piece.Guid` параметра `piece` еще не был добавлен; в противном случае — **`false`**.
 
-###### ❔ .CanAddPiece(PieceLocation location) / Можно ли добавить фигуру?
+#### ❔ .CanAddPiece(PieceLocation location) / Можно ли добавить фигуру?
 
 Checks whether a `Piece` can be added to the `location` on **`this`** `Board`.
 Проверяет, можно ли добавить `Piece` на **`this`** `Board` в указанную `location`.
@@ -154,12 +154,12 @@ Checks whether a `Piece` can be added to the `location` on **`this`** `Board`.
 Returns **`true`** if the `location` on **`this`** `Board` has not been occupied; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` не оккупирована; в противном случае — **`false`**.
 
-###### ❕ .AddPiece(Piece piece, PieceLocation location) / Добавить фигуру!
+#### ❕ .AddPiece(Piece piece, PieceLocation location) / Добавить фигуру!
 
 Adds the `piece` to the `location` on **`this`** `Board`.
 Добавляет `piece` на **`this`** `Board`, в указанную `location`.
 
-###### ❔ .CanDeletePiece(PieceLocation location) / Можно ли снять фигуру?
+#### ❔ .CanDeletePiece(PieceLocation location) / Можно ли снять фигуру?
 
 Checks whether a `Piece` can be removed from the `location` on **`this`** `Board`.
 Проверяет, можно ли убрать `Piece` с`location` на **`this`** `Board`.
@@ -167,12 +167,12 @@ Checks whether a `Piece` can be removed from the `location` on **`this`** `Board
 Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` занята`Piece`; в противном случае — **`false`**.
 
-###### ❕ .DeletePiece(PieceLocation location) / Снять фигуру!
+#### ❕ .DeletePiece(PieceLocation location) / Снять фигуру!
 
 Removes a `Piece` from the `location` on **`this`** `Board`.
 Удаляет `Piece` из `location` на **`this`** `Board`.
 
-###### ❔ .CanReadPiece(PieceLocation location) / Можно ли прочитать фигуру?
+#### ❔ .CanReadPiece(PieceLocation location) / Можно ли прочитать фигуру?
 
 Checks whether a `Piece` can be read from the `location` on **`this`** `Board`.
 Проверяет, можно ли прочитать `Piece` из `location` на **`this`** `Board`.
@@ -180,7 +180,7 @@ Checks whether a `Piece` can be read from the `location` on **`this`** `Board`.
 Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` занята`Piece`; в противном случае — **`false`**.
 
-###### ❗ .ReadPiece(PieceLocation location) / Прочитать фигуру!
+#### ❗ .ReadPiece(PieceLocation location) / Прочитать фигуру!
 
 Reads a `Piece` from the `location` on **`this`** `Board`.
 Считывает `Piece` из `location` на **`this`** `Board`.
@@ -188,7 +188,7 @@ Reads a `Piece` from the `location` on **`this`** `Board`.
 Returns a `Piece` that occupies the `location` on **`this`** `Board`.
 Возвращает `Piece`, занимающую `location` на **`this`** `Board`.
 
-###### ❔ .CanMoveFrom(PieceLocation location) / Можно ли сдвинуться?
+#### ❔ .CanMoveFrom(PieceLocation location) / Можно ли сдвинуться?
 
 Checks whether a `Piece` can be moved from the `location` on **`this`** `Board`.
 Проверяет, можно ли переместить `Piece` с указанной `location` на **`this`** `Board`.
@@ -196,7 +196,7 @@ Checks whether a `Piece` can be moved from the `location` on **`this`** `Board`.
 Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` занята`Piece`; в противном случае — **`false`**.
 
-###### ❔ .CanMoveThrough(PieceLocation location, PieceRelocation relocation) / Можно ли пройти?
+#### ❔ .CanMoveThrough(PieceLocation location, PieceRelocation relocation) / Можно ли пройти?
 
 Checks whether a `Piece` on **`this`** `Board` can move from `location` by `relocation`.
 Проверяет, может ли `Piece` на **`this`** `Board` переместиться из позиции `location` согласно `relocation`.
@@ -214,7 +214,7 @@ public bool CanMoveThrough(PieceLocation location, PieceDislodgement dislodgemen
 }
 ```
 
-###### ❔ .CanAdvanceTo(PieceLocation location) / Можно ли продвинуться?
+#### ❔ .CanAdvanceTo(PieceLocation location) / Можно ли продвинуться?
 
 Checks whether a `Piece` on **`this`** `Board` can advance to the `location`.
 Проверяет, может ли `Piece` на **`this`** `Board` доске переместиться в указанную позицию.
@@ -222,7 +222,7 @@ Checks whether a `Piece` on **`this`** `Board` can advance to the `location`.
 Returns **`true`** if the `location` on **`this`** `Board` has not been occupied; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` не занята; в противном случае — **`false`**.
 
-###### ❔ .CanCaptureOn(PieceLocation location) / Можно ли захватить?
+#### ❔ .CanCaptureOn(PieceLocation location) / Можно ли захватить?
 
 Checks whether a `Piece` on **`this`** `Board` can capture on the `location`.
 Проверяет, может ли `Piece` на **`this`** `Board` взять `Piece` в указанной позиции.
@@ -230,12 +230,12 @@ Checks whether a `Piece` on **`this`** `Board` can capture on the `location`.
 Returns **`true`** if the `location` on **`this`** `Board` has been occupied by a `Piece`; otherwise, **`false`**.
 Возвращает **`true`**, если `location` на **`this`** `Board` занимает `Piece`; в противном случае — **`false`**.
 
-###### ❕ .Advance(PieceLocation oldLocation, PieceRelocation relocation) / Продвинуть!
+#### ❕ .Advance(PieceLocation oldLocation, PieceRelocation relocation) / Продвинуть!
 
 Advances a `Piece` on **`this`** `Board` from the `oldLocation` by the `relocation`.
 Перемещает `Piece` на **`this`** `Board` из `oldLocation` с помощью `relocation`.
 
-###### ❕ .Capture(PieceLocation oldLocation, PieceDislodgement dislodgement) / Захватить!
+#### ❕ .Capture(PieceLocation oldLocation, PieceDislodgement dislodgement) / Захватить!
 
 Captures a `Piece` on **`this`** `Board` from the `oldLocation` by the `dislodgement`.
 Захватывает `Piece` на **`this`** `Board` из `oldLocation` с помощью `dislodgement`.
